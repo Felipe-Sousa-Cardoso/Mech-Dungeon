@@ -31,18 +31,39 @@ public class UsoArma : MonoBehaviour
         {
             float anguloArma = Arma.eulerAngles.z; //Olha o angulo da arma
             float anguloFinal = anguloArma + Random.Range(-Precisão, Precisão); // Adiciona o valor da precis�o de cada arma
-            float anguloEmRadianos = anguloFinal * Mathf.Deg2Rad; // Converte o �ngulo final em radianos
-            Vector2 direcaoTiro = new Vector2(Mathf.Cos(anguloEmRadianos), Mathf.Sin(anguloEmRadianos)); // Calcula a dire��o do tiro
+            float anguloEmRadianos = anguloFinal * Mathf.Deg2Rad; // Converte o ângulo final em radianos
+            Vector2 direcaoTiro = new Vector2(Mathf.Cos(anguloEmRadianos), Mathf.Sin(anguloEmRadianos)); // Calcula a direção do tiro
 
             GameObject tiro = Instantiate(Tiro, Arma.position, Quaternion.identity);
 
-            tiro.transform.Rotate(new Vector3(0, 0, anguloFinal)); //Corrige a dire��o do sprite do tiro
+            tiro.transform.Rotate(new Vector3(0, 0, anguloFinal)); //Corrige a direção do sprite do tiro
 
-            tiro.GetComponent<Rigidbody2D>().linearVelocity = direcaoTiro * Velocidade; // Aplica a dire��o ao proj�til
+            tiro.GetComponent<Rigidbody2D>().linearVelocity = direcaoTiro * Velocidade; // Aplica a direção ao proj�til
             tiro.GetComponent<Munição>().Dano = Dano;
 
             Destroy(tiro, Alcance / Velocidade); //Usa valocidade para determinar o alcance
         }
     }
-    public virtual void UpdateArma(JogadorArma jog) { }
+
+    public virtual void UpdateArma(JogadorArma jog) 
+    {
+        foreach (CadaMod mod in jog.Tiro.GetComponents<CadaMod>())
+        {
+            mod.enabled = false;
+
+        }
+        foreach (int i in Valores.Modificações)
+        {
+            switch (i)
+            {
+                case 1: jog.Tiro.GetComponent<Perseguir>().enabled = true; break;
+                case 2: jog.Tiro.GetComponent<Perfurar>().enabled = true; break;
+                case 3: break;
+                case 4: break;
+                case 5: break;
+            }
+        }
+
+        
+    }
 }

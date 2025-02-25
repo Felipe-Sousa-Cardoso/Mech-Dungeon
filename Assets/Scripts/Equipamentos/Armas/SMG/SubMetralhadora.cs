@@ -6,6 +6,7 @@ public class SubMetralhadora : UsoArma
 {
     public override void UpdateArma(JogadorArma jog)
     {
+        base.UpdateArma(jog);
         switch (Valores.Cadencia)
         {
             case 1: jog.Cadencia = 6; break;

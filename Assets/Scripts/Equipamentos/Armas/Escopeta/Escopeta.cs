@@ -6,6 +6,7 @@ public class Escopeta : UsoArma
 {
     public override void UpdateArma(JogadorArma jog)
     {
+        base.UpdateArma(jog);
         jog.Cadencia = 1;
         Alcance = 3;
         Velocidade = 6;

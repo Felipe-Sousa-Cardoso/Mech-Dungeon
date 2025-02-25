@@ -21,6 +21,11 @@ public class JogadorArma : MonoBehaviour
 
     float modificarDano; //Modificador global de Dano
     #region Métodos de Acesso
+    public GameObject Tiro
+    {
+        get { return tiro; }
+        set { tiro = value; }
+    }
     public UsoArma[] ArmaAtual
     {
         get { return armaAtual; }

@@ -7,6 +7,7 @@ public class Pistola : UsoArma
 {
     public override void UpdateArma(JogadorArma jog)
     {
+        base.UpdateArma(jog);
         switch (Valores.Cadencia)
         {
             case 1: jog.Cadencia = 2; break; 
