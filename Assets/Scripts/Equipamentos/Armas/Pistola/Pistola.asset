@@ -16,7 +16,7 @@ MonoBehaviour:
   Nome: Pistola
   Descricao: Uma arma Simples
   QualidadeDeManufatura: 1
-  "Modifica\xE7\xF5es": []
+  "Modifica\xE7\xF5es": 01000000
   Modulo: 1
   Cadencia: 1
   Alcance: 1
@@ -25,5 +25,5 @@ MonoBehaviour:
   Pente: 1
   Recarga: 1
   Dano: 1
-  "muni\xE7\xE3oAtual": 0
+  "muni\xE7\xE3oAtual": 8
   "Muni\xE7\xF5esPorDisparo": 1

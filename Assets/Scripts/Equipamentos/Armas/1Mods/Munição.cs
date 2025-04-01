@@ -7,6 +7,7 @@ public class Munição : MonoBehaviour
 {
     float dano;
     bool solido;
+    [SerializeField] PolygonCollider2D pc;
     #region Metodos de Acesso
     public float Dano
     {
@@ -17,10 +18,15 @@ public class Munição : MonoBehaviour
     public bool Solido { get => solido; set => solido = value; }
     #endregion
 
+    private void Start()
+    {
+        pc = GetComponent<PolygonCollider2D>();
+    }
     private void OnCollisionEnter2D(Collision2D collision)
     {
+        print("Sim");
         IDanificavel objeto = collision.gameObject.GetComponent<IDanificavel>(); //Checa se o objeto atingido implementa a interface IDanificavel
-        if (objeto != null)
+        if (objeto != null&&collision.otherCollider==pc)
         {
             objeto.Danificar(dano);               
         }
