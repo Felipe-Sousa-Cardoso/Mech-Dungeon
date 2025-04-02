@@ -2078,10 +2078,10 @@ GameObject:
   m_Component:
   - component: {fileID: 2014951223}
   - component: {fileID: 2014951222}
-  - component: {fileID: 2014951224}
   - component: {fileID: 2014951225}
   - component: {fileID: 2014951226}
   - component: {fileID: 2014951227}
+  - component: {fileID: 2014951224}
   - component: {fileID: 2014951228}
   m_Layer: 6
   m_Name: Jogador
@@ -2368,8 +2368,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   armaAtual:
-  - {fileID: 586571641833820133, guid: ce9eba4c186f5c446a9ef5be8ba84c1a, type: 3}
   - {fileID: 3012618137017073357, guid: e07c3cb18871b2c4583fa0ac013a0266, type: 3}
+  - {fileID: 586571641833820133, guid: ce9eba4c186f5c446a9ef5be8ba84c1a, type: 3}
   interfaceArmas: {fileID: 11400000, guid: 0f6634b11a0aac24c9639d54f25c51b9, type: 2}
   tiro: {fileID: 6000634916066881114, guid: 026be165efe09dc4c8d1b90d50ef1ecd, type: 3}
   Arma: {fileID: 1110189848}
