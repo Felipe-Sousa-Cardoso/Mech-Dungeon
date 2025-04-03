@@ -14,19 +14,14 @@ public class Perfurar : CadaMod
     }
     private void OnTriggerEnter2D(Collider2D collision) //Se comporta como trigger para poder atravessar os inimigos
     {
-        if (!GetComponent<Munição>().Solido)
+        if(collision.gameObject.tag=="Inimigo"&& GetComponent<Munição>().Solido == false)
         {
-            print("Perfurar");
-            float DanoT = GetComponent<Munição>().Dano;
-            IDanificavel objeto = collision.gameObject.GetComponent<IDanificavel>(); //Checa se o objeto atingido implementa a interfave Danificavel
-            if (objeto != null)
-            {
-                objeto.Danificar(DanoT);
-            }
-            
+            print("perfurar");
+            GetComponent<Munição>().AoDano(collision);               
         }
-        
+
     }
+    
    
 
 

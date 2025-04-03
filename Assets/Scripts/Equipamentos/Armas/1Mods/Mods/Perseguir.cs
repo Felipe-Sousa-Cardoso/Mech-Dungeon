@@ -4,21 +4,23 @@ using UnityEngine;
 
 public class Perseguir : CadaMod
 {
-    [SerializeField] Collider2D cb;
-    Rigidbody2D rb;
-    [SerializeField] Transform target;
-    [SerializeField] float speed;
+    [SerializeField] Collider2D cb; //Colisor que verifica se existem inimigos nas proximidades
+    Rigidbody2D rb; //RigidBody2D da munição
+    [SerializeField] Transform target; //Alvo que colidir com o colisor acima
+    [SerializeField] float speed; //variável que armazena a velocidade intantanea da munição
     private void Start()
-    {
-        
+    {       
         cb.enabled = true;
         rb = GetComponent<Rigidbody2D>();
         speed = rb.linearVelocity.magnitude;
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        print(collision.transform.position);
-        target = collision.transform;             
+        if (collision.gameObject.tag == "Inimigo"&& target == null)
+        {
+            target = collision.transform;
+        }
+                   
     }
     private void FixedUpdate()
     {
