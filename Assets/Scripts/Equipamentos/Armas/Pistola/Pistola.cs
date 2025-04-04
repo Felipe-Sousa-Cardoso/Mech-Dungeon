@@ -5,6 +5,7 @@ using UnityEngine.InputSystem.Switch;
 
 public class Pistola : UsoArma
 {
+
     public override void UpdateArma(JogadorArma jog)
     {
         base.UpdateArma(jog);
