@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class JogadorArma : MonoBehaviour
 {
+    JogadorAtributos jogadorAtributos; //Script que controla atributos gerais do jogador
+
     [SerializeField] UsoArma[] armaAtual; //Objeto que contem o conjunto dos Scripts das armas atualmente equipadas
     [SerializeField] DadosDaArma interfaceArmas; //ObejtoScriptavel que faz a comunicação com a interface
     int armaCount = 0; //controla qual arma está equipada
@@ -57,7 +59,10 @@ public class JogadorArma : MonoBehaviour
         set { armaCount = value; }
     }
     #endregion
-
+    private void Awake()
+    {
+        jogadorAtributos = GetComponent<JogadorAtributos>();
+    }
     private void Start()
     {
         interfaceArmas.recarregando = false;
@@ -66,36 +71,46 @@ public class JogadorArma : MonoBehaviour
     }
     private void Update()      
     {
-        if (ControladorDeInput.GetTiroInput() && !atirando && armaAtual[armaCount].Valores.muniçãoAtual >0)
+        if (jogadorAtributos.ArmaAtiva) //Verifica se o jogador pode atirar
         {
-            StartCoroutine(CadaTiro(cadencia));
-            armaAtual[armaCount].Valores.muniçãoAtual--;
-            interfaceArmas.MuniçãoAtual--;
-        }
+            if (ControladorDeInput.GetTiroInput() && !atirando && armaAtual[armaCount].Valores.muniçãoAtual > 0)
+            {
+                StartCoroutine(CadaTiro(cadencia));
+                armaAtual[armaCount].Valores.muniçãoAtual--;
+                interfaceArmas.MuniçãoAtual--;
+            }
 
-        if (ControladorDeInput.GetTrocaArmaInput()&&!trocaDeArmaCD)
+            if (ControladorDeInput.GetTrocaArmaInput() && !trocaDeArmaCD)
+            {
+                StartCoroutine(TrocaDeArma());
+                if (armaCount < ArmaAtual.Length - 1)
+                {
+                    armaCount++;
+                }
+                else
+                {
+                    armaCount = 0;
+                }
+                UpdateArma();
+                if (rotinaRecarga != null)
+                {
+                    StopCoroutine(rotinaRecarga);
+                }
+
+                interfaceArmas.recarregando = false;
+            }
+
+            if (armaAtual[armaCount].Valores.muniçãoAtual == 0 && !interfaceArmas.recarregando)
+            {
+                rotinaRecarga = StartCoroutine(Recaregarold(recarga));
+            }
+        }
+        else //Se o jogador não pode atirar, ele para as corrotinas em andamento
         {
-            StartCoroutine(TrocaDeArma());
-            if (armaCount < ArmaAtual.Length-1)
-            {
-                armaCount++;
-            }
-            else
-            {
-                armaCount = 0;
-            }
-            UpdateArma();
             if (rotinaRecarga != null)
             {
                 StopCoroutine(rotinaRecarga);
             }
-
-            interfaceArmas.recarregando = false;
-        }
-
-        if (armaAtual[armaCount].Valores.muniçãoAtual ==0&&!interfaceArmas.recarregando)
-        {
-            rotinaRecarga = StartCoroutine(Recaregarold(recarga));
         }
     }
     public void UpdateArma()

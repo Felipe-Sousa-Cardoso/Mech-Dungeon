@@ -14,7 +14,7 @@ public class EntregaDeDashs : MonoBehaviour
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (!Ativo)
+        if (!Ativo) //A primeira vez que o jogar se encontra com o objeto aleatoriza a lista de dashs
         {
             EmbaralharArray(ListaDeDashs);
             if (collision.tag == "Jogador")
@@ -27,12 +27,20 @@ public class EntregaDeDashs : MonoBehaviour
         }
         else
         {
-            GerenciadorDeCartas.instancia.Aparecer();
+            if(collision.tag == "Jogador")
+            {
+                collision.GetComponent<JogadorAtributos>().ArmaAtiva = false;
+                GerenciadorDeCartas.instancia.Aparecer();
+            }         
         }      
     }
     private void OnTriggerExit2D(Collider2D collision)
     {
-        GerenciadorDeCartas.instancia.Sumir();
+        if (collision.tag == "Jogador")
+        {
+            collision.GetComponent<JogadorAtributos>().ArmaAtiva = true;
+            GerenciadorDeCartas.instancia.Sumir();
+        }      
     }
     void EmbaralharArray(UsoDash[] lista) //embaralha a lista
     {
@@ -42,10 +50,5 @@ public class EntregaDeDashs : MonoBehaviour
             (lista[i], lista[rand]) = (lista[rand], lista[i]);
         }
         
-    }
-
-   
-
-   
-    
+    }    
 }
