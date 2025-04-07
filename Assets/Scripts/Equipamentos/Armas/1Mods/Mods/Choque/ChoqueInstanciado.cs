@@ -16,7 +16,6 @@ public class ChoqueInstanciado : MonoBehaviour
         {       
             if(collision.transform!=alvo1&&alvo2==null) //escolhe um unico inimigo como alvo
             {
-                print("sim");
                 alvo2 = collision.transform;
             }
         }
