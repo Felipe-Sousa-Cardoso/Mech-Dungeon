@@ -21,6 +21,7 @@ public class EntregaDeDashs : MonoBehaviour
             {
                 UsoDash[] Lista = { ListaDeDashs[0], ListaDeDashs[1] };
                 GerenciadorDeCartas.instancia.CriarCarta(collision.GetComponent<JogadorMovimento>(), Lista);
+                collision.GetComponent<JogadorAtributos>().ArmaAtiva = false;
                 Ativo = true;
             }
 

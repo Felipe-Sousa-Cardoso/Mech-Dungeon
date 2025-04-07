@@ -5,7 +5,8 @@ using UnityEngine.InputSystem;
 
 public class JogadorMovimento : MonoBehaviour
 {
-    [SerializeField] UsoDash DashAtual; //� o objeto que contem o script do Dash
+    JogadorAtributos jogadorAtributos; //Script que controla atributos gerais do jogador
+    [SerializeField] UsoDash DashAtual; //É o objeto que contem o script do Dash
     [SerializeField] DadosDoDash DadosDash; //Armazena os valores do Dash, é usado para controle de cargas e interface, � um objeto Scriptavel
     Vector3 MousePos;
     bool isdashing; 
@@ -15,9 +16,15 @@ public class JogadorMovimento : MonoBehaviour
     TrailRenderer TrailRenderer;
     Rigidbody2D rb;
 
+    public JogadorAtributos JogadorAtributos //Acessado para auterear atributos no sistema de cartas
+    {
+        get { return jogadorAtributos; }
+        set { value = jogadorAtributos; }
+    }
     
     private void Awake()
     {
+        jogadorAtributos = GetComponent<JogadorAtributos>();
         rb = GetComponent<Rigidbody2D>();   
         TrailRenderer = rb.GetComponent<TrailRenderer>();
     }

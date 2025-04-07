@@ -16,7 +16,6 @@ public class Perfurar : CadaMod
     {
         if(collision.gameObject.tag=="Inimigo"&& GetComponent<Munição>().Solido == false)
         {
-            print("perfurar");
             GetComponent<Munição>().AoDano(collision);               
         }
 

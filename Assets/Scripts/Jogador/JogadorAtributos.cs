@@ -10,4 +10,8 @@ public class JogadorAtributos : MonoBehaviour
         set { armaAtiva = value; }
     }
     #endregion
+    public void AtivarArma()
+    {
+        armaAtiva = true;
+    }
 }

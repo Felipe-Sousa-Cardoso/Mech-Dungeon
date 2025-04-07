@@ -36,6 +36,7 @@ public class Carta : MonoBehaviour
     
     public void DarODash() //Acesado pelo botão
     {
+        jog.JogadorAtributos.ArmaAtiva = true;
         jog.GetSetDash = dah;
         dah.Valores.QualidadeDeManufatura = qualidade;
         dah.Valores.AtributoEspecial = atributo;
