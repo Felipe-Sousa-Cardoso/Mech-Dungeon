@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System;
 using static Danificavel;
 
 public class Munição : MonoBehaviour
@@ -29,6 +30,11 @@ public class Munição : MonoBehaviour
         if (objeto != null)
         {
             objeto.Danificar(dano);
+            if (OnEfeito != null)
+            {
+                OnEfeito(col.gameObject);
+            }
+            
         }
         Destroy(gameObject);
     }
@@ -38,7 +44,20 @@ public class Munição : MonoBehaviour
         if (objeto != null)
         {
             objeto.Danificar(dano);
+            if (OnEfeito != null)
+            {
+                OnEfeito(col.gameObject);
+            }
         }
     }
     #endregion
+    public delegate void efeito(GameObject ogj);
+    public static event efeito OnEfeito;
+
+    public void LimparEfeito()
+    {
+        OnEfeito = null;
+    }
+    
+
 }

@@ -47,18 +47,20 @@ public class UsoArma : MonoBehaviour
 
     public virtual void UpdateArma(JogadorArma jog) 
     {
-        foreach (CadaMod mod in jog.Tiro.GetComponents<CadaMod>())
+        jog.Tiro.GetComponent<Munição>().LimparEfeito(); //Chama o método que limpa o evento
+        foreach (CadaMod mod in jog.Tiro.GetComponents<CadaMod>()) 
         {
             mod.enabled = false;
-
-        }
-        foreach (int i in Valores.Modificações)
+            mod.nivel = 0;
+        }// zera e desliga as modificações da arma anterior
+        foreach (Vector2Int i in Valores.Modificações) //Altera as modificações e o nivel para a arma atual,
+                                                       //O x representa qual modificação e y o nível da modificação
         {
-            switch (i)
+            switch (i.x)
             {
-                case 1: jog.Tiro.GetComponent<Perseguir>().enabled = true; break;
-                case 2: jog.Tiro.GetComponent<Perfurar>().enabled = true; break;
-                case 3: break;
+                case 1: Perseguir perseguir = jog.Tiro.GetComponent<Perseguir>(); perseguir.enabled = true; perseguir.nivel = i.y; break;
+                case 2: Perfurar perfurar = jog.Tiro.GetComponent<Perfurar>(); perfurar.enabled = true; perfurar.nivel = i.y; break;
+                case 3: Choque choque = jog.Tiro.GetComponent<Choque>(); Munição.OnEfeito += choque.choque; choque.nivel = i.y; break;
                 case 4: break;
                 case 5: break;
             }
