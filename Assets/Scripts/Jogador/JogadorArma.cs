@@ -105,13 +105,6 @@ public class JogadorArma : MonoBehaviour
                 rotinaRecarga = StartCoroutine(Recaregarold(recarga));
             }
         }
-        else //Se o jogador não pode atirar, ele para as corrotinas em andamento
-        {
-            if (rotinaRecarga != null)
-            {
-                StopCoroutine(rotinaRecarga);
-            }
-        }
     }
     public void UpdateArma()
     {
