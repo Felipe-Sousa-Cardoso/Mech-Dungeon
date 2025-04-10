@@ -1,4 +1,5 @@
 using UnityEngine;
+using static Danificavel;
 
 public class ChoqueInstanciado : MonoBehaviour
 {
@@ -8,6 +9,7 @@ public class ChoqueInstanciado : MonoBehaviour
     [SerializeField] Texture[] texturas = new Texture[4];
     int indexTextura;
     float timer;
+    public float dano; //dano do disparo
 
     private void Start()
     {
@@ -18,6 +20,7 @@ public class ChoqueInstanciado : MonoBehaviour
         get { return alvo1; }
         set { alvo1 = value; }
     }//Metodo de acesso usado para registrar o primeiro alvo da colisão
+   
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (alvo1 != null)
@@ -41,6 +44,7 @@ public class ChoqueInstanciado : MonoBehaviour
                 }
             }
         }
+        
     } //colisão e detecção do alvo mais proximo
     private void Update()
     {
@@ -53,11 +57,18 @@ public class ChoqueInstanciado : MonoBehaviour
             }
             else
             {
-                Destroy(gameObject);
+                if (alvo2 != null)
+                {
+                    GameObject objeto = alvo2.gameObject;
+                    objeto.GetComponent<IDanificavel>().Danificar(dano / 2);
+                    Destroy(gameObject);
+                }
+                
             }
             ln.material.SetTexture("_MainTex", texturas[indexTextura]);
             timer = 0;
-        }       
+        }
+        
     }
 
     void choque()

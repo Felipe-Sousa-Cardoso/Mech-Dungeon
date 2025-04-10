@@ -29,12 +29,13 @@ public class Munição : MonoBehaviour
         IDanificavel objeto = col.gameObject.GetComponent<IDanificavel>(); //Checa se o objeto atingido implementa a interface IDanificavel
         if (objeto != null)
         {
-            objeto.Danificar(dano);
+            
             if (OnEfeito != null)
             {
-                OnEfeito(col.gameObject);
+                OnEfeito(col.gameObject, dano);
             }
-            
+            objeto.Danificar(dano);
+
         }
         Destroy(gameObject);
     }
@@ -43,15 +44,16 @@ public class Munição : MonoBehaviour
         IDanificavel objeto = col.gameObject.GetComponent<IDanificavel>(); //Checa se o objeto atingido implementa a interfave Danificavel
         if (objeto != null)
         {
-            objeto.Danificar(dano);
+            
             if (OnEfeito != null)
             {
-                OnEfeito(col.gameObject);
+                OnEfeito(col.gameObject, dano);
             }
+            objeto.Danificar(dano);
         }
     }
     #endregion
-    public delegate void efeito(GameObject ogj);
+    public delegate void efeito(GameObject ogj, float dano);
     public static event efeito OnEfeito;
 
     public void LimparEfeito()

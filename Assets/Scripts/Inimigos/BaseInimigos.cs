@@ -5,13 +5,15 @@ using static Danificavel;
 
 public class BaseInimigos : MonoBehaviour, IDanificavel
 {
-    protected float vida = 10;
+    [SerializeField] protected float vida = 10;
     public virtual void Danificar(float Quanto)
     {
         vida -= Quanto;
         if (vida <= 0)
         {
-            Destroy(gameObject);
+            Rigidbody2D rb = GetComponent<Rigidbody2D>();
+            rb.simulated = false;
+            Destroy(gameObject,0.3f);
         }
     }   
 }

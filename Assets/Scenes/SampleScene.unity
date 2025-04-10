@@ -272,7 +272,7 @@ GameObject:
   - component: {fileID: 107445512}
   m_Layer: 8
   m_Name: Inimigo (3)
-  m_TagString: Inimigo
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -316,6 +316,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6638a6170e9b91e469671339f3964094, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  vida: 10
 --- !u!212 &107445514
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -1538,6 +1539,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6638a6170e9b91e469671339f3964094, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  vida: 10
 --- !u!50 &985934766
 Rigidbody2D:
   serializedVersion: 5
@@ -1949,6 +1951,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6638a6170e9b91e469671339f3964094, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  vida: 10
 --- !u!212 &1172932481
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -2305,6 +2308,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6638a6170e9b91e469671339f3964094, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  vida: 10
 --- !u!212 &1372603121
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -2708,7 +2712,7 @@ Transform:
   m_GameObject: {fileID: 2014951221}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -4.402, y: 0.16, z: 0}
+  m_LocalPosition: {x: -0.97, y: -1.93, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
