@@ -34,7 +34,7 @@ public class UsoArma : MonoBehaviour
             float anguloEmRadianos = anguloFinal * Mathf.Deg2Rad; // Converte o ângulo final em radianos
             Vector2 direcaoTiro = new Vector2(Mathf.Cos(anguloEmRadianos), Mathf.Sin(anguloEmRadianos)); // Calcula a direção do tiro
 
-            GameObject tiro = Instantiate(Tiro, Arma.position, Quaternion.identity);
+            GameObject tiro = Instantiate(Tiro, Arma.position, Quaternion.identity); //Instancia o prefab o tiro na posição da arma com a rotação zerada
 
             tiro.transform.Rotate(new Vector3(0, 0, anguloFinal)); //Corrige a direção do sprite do tiro
 
@@ -61,7 +61,7 @@ public class UsoArma : MonoBehaviour
                 case 1: Perseguir perseguir = jog.Tiro.GetComponent<Perseguir>(); perseguir.enabled = true; perseguir.nivel = i.y; break;
                 case 2: Perfurar perfurar = jog.Tiro.GetComponent<Perfurar>(); perfurar.enabled = true; perfurar.nivel = i.y; break;
                 case 3: Choque choque = jog.Tiro.GetComponent<Choque>(); Munição.OnEfeito += choque.choque; choque.nivel = i.y; break;
-                case 4: break;
+                case 4: Acido acido = jog.Tiro.GetComponent<Acido>(); Munição.OnEfeito += acido.acido;acido.nivel = i.y; break;
                 case 5: break;
             }
         }

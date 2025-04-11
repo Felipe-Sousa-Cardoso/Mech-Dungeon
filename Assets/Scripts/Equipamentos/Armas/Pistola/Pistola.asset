@@ -17,7 +17,7 @@ MonoBehaviour:
   Descricao: Uma arma Simples
   QualidadeDeManufatura: 1
   "Modifica\xE7\xF5es":
-  - {x: 3, y: 452}
+  - {x: 4, y: 3}
   Modulo: 1
   Cadencia: 1
   Alcance: 1
