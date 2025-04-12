@@ -13,6 +13,10 @@ public class BaseInimigos : MonoBehaviour, IDanificavel
         {
             Rigidbody2D rb = GetComponent<Rigidbody2D>();
             rb.simulated = false;
+            if (GetComponentInChildren<AcidoInstanciado>() != null)
+            {
+                GetComponentInChildren<AcidoInstanciado>().transform.parent = null;
+            }
             Destroy(gameObject,0.3f);
         }
     }   

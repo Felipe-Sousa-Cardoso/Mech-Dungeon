@@ -8,11 +8,19 @@ public class Acido : CadaMod
     {
         if (prefab != null)
         {
-            AcidoInstanciado = Instantiate(prefab, obj.transform.position, Quaternion.identity); //cria o prefab na posição da colisão
-            AcidoInstanciado inst = AcidoInstanciado.GetComponent<AcidoInstanciado>(); //busca no objeto instanciado o componente AcidoInstanciado
-                                                                                          //(serve para evitar buscar mais de uma vez)
-            inst.Alvo = obj.transform; //passa o alvo da colisão
-            inst.dano = dano; //Passa o dano do disparo
+            if (obj.GetComponentInChildren<AcidoInstanciado>() == null) //caso não exista ainda cria o prefab como filho do obejto atingido
+            {
+                Instantiate(prefab, obj.transform); 
+            }
+            AcidoInstanciado inst = obj.GetComponentInChildren<AcidoInstanciado>(); //busca o componente AcidoInstanciado no alvo do disparo
+            
+
+           if (inst.Stacks < 6) //Verifica o máximo de cargas de ácido
+           {
+                inst.Alvo = obj.transform; //Passa o alvo da colisão
+                inst.Dano += dano; //Passa o dano do disparo
+                inst.Stacks++;               
+           }           
         }
     }
 }
