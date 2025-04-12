@@ -5,9 +5,15 @@ using static Danificavel;
 
 public class BaseInimigos : MonoBehaviour, IDanificavel
 {
+    Animator anim;
     [SerializeField] protected float vida = 10;
-    public virtual void Danificar(float Quanto)
+    void Start()
     {
+        anim = GetComponent<Animator>();
+    }
+    public virtual void Danificar(float Quanto) //Função que é chamada para realizar a mecanica de dano
+    {
+        anim.SetTrigger("Hit");
         vida -= Quanto;
         if (vida <= 0)
         {

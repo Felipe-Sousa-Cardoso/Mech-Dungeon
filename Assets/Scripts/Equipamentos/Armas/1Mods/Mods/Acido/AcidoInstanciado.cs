@@ -33,10 +33,10 @@ public class AcidoInstanciado : MonoBehaviour
             timer += Time.deltaTime;
             if (timer >= 1f) //Ativa o veneno a cada 1 segundo
             {
-                IDanificavel obj = GetComponentInParent<IDanificavel>(); //Acessa o componente que implemente a interface IDanificavel no objeto pai
+                IDanificavel obj = alvo.GetComponent<IDanificavel>(); //Acessa o componente que implemente a interface IDanificavel no alvo
                 if (obj != null)
                 {
-                    GetComponentInParent<IDanificavel>().Danificar(dano / 2); //Causa a metade do dano que já foi causado do veneno
+                    obj.Danificar(dano / 2); //Causa a metade do dano que já foi causado do veneno
                     dano = stacks-1* dano / stacks; //reduz um pouco o dano total
                 }              
                 timer = 0;
