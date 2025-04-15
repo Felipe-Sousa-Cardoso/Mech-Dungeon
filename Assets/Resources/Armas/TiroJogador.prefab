@@ -85,6 +85,7 @@ GameObject:
   - component: {fileID: 1202827508696671164}
   - component: {fileID: 4203771117691566848}
   - component: {fileID: -719697189242788692}
+  - component: {fileID: -179540649050805608}
   m_Layer: 7
   m_Name: TiroJogador
   m_TagString: Untagged
@@ -314,3 +315,17 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   nivel: 3
   prefab: {fileID: 2145305397172007555, guid: 99d4ec3240f15814daf929562a893f34, type: 3}
+--- !u!114 &-179540649050805608
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6000634916066881114}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 190b2b41331d7a541a6718efaedf2d80, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  nivel: 0
+  prefab: {fileID: 2820293094914140195, guid: c1d9265f461925943a09c2725b5d9a22, type: 3}

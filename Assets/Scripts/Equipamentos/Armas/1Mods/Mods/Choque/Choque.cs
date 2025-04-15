@@ -11,8 +11,11 @@ public class Choque : CadaMod //instancia um prefab no local da colisão e passa 
             choqueInstanciado = Instantiate(prefab,obj.transform.position,Quaternion.identity); //cria o prefab na posição da colisão
             ChoqueInstanciado inst = choqueInstanciado.GetComponent<ChoqueInstanciado>(); //busca no objeto instanciado o componente choqueestanciado
                                                                                           //(serve para evitar buscar mais de uma vez)
-            inst.Alvo1 = obj.transform; //passa o alvo da colisão
-            inst.dano = dano; //Passa o dano do disparo
+            if (inst != null)
+            {                                                                     
+                inst.Alvo1 = obj.transform; //passa o alvo da colisão
+                inst.dano = dano; //Passa o dano do disparo
+            }
         }       
     }   
 }

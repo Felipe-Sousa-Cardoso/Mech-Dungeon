@@ -6,10 +6,18 @@ using static Danificavel;
 public class BaseInimigos : MonoBehaviour, IDanificavel
 {
     Animator anim;
+    [SerializeField] protected float modificadorDeVelocidade;
     [SerializeField] protected float vida = 10;
+
+    public float ModificadorDeVelocidade
+    {
+        get { return modificadorDeVelocidade; }
+        set { modificadorDeVelocidade = value; }
+    }
     void Start()
     {
         anim = GetComponent<Animator>();
+        modificadorDeVelocidade = 1;
     }
     public virtual void Danificar(float Quanto) //Função que é chamada para realizar a mecanica de dano
     {
@@ -17,6 +25,7 @@ public class BaseInimigos : MonoBehaviour, IDanificavel
         vida -= Quanto;
         if (vida <= 0)
         {
+            anim.SetTrigger("Dead");
             Rigidbody2D rb = GetComponent<Rigidbody2D>();
             rb.simulated = false; //Desliga a simulação de fisica quando a vida chega a 0, e está finalizando a destruição do objeto
 

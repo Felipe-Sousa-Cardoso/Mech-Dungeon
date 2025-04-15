@@ -16,7 +16,8 @@ MonoBehaviour:
   Nome: Escopeta
   Descricao: Muito dano a curta alcance
   QualidadeDeManufatura: 2
-  "Modifica\xE7\xF5es": []
+  "Modifica\xE7\xF5es":
+  - {x: 2, y: 0}
   Modulo: 4
   Cadencia: 1
   Alcance: 1
@@ -25,5 +26,5 @@ MonoBehaviour:
   Pente: 1
   Recarga: 1
   Dano: 1
-  "muni\xE7\xE3oAtual": 3
+  "muni\xE7\xE3oAtual": 2
   "Muni\xE7\xF5esPorDisparo": 1

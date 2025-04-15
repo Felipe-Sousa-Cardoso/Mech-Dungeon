@@ -3,12 +3,14 @@ using static Danificavel;
 
 public class AcidoInstanciado : MonoBehaviour
 {
-    public ParticleSystem ps;
+    ParticleSystem ps;
     [SerializeField] Transform alvo;
     [SerializeField] float dano;
     float timer;
     int stacks;
-    
+    IDanificavel obj;
+
+
 
     public Transform Alvo
     {
@@ -26,14 +28,24 @@ public class AcidoInstanciado : MonoBehaviour
         set { stacks = value; }
     }//Verifica se o dano pode continuar escalando
 
+    private void Start()
+    {
+        ps = GetComponent<ParticleSystem>();
+        transform.localPosition = new Vector3(0, 0, 0); //centraliza o objeto instanciado na posição do objeto pai
+        if (alvo != null) 
+        {
+            obj = alvo.GetComponent<IDanificavel>(); //Acessa o componente que implemente a interface IDanificavel no alvo
+        }
+        
+    }
     private void FixedUpdate()
     {      
-        if (stacks > 0&&alvo!=null) //Verifica se existe algum stack para aplicar o ácido e o alvo ainda não morreu
+        if (stacks > 0&&alvo!=null) //Verifica se existe algum stack para aplicar o ácido e se o alvo ainda não morreu
         {          
             timer += Time.deltaTime;
             if (timer >= 1f) //Ativa o veneno a cada 1 segundo
             {
-                IDanificavel obj = alvo.GetComponent<IDanificavel>(); //Acessa o componente que implemente a interface IDanificavel no alvo
+                
                 if (obj != null)
                 {
                     obj.Danificar(dano / 2); //Causa a metade do dano que já foi causado do veneno
@@ -52,15 +64,9 @@ public class AcidoInstanciado : MonoBehaviour
             
         }
     }
-    public void Particula(int sim) //Atualiza o sistema de particulas
+    public void Particula(int valor) //Atualiza o sistema de particulas
     {
         var emissao = ps.emission; 
-        emissao.rateOverTime = sim;
-       
-    }  
-    private void Start()
-    {
-        ps = GetComponent<ParticleSystem>();
-        transform.localPosition = new Vector3(0, 0, 0); //centraliza o objeto instanciado na posição do objeto pai
-    }
+        emissao.rateOverTime = valor;      
+    }     
 }

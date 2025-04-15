@@ -47,7 +47,7 @@ public class UsoArma : MonoBehaviour
 
     public virtual void UpdateArma(JogadorArma jog) 
     {
-        jog.Tiro.GetComponent<Munição>().LimparEfeito(); //Chama o método que limpa o evento
+        jog.Tiro.GetComponent<Munição>().LimparEfeito(); //Chama o método que limpa o evento que executa os efeitos
         foreach (CadaMod mod in jog.Tiro.GetComponents<CadaMod>()) 
         {
             mod.enabled = false;
@@ -62,7 +62,7 @@ public class UsoArma : MonoBehaviour
                 case 2: Perfurar perfurar = jog.Tiro.GetComponent<Perfurar>(); perfurar.enabled = true; perfurar.nivel = i.y; break;
                 case 3: Choque choque = jog.Tiro.GetComponent<Choque>(); Munição.OnEfeito += choque.choque; choque.nivel = i.y; break;
                 case 4: Acido acido = jog.Tiro.GetComponent<Acido>(); Munição.OnEfeito += acido.acido;acido.nivel = i.y; break;
-                case 5: break;
+                case 5: Gelo gelo = jog.Tiro.GetComponent<Gelo>(); Munição.OnEfeito += gelo.gelo; gelo.nivel = i.y; break;
             }
         }
 

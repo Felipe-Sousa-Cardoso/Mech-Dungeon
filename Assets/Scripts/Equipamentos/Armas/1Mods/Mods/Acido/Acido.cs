@@ -13,13 +13,16 @@ public class Acido : CadaMod
             }
             AcidoInstanciado inst = obj.GetComponentInChildren<AcidoInstanciado>(); //busca o componente AcidoInstanciado no alvo do disparo
             
-
-           if (inst.Stacks < 6) //Verifica o máximo de cargas de ácido
-           {
-                inst.Alvo = obj.transform; //Passa o alvo da colisão
-                inst.Dano += dano; //Passa o dano do disparo
-                inst.Stacks++; //Aumenta a quantidade de stacks            
-           }           
+            if (inst != null)
+            {
+                if (inst.Stacks < 6) //Verifica o máximo de cargas de ácido
+                {
+                    inst.Alvo = obj.transform; //Passa o alvo da colisão
+                    inst.Dano += dano; //Passa o dano do disparo
+                    inst.Stacks++; //Aumenta a quantidade de stacks            
+                }
+            }
+                    
         }
     }
 }
