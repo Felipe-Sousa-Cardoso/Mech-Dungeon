@@ -19,9 +19,10 @@ public class EntregaDeDashs : MonoBehaviour
             EmbaralharArray(ListaDeDashs);
             if (collision.tag == "Jogador")
             {
-               // UsoDash[] Lista = { ListaDeDashs[0], ListaDeDashs[1] };
-                GerenciadorDeCartas.instancia.CriarCarta(collision.GetComponent<JogadorMovimento>(), ListaDeDashs[0], ListaDeDashs[1]);
-                collision.GetComponent<JogadorAtributos>().ArmaAtiva = false;
+                GerenciadorDeCartas.instancia.CriarCarta(collision.GetComponent<JogadorMovimento>(), ListaDeDashs[0], ListaDeDashs[1]); 
+                //Como na função CriarCarta o array cartas é declarado como params, pode receber tanto um arra quanto um conjunto de componentes
+                
+                collision.GetComponent<JogadorAtributos>().ArmaAtiva = false; //Altera a possibilidade do jogador atirar
                 Ativo = true;
             }
 
@@ -30,7 +31,7 @@ public class EntregaDeDashs : MonoBehaviour
         {
             if(collision.tag == "Jogador")
             {
-                collision.GetComponent<JogadorAtributos>().ArmaAtiva = false;
+                collision.GetComponent<JogadorAtributos>().ArmaAtiva = false;  //Altera a possibilidade do jogador atirar
                 GerenciadorDeCartas.instancia.Aparecer();
             }         
         }      
@@ -39,7 +40,7 @@ public class EntregaDeDashs : MonoBehaviour
     {
         if (collision.tag == "Jogador")
         {
-            collision.GetComponent<JogadorAtributos>().ArmaAtiva = true;
+            collision.GetComponent<JogadorAtributos>().ArmaAtiva = true;  //Altera a possibilidade do jogador atirar
             GerenciadorDeCartas.instancia.Sumir();
         }      
     }

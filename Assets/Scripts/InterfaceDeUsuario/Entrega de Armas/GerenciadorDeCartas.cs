@@ -7,35 +7,38 @@ using UnityEngine;
 {
     public static GerenciadorDeCartas instancia;
     [SerializeField] GameObject carta;
+    Carta cartaIsnt;
     [SerializeField] Transform Canvas;
 
     void Start()
     {
         instancia = this;
     }
-    public void CriarCarta (JogadorMovimento jog, params UsoDash[] cartas )
+    public void CriarCarta (JogadorMovimento jog, params UsoDash[] cartas ) //Cria as cartas para os dashs
     {
-       
+
+        
         for ( int i = 0; i < cartas.Length; i++ )
-        {             
-            carta.GetComponent<Carta>().carta = cartas[i].Valores;
-            carta.GetComponent<Carta>().jog = jog;
-            carta.GetComponent<Carta>().dah = cartas[i];
+        {
+            cartaIsnt = carta.GetComponent<Carta>();
+            cartaIsnt.carta = cartas[i].Valores;
+            cartaIsnt.jog = jog;
+            cartaIsnt.dah = cartas[i];
 
             int rand = Random.Range(0, 100); //Roleta a qualidade da carta
             switch (rand)
             {
-                case int n when (n < 50): carta.GetComponent<Carta>().qualidade = 0; break;
-                case int n when (n < 80): carta.GetComponent<Carta>().qualidade = 1; break;
-                case int n when (n <= 100): carta.GetComponent<Carta>().qualidade = 2; break;
+                case int n when (n < 50): cartaIsnt.qualidade = 0; break;
+                case int n when (n < 80): cartaIsnt.qualidade = 1; break;
+                case int n when (n <= 100): cartaIsnt.qualidade = 2; break;
             }
             rand = Random.Range(0, 100); //Roleta o atributo da carta
             switch (rand)
             {
-                case int n when (n < 40): carta.GetComponent<Carta>().atributo = 0; break;
-                case int n when (n < 60): carta.GetComponent<Carta>().atributo = 1; break;
-                case int n when (n < 80): carta.GetComponent<Carta>().atributo = 2; break;
-                case int n when (n <= 100): carta.GetComponent<Carta>().atributo = 3; break;
+                case int n when (n < 40): cartaIsnt.atributo = 0; break;
+                case int n when (n < 60): cartaIsnt.atributo = 1; break;
+                case int n when (n < 80): cartaIsnt.atributo = 2; break;
+                case int n when (n <= 100): cartaIsnt.atributo = 3; break;
             }
 
             GameObject inst; //Seleciona a carta que foi instanciada para poder alterar sua posição
