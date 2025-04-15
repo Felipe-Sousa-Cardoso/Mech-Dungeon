@@ -19,8 +19,8 @@ public class EntregaDeDashs : MonoBehaviour
             EmbaralharArray(ListaDeDashs);
             if (collision.tag == "Jogador")
             {
-                UsoDash[] Lista = { ListaDeDashs[0], ListaDeDashs[1] };
-                GerenciadorDeCartas.instancia.CriarCarta(collision.GetComponent<JogadorMovimento>(), Lista);
+               // UsoDash[] Lista = { ListaDeDashs[0], ListaDeDashs[1] };
+                GerenciadorDeCartas.instancia.CriarCarta(collision.GetComponent<JogadorMovimento>(), ListaDeDashs[0], ListaDeDashs[1]);
                 collision.GetComponent<JogadorAtributos>().ArmaAtiva = false;
                 Ativo = true;
             }
