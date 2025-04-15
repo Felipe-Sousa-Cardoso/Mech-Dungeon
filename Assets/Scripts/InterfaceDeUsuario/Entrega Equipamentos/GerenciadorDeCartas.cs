@@ -7,7 +7,7 @@ using UnityEngine;
 {
     public static GerenciadorDeCartas instancia;
     [SerializeField] GameObject carta;
-    Carta cartaIsnt;
+    CartaDeDash cartaIsnt;
     [SerializeField] Transform Canvas;
 
     void Start()
@@ -20,7 +20,7 @@ using UnityEngine;
         
         for ( int i = 0; i < cartas.Length; i++ )
         {
-            cartaIsnt = carta.GetComponent<Carta>();
+            cartaIsnt = carta.GetComponent<CartaDeDash>();
             cartaIsnt.carta = cartas[i].Valores;
             cartaIsnt.jog = jog;
             cartaIsnt.dah = cartas[i];
@@ -49,6 +49,10 @@ using UnityEngine;
             }            
         }
     }
+    public void CriarCarta (JogadorArma jog, params UsoArma[] cartas)
+    {
+        print(cartas[0].name);
+    }
     public void Sumir()
     {
         foreach (Transform filho in this.transform)
@@ -73,4 +77,14 @@ using UnityEngine;
         }
 
     }//mostra as cartas as cartas, é chamado externamente
+    public void EmbaralharArray<T>(T[] lista) //embaralha a lista, serve para qualquer array, é chamado externamente
+    {
+        for (int i = 0; i < lista.Length; i++)
+        {
+            int rand = Random.Range(i, lista.Length);
+            (lista[i], lista[rand]) = (lista[rand], lista[i]);
+        }
+
+    }
+
 }

@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class EntregaDeDashs : MonoBehaviour
+public class EntregaDeDashs : Entrega
 {
     [SerializeField] UsoDash[] ListaDeDashs;
 
@@ -20,7 +20,7 @@ public class EntregaDeDashs : MonoBehaviour
             if (collision.tag == "Jogador")
             {
                 GerenciadorDeCartas.instancia.CriarCarta(collision.GetComponent<JogadorMovimento>(), ListaDeDashs[0], ListaDeDashs[1]); 
-                //Como na função CriarCarta o array cartas é declarado como params, pode receber tanto um arra quanto um conjunto de componentes
+                //Como na função CriarCarta o array cartas é declarado como params, pode receber tanto um array quanto um conjunto de componentes
                 
                 collision.GetComponent<JogadorAtributos>().ArmaAtiva = false; //Altera a possibilidade do jogador atirar
                 Ativo = true;
@@ -44,13 +44,5 @@ public class EntregaDeDashs : MonoBehaviour
             GerenciadorDeCartas.instancia.Sumir();
         }      
     }
-    void EmbaralharArray(UsoDash[] lista) //embaralha a lista
-    {
-        for (int i = 0; i < lista.Length; i++)
-        {
-            int rand = Random.Range(i, lista.Length);
-            (lista[i], lista[rand]) = (lista[rand], lista[i]);
-        }
-        
-    }    
+       
 }
