@@ -6,7 +6,7 @@ public class EntregaDeDashs : Entrega
 {
     [SerializeField] UsoDash[] ListaDeDashs;
 
-    bool Ativo;
+    [SerializeField] bool Ativo;
 
     private void Start()
     {

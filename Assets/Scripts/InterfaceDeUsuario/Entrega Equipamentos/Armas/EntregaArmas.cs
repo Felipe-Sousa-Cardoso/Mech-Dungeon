@@ -3,7 +3,7 @@ using UnityEngine;
 public class EntregaArmas : Entrega
 {
     [SerializeField] UsoArma[] ListaDeArmas;
-    bool Ativo;
+    [SerializeField] bool Ativo;
     void Start()
     {
         ListaDeArmas = Resources.LoadAll<UsoArma>("Armas"); //carrega todas as armas da pasta para a lista     

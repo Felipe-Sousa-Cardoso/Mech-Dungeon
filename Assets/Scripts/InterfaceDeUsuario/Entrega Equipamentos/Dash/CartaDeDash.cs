@@ -8,7 +8,6 @@ public class CartaDeDash : MonoBehaviour
     
     [SerializeField] Image Icone;
     [SerializeField] Image CartaToda;
-    ParticleSystem particle;
     [SerializeField] Image borda;
     [SerializeField] Sprite[] bordas;
     [SerializeField] Text Nome;
@@ -16,14 +15,16 @@ public class CartaDeDash : MonoBehaviour
     [SerializeField] Sprite[] Atributos;
     [SerializeField] Transform Atributo;
 
-    public JogadorMovimento jog;
+    ParticleSystem particle;
+
+    public JogadorMovimento jog; //informações que são definidas pelo gerenciador de cartas
     public UsoDash dah;
     public CadaCarta carta;
     public int qualidade;
     public int atributo;
 
     private void OnEnable()
-{
+    {
         particle = GetComponent<ParticleSystem>();
         CartaToda = GetComponent<Image>();
         Borda();
