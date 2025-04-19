@@ -13,7 +13,8 @@ using UnityEngine;
     CartaDeDash cartaDeDashIsnt; //As variáveis que usadas para instanciar cada carta
     CartaDeArmas cartaDeArmaIsnt;
 
-    [SerializeField] Transform Canvas;
+    [SerializeField] Transform CanvasDash;//int 0 //Trasforms que receberam a instanciação da cartas
+    [SerializeField] Transform CanvasArmas;//int 1
 
     void Start()
     {
@@ -48,8 +49,8 @@ using UnityEngine;
             GameObject inst; //Instancia o prefab com as informações salvas e altera a posição conforme o indice
             switch (i)
             {
-                case 0: inst = Instantiate(cartaDeDash, Canvas); inst.transform.localPosition = new Vector3(-200, 0, 0); break;
-                case 1: inst = Instantiate(cartaDeDash, Canvas); inst.transform.localPosition = new Vector3(200, 0, 0); break;
+                case 0: inst = Instantiate(cartaDeDash, CanvasDash); inst.transform.localPosition = new Vector3(-200, 0, 0); break;
+                case 1: inst = Instantiate(cartaDeDash, CanvasDash); inst.transform.localPosition = new Vector3(200, 0, 0); break;
             }            
         }
     }
@@ -76,30 +77,48 @@ using UnityEngine;
             GameObject inst; //Seleciona a carta que foi instanciada para poder alterar sua posição
             switch (i)
             {
-                case 0: inst = Instantiate(cartaDeArma, Canvas); inst.transform.localPosition = new Vector3(-200, 0, 0); break;
-                case 1: inst = Instantiate(cartaDeArma, Canvas); inst.transform.localPosition = new Vector3(200, 0, 0); break;
+                case 0: inst = Instantiate(cartaDeArma, CanvasArmas); inst.transform.localPosition = new Vector3(-200, 0, 0); break;
+                case 1: inst = Instantiate(cartaDeArma, CanvasArmas); inst.transform.localPosition = new Vector3(200, 0, 0); break;
             }
         }
     }
-    public void Sumir()
+    public void Sumir(int Qual)
     {
-        foreach (Transform filho in this.transform)
+        Transform pai = transform;
+        switch (Qual)
+        {
+            case 0: pai = CanvasDash; break;
+            case 1: pai = CanvasArmas;  break;
+        }
+        foreach (Transform filho in pai)
         {
             filho.gameObject.SetActive(false);
         }
 
     } //Apaga momentaneamente as cartas, é chamado externamente
-    public void Destruir()
+    public void Destruir(int Qual)
     {
-        foreach (Transform filho in this.transform)
+        Transform pai = transform;
+        switch (Qual)
+        {
+            case 0: pai = CanvasDash; break;
+            case 1: pai = CanvasArmas; break;
+        }
+        foreach (Transform filho in pai)
         {
             Destroy(filho.gameObject);
         }
         Resources.UnloadUnusedAssets();
     }//destroi as cartas, é chamado externamente
-    public void Aparecer()
+    public void Aparecer(int Qual)
     {
-        foreach (Transform filho in this.transform)
+        Transform pai = transform;
+        switch (Qual)
+        {
+            case 0: pai = CanvasDash; break;
+            case 1: pai = CanvasArmas; break;
+        }
+        foreach (Transform filho in pai)
         {
             filho.gameObject.SetActive(true);
         }

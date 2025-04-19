@@ -42,7 +42,7 @@ public class CartaDeDash : MonoBehaviour
         dah.Valores.QualidadeDeManufatura = qualidade;
         dah.Valores.AtributoEspecial = atributo;
         jog.UpdateDash();
-        GerenciadorDeCartas.instancia.Destruir();
+        GerenciadorDeCartas.instancia.Destruir(0);
     }
     void Borda()
     {

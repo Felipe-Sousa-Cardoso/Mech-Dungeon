@@ -28,7 +28,7 @@ public class EntregaArmas : Entrega
             if (collision.tag == "Jogador")
             {
                 collision.GetComponent<JogadorAtributos>().ArmaAtiva = false;  //Altera a possibilidade do jogador atirar
-                GerenciadorDeCartas.instancia.Aparecer();
+                GerenciadorDeCartas.instancia.Aparecer(1);
             }
         }
     }
@@ -37,7 +37,7 @@ public class EntregaArmas : Entrega
         if (collision.tag == "Jogador")
         {
             collision.GetComponent<JogadorAtributos>().ArmaAtiva = true;  //Altera a possibilidade do jogador atirar
-            GerenciadorDeCartas.instancia.Sumir();
+            GerenciadorDeCartas.instancia.Sumir(1);
         }
     }
 
