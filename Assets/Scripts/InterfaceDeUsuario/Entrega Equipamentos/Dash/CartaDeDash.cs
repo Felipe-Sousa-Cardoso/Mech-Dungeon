@@ -9,10 +9,10 @@ public class CartaDeDash : MonoBehaviour
     [SerializeField] Image Icone;
     [SerializeField] Image CartaToda;
     [SerializeField] Image borda;
-    [SerializeField] Sprite[] bordas;
+    [SerializeField] Sprite[] bordas;//Conjunto dos sprit es das bordas
     [SerializeField] Text Nome;
     [SerializeField] Text Descrição;
-    [SerializeField] Sprite[] Atributos;
+    [SerializeField] Sprite[] Atributos; //Conjunto dos sprites dos atributos
     [SerializeField] Transform Atributo;
 
     ParticleSystem particle;
@@ -44,7 +44,7 @@ public class CartaDeDash : MonoBehaviour
         jog.UpdateDash();
         GerenciadorDeCartas.instancia.Destruir(0);
     }
-    void Borda()
+    void Borda()//Modifica a borda conforme a qualidade de manufatura
     {
         switch (qualidade)
         {
@@ -54,7 +54,7 @@ public class CartaDeDash : MonoBehaviour
             case 3: borda.sprite = bordas[2]; break;
         }
     }
-    void Atributod()
+    void Atributod()//Aplica a animação e o icone de cada atributo
     {
         ParticleSystem.MainModule main = particle.main;
         switch (atributo)
