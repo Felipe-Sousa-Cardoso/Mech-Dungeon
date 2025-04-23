@@ -60,6 +60,7 @@ using UnityEngine;
         {
             
             cartaDeArmaIsnt = cartaDeArma.GetComponent<CartaDeArmas>(); //Acessa o componente CartasDeArmas da Arma do prefab
+
             //definem no prefab da carta as informações relevantes
             cartaDeArmaIsnt.Carta = cartas[i].Valores;
             cartaDeArmaIsnt.Jog = jog;
@@ -75,21 +76,20 @@ using UnityEngine;
             rand = Random.Range(0, 100); //Roleta o primeiro atributo da carta (penetração ou perseguir)
             switch (rand)
             {
-                case int n when (n < 60): cartaDeArmaIsnt.Atributos[0] = new Vector2(0,0); break;
-                case int n when (n < 80): cartaDeArmaIsnt.Atributos[0] = new Vector2(1, 0); break;
-                case int n when (n <= 100): cartaDeArmaIsnt.Atributos[0] = new Vector2(2, 0); break;
+                case int n when (n < 60): cartaDeArmaIsnt.Atributos[0] = new Vector2Int(0,0); break;
+                case int n when (n < 80): cartaDeArmaIsnt.Atributos[0] = new Vector2Int(1, 0); break;
+                case int n when (n <= 100): cartaDeArmaIsnt.Atributos[0] = new Vector2Int(2, 0); break;
 
             }
-            print(rand);
             rand = Random.Range(0, 100); //Roleta o segundo atributo da carta (Efeitos)
             switch (rand)
             {
-                case int n when (n < 40): cartaDeArmaIsnt.Atributos[1] = new Vector2(0, 0); break;
-                case int n when (n < 60): cartaDeArmaIsnt.Atributos[1] = new Vector2(3, 0); break;
-                case int n when (n < 80): cartaDeArmaIsnt.Atributos[1] = new Vector2(4, 0); break;
-                case int n when (n <= 100): cartaDeArmaIsnt.Atributos[1] = new Vector2(5, 0); break;
+                case int n when (n < 40): cartaDeArmaIsnt.Atributos[1] = new Vector2Int(0, 0); break;
+                case int n when (n < 60): cartaDeArmaIsnt.Atributos[1] = new Vector2Int(3, 0); break;
+                case int n when (n < 80): cartaDeArmaIsnt.Atributos[1] = new Vector2Int(4, 0); break;
+                case int n when (n <= 100): cartaDeArmaIsnt.Atributos[1] = new Vector2Int(5, 0); break;
             }
-            print(rand);
+
             GameObject inst; //Seleciona a carta que foi instanciada para poder alterar sua posição
             switch (i)
             {

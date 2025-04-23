@@ -16,23 +16,22 @@ public class CartaDeArmas : MonoBehaviour
     [SerializeField] Image IconedeAtributo2; //Efeitos
     [SerializeField] Image IconedeAtributo3;
 
-    JogadorArma jog;
+    [SerializeField] JogadorArma jog;
     [SerializeField] CadaArma carta;
-    UsoArma arma;
-    int qualidade;
-    [SerializeField] Vector2[] atributos; //P primeiro valor é o atributo o segundo
-                                                                                                       //é o nível
+    [SerializeField] UsoArma arma;
+    [SerializeField] int qualidade;
+    [SerializeField] Vector2Int[] atributos; //O primeiro valor é o atributo o segundo é o nível
+    #region Metodos de Acesso
     public JogadorArma Jog
     {
         get { return jog; }
         set { jog = value; }
     }
-
     public CadaArma Carta { get => carta; set => carta = value; }
     public UsoArma Arma { get => arma; set => arma = value; }
     public int Qualidade { get => qualidade; set => qualidade = value; }
-    public Vector2[] Atributos { get => atributos; set => atributos = value; }
-
+    public Vector2Int[] Atributos { get => atributos; set => atributos = value; }
+    #endregion
     private void OnEnable()
     {
         Icone.sprite = carta.sprite;
@@ -42,7 +41,7 @@ public class CartaDeArmas : MonoBehaviour
         Borda();
         AtributosD();
     }
-    void AtributosD()
+    void AtributosD() //Usa os atributos da cartas instanciada para definir quais icones serão mostrados
     {
         switch (atributos[0].x)
         {
@@ -67,5 +66,42 @@ public class CartaDeArmas : MonoBehaviour
             case 2: borda.sprite = bordas[1]; break;
             case 3: borda.sprite = bordas[2]; break;
         }
+    }
+    public void DarAArma() //Acessado pelo botão
+    {
+        bool igual = false;
+        for (int i = 0; i < jog.ArmaAtual.Length; i++) //Verifica se o jogador contem alguma arma do mesmo módulo que a que ele escolheu
+        {
+            if (jog.ArmaAtual[i].Valores.Modulo == arma.Valores.Modulo)
+            {
+                updateArma();
+                jog.ArmaAtual[i] = arma;              
+                igual = true;
+            }
+        }
+        if (!igual)
+        {
+            updateArma();
+            jog.ArmaAtual[jog.ArmaCount] = arma; //acessa a arma atual do jogador e altera para a dessa carta
+        }
+        
+        jog.UpdateArma(); //Roda o método que atualiza a arma
+
+        GerenciadorDeCartas.instancia.Destruir(1); //Destroi as cartas de arma
+    }
+
+    void updateArma() //Altera cada valor da arma para ser igual a qualidade
+    {
+        arma.Valores.QualidadeDeManufatura = qualidade;
+        arma.Valores.Cadencia = qualidade + 1;
+        arma.Valores.Alcance = qualidade + 1;
+        arma.Valores.Velocidade = qualidade + 1;
+        arma.Valores.Precisão = qualidade + 1;
+        arma.Valores.Pente = qualidade + 1;
+        arma.Valores.Recarga = qualidade + 1;
+        arma.Valores.Dano = qualidade + 1;
+        arma.Valores.MuniçõesPorDisparo = qualidade+1;
+        arma.Valores.Modificações[0].x = atributos[0].x;
+        arma.Valores.Modificações[1].x = atributos[1].x;
     }
 }

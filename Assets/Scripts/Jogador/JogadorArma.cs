@@ -58,6 +58,7 @@ public class JogadorArma : MonoBehaviour
         get { return armaCount; }
         set { armaCount = value; }
     }
+
     #endregion
     private void Awake()
     {

@@ -15,14 +15,17 @@ MonoBehaviour:
   sprite: {fileID: 21300000, guid: e493b49d96c7b97499a3d5eefd19f5be, type: 3}
   Nome: rifle
   Descricao: "Bom a m\xE9dia distancia"
-  QualidadeDeManufatura: 0
-  "Modifica\xE7\xF5es": 
+  QualidadeDeManufatura: 2
+  "Modifica\xE7\xF5es":
+  - {x: 0, y: 0}
+  - {x: 0, y: 0}
   Modulo: 3
-  Cadencia: 1
-  Alcance: 1
-  Velocidade: 1
-  "Precis\xE3o": 1
-  Pente: 1
-  Recarga: 1
-  Dano: 1
-  "Muni\xE7\xF5esPorDisparo": 1
+  Cadencia: 3
+  Alcance: 3
+  Velocidade: 3
+  "Precis\xE3o": 3
+  Pente: 3
+  Recarga: 3
+  Dano: 3
+  "muni\xE7\xE3oAtual": 0
+  "Muni\xE7\xF5esPorDisparo": 3

@@ -196,9 +196,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: Carta, Assembly-CSharp
-        m_MethodName: DarODash
+      - m_Target: {fileID: -2711410748625462328}
+        m_TargetAssemblyTypeName: CartaDeArmas, Assembly-CSharp
+        m_MethodName: DarAArma
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -394,7 +394,10 @@ MonoBehaviour:
   IconedeAtributo1: {fileID: 815008999960721982}
   IconedeAtributo2: {fileID: 9105333147176352158}
   IconedeAtributo3: {fileID: 7392273505093179811}
+  jog: {fileID: 0}
   carta: {fileID: 11400000, guid: a8654486218717f4e8d296861c15fb18, type: 2}
+  arma: {fileID: 0}
+  qualidade: 0
   atributos:
   - {x: 1, y: 0}
   - {x: 3, y: 0}
@@ -646,7 +649,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1

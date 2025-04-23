@@ -16,7 +16,9 @@ MonoBehaviour:
   Nome: Sub-Metralhadora
   Descricao: "Muitos tiros a m\xE9dio alcance"
   QualidadeDeManufatura: 0
-  "Modifica\xE7\xF5es": 
+  "Modifica\xE7\xF5es":
+  - {x: 0, y: 0}
+  - {x: 0, y: 0}
   Modulo: 2
   Cadencia: 1
   Alcance: 1
@@ -25,4 +27,5 @@ MonoBehaviour:
   Pente: 1
   Recarga: 1
   Dano: 1
+  "muni\xE7\xE3oAtual": 0
   "Muni\xE7\xF5esPorDisparo": 1

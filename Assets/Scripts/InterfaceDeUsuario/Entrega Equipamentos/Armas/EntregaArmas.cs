@@ -10,7 +10,7 @@ public class EntregaArmas : Entrega
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (!Ativo) //A primeira vez que o jogar se encontra com o objeto aleatoriza a lista de dashs
+        if (!Ativo) //A primeira vez que o jogar se encontra com o objeto aleatoriza a lista de armas e instancia as cartas
         {
             EmbaralharArray(ListaDeArmas);
             if (collision.tag == "Jogador")
@@ -25,16 +25,16 @@ public class EntregaArmas : Entrega
         }
         else
         {
-            if (collision.tag == "Jogador")
+            if (collision.tag == "Jogador") //Quando o jogador entra na colisão depois da primeira vez apenas reaparece as cartas em vez de criar novas
             {
                 collision.GetComponent<JogadorAtributos>().ArmaAtiva = false;  //Altera a possibilidade do jogador atirar
                 GerenciadorDeCartas.instancia.Aparecer(1);
             }
         }
     }
-    private void OnTriggerExit2D(Collider2D collision)
+    private void OnTriggerExit2D(Collider2D collision) //Quando o jogador sai da colisão executa o codigo para desaparecer as cartas
     {
-        if (collision.tag == "Jogador")
+        if (collision.tag == "Jogador") 
         {
             collision.GetComponent<JogadorAtributos>().ArmaAtiva = true;  //Altera a possibilidade do jogador atirar
             GerenciadorDeCartas.instancia.Sumir(1);
