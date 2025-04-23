@@ -389,8 +389,8 @@ MonoBehaviour:
   - {fileID: 8376249644049065456, guid: e6fedc8263605004da93685a4f0c1dcb, type: 3}
   - {fileID: 2925286013340210742, guid: 698f3454e83d30044891d3ebaae99404, type: 3}
   - {fileID: -3511811877908460797, guid: ecfbc0f0eeaa21c42b4e7a06222319e5, type: 3}
-  - {fileID: 6972546939709279427, guid: b6e54d5d522a77e4ca1f7bb723bd99ff, type: 3}
   - {fileID: 7213382713573048734, guid: 0b9b631c78103f842ad8d3949d9090d8, type: 3}
+  - {fileID: 6972546939709279427, guid: b6e54d5d522a77e4ca1f7bb723bd99ff, type: 3}
   IconedeAtributo1: {fileID: 815008999960721982}
   IconedeAtributo2: {fileID: 9105333147176352158}
   IconedeAtributo3: {fileID: 7392273505093179811}

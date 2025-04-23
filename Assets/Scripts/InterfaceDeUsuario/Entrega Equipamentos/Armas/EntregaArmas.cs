@@ -25,7 +25,8 @@ public class EntregaArmas : Entrega
         }
         else
         {
-            if (collision.tag == "Jogador") //Quando o jogador entra na colisão depois da primeira vez apenas reaparece as cartas em vez de criar novas
+            if (collision.tag == "Jogador") //Quando o jogador entra na colisão depois da primeira vez apenas reaparece as cartas em vez
+                                            //de criar novas
             {
                 collision.GetComponent<JogadorAtributos>().ArmaAtiva = false;  //Altera a possibilidade do jogador atirar
                 GerenciadorDeCartas.instancia.Aparecer(1);

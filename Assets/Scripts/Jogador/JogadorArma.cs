@@ -66,6 +66,7 @@ public class JogadorArma : MonoBehaviour
     }
     private void Start()
     {
+        GerenciadorDeCartas.instancia.ArmasReset();
         interfaceArmas.recarregando = false;
         modificarDano = 1;
         UpdateArma();

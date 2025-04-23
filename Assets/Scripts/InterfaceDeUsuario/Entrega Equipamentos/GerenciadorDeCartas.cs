@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.Burst.Intrinsics;
 using Unity.VisualScripting;
 using UnityEngine;
 
@@ -15,6 +16,9 @@ using UnityEngine;
 
     [SerializeField] Transform CanvasDash;//int 0 //Trasforms que receberam a instanciação da cartas
     [SerializeField] Transform CanvasArmas;//int 1
+
+    [SerializeField] UsoArma[] ListaDeArmas; //Usada para limpar os atributos de todas as armas
+    
 
     void Start()
     {
@@ -54,7 +58,7 @@ using UnityEngine;
             }            
         }
     }
-    public void CriarCarta (JogadorArma jog, params UsoArma[] cartas)
+    public void CriarCarta (JogadorArma jog, params UsoArma[] cartas) //Cria as cartas para os armas
     {
         for (int i = 0; i < cartas.Length; i++)
         {
@@ -147,5 +151,26 @@ using UnityEngine;
             int rand = Random.Range(i, lista.Length);
             (lista[i], lista[rand]) = (lista[rand], lista[i]);
         }
+    }
+
+    public void ArmasReset() //Usado para limpar as armas de seus atributos no começo de uma jogatina, chamado externamente
+    {
+        ListaDeArmas = Resources.LoadAll<UsoArma>("Armas"); //carrega todas as armas da pasta para a lista
+        foreach(UsoArma arma in ListaDeArmas)
+        {
+            arma.Valores.QualidadeDeManufatura = 0;
+            arma.Valores.Cadencia =1;
+            arma.Valores.Alcance = 1;
+            arma.Valores.Velocidade = 1;
+            arma.Valores.Precisão = 1;
+            arma.Valores.Pente =1;
+            arma.Valores.Recarga =  1;
+            arma.Valores.Dano =  1;
+            arma.Valores.MuniçõesPorDisparo = 1;
+            arma.Valores.Modificações[0].x = 0;
+            arma.Valores.Modificações[1].x = 0;
+        }
+        ListaDeArmas = null;
+        Resources.UnloadUnusedAssets();       
     }
 }

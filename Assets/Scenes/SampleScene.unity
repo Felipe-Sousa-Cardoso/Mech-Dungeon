@@ -173,6 +173,68 @@ MonoBehaviour:
   cartaDeArma: {fileID: 1855165826644268061, guid: b8ed4441fc0328848ab6d22e0cc368fe, type: 3}
   CanvasDash: {fileID: 2063974512}
   CanvasArmas: {fileID: 193224189}
+  ListaDeArmas: []
+--- !u!1001 &168498545
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 2818405896644860680, guid: 29cbef117e6fe394784dc9e29ee8a735, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 1.71
+      objectReference: {fileID: 0}
+    - target: {fileID: 2818405896644860680, guid: 29cbef117e6fe394784dc9e29ee8a735, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -1.71
+      objectReference: {fileID: 0}
+    - target: {fileID: 2818405896644860680, guid: 29cbef117e6fe394784dc9e29ee8a735, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2818405896644860680, guid: 29cbef117e6fe394784dc9e29ee8a735, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2818405896644860680, guid: 29cbef117e6fe394784dc9e29ee8a735, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2818405896644860680, guid: 29cbef117e6fe394784dc9e29ee8a735, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2818405896644860680, guid: 29cbef117e6fe394784dc9e29ee8a735, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2818405896644860680, guid: 29cbef117e6fe394784dc9e29ee8a735, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2818405896644860680, guid: 29cbef117e6fe394784dc9e29ee8a735, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2818405896644860680, guid: 29cbef117e6fe394784dc9e29ee8a735, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6292563257452072147, guid: 29cbef117e6fe394784dc9e29ee8a735, type: 3}
+      propertyPath: vida
+      value: 30
+      objectReference: {fileID: 0}
+    - target: {fileID: 7357239932574053727, guid: 29cbef117e6fe394784dc9e29ee8a735, type: 3}
+      propertyPath: m_Name
+      value: Inimigo (2)
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 29cbef117e6fe394784dc9e29ee8a735, type: 3}
 --- !u!1 &178037251
 GameObject:
   m_ObjectHideFlags: 0
@@ -2175,6 +2237,67 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!1001 &2146677803
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 2818405896644860680, guid: 29cbef117e6fe394784dc9e29ee8a735, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0.929
+      objectReference: {fileID: 0}
+    - target: {fileID: 2818405896644860680, guid: 29cbef117e6fe394784dc9e29ee8a735, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -1.71
+      objectReference: {fileID: 0}
+    - target: {fileID: 2818405896644860680, guid: 29cbef117e6fe394784dc9e29ee8a735, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2818405896644860680, guid: 29cbef117e6fe394784dc9e29ee8a735, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2818405896644860680, guid: 29cbef117e6fe394784dc9e29ee8a735, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2818405896644860680, guid: 29cbef117e6fe394784dc9e29ee8a735, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2818405896644860680, guid: 29cbef117e6fe394784dc9e29ee8a735, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2818405896644860680, guid: 29cbef117e6fe394784dc9e29ee8a735, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2818405896644860680, guid: 29cbef117e6fe394784dc9e29ee8a735, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2818405896644860680, guid: 29cbef117e6fe394784dc9e29ee8a735, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6292563257452072147, guid: 29cbef117e6fe394784dc9e29ee8a735, type: 3}
+      propertyPath: vida
+      value: 30
+      objectReference: {fileID: 0}
+    - target: {fileID: 7357239932574053727, guid: 29cbef117e6fe394784dc9e29ee8a735, type: 3}
+      propertyPath: m_Name
+      value: Inimigo (1)
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 29cbef117e6fe394784dc9e29ee8a735, type: 3}
 --- !u!1001 &2438105513241554043
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2311,7 +2434,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 2818405896644860680, guid: 29cbef117e6fe394784dc9e29ee8a735, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 1.71
+      value: 2.56
       objectReference: {fileID: 0}
     - target: {fileID: 2818405896644860680, guid: 29cbef117e6fe394784dc9e29ee8a735, type: 3}
       propertyPath: m_LocalPosition.y
@@ -2349,6 +2472,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6292563257452072147, guid: 29cbef117e6fe394784dc9e29ee8a735, type: 3}
+      propertyPath: vida
+      value: 30
+      objectReference: {fileID: 0}
     - target: {fileID: 7357239932574053727, guid: 29cbef117e6fe394784dc9e29ee8a735, type: 3}
       propertyPath: m_Name
       value: Inimigo
@@ -2370,3 +2497,5 @@ SceneRoots:
   - {fileID: 2438105513241554043}
   - {fileID: 5147353802256733893}
   - {fileID: 5588345892669224196}
+  - {fileID: 2146677803}
+  - {fileID: 168498545}

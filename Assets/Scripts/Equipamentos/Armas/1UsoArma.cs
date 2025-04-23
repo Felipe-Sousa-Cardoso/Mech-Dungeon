@@ -64,8 +64,6 @@ public class UsoArma : MonoBehaviour
                 case 4: Acido acido = jog.Tiro.GetComponent<Acido>(); Munição.OnEfeito += acido.acido;acido.nivel = i.y; break;
                 case 5: Gelo gelo = jog.Tiro.GetComponent<Gelo>(); Munição.OnEfeito += gelo.gelo; gelo.nivel = i.y; break;
             }
-        }
-
-        
+        }        
     }
 }
