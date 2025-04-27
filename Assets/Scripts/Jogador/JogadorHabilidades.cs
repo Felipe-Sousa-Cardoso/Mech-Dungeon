@@ -23,11 +23,17 @@ public class JogadorHabilidades : MonoBehaviour
             {
                 if (ControladorDeInput.GetHabilidadeQInput())
                 {
-                    habilidadeQ.UsarHabilidade(this);
+                    if (habilidadeQ != null)
+                    {
+                        habilidadeQ.UsarHabilidade(this);
+                    }                   
                 }
                 if (ControladorDeInput.GetHabilidadeEInput())
                 {
-                    habilidadeE.UsarHabilidade(this);
+                    if (habilidadeE != null)
+                    {
+                        habilidadeE.UsarHabilidade(this);
+                    }                   
                 }
             }
         }
