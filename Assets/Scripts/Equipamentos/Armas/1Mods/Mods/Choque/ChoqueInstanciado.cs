@@ -68,6 +68,10 @@ public class ChoqueInstanciado : MonoBehaviour
             ln.material.SetTexture("_MainTex", texturas[indexTextura]);
             timer = 0;
         }
+        if (alvo1 == null)
+        {
+            Destroy(gameObject);
+        }
         
     }
 
