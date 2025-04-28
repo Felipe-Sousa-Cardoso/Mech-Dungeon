@@ -45,7 +45,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   nome: EscudoPequeno
+  recarga: 0
+  duracao: 0
   Jogador: {fileID: 0}
-  obj0: {fileID: 6703808679600511617, guid: 1fc1a625be4321b4e8eeee91117b7db3, type: 3}
-  obj1: {fileID: 6703808679600511617, guid: a43014fcdd0538e4fad3131649629e4a, type: 3}
-  "for\xE7aDeEscudo": 10
+  escudos:
+  - {fileID: 6703808679600511617, guid: 1fc1a625be4321b4e8eeee91117b7db3, type: 3}
+  - {fileID: 6703808679600511617, guid: a43014fcdd0538e4fad3131649629e4a, type: 3}
+  - {fileID: 6703808679600511617, guid: 978e51a8477689e4b8b0db16bb4128e7, type: 3}
+  daHabilidade: {fileID: 11400000, guid: 82066a76abf8221439836ca84424f851, type: 2}
+  nivel: 0
+  escudoInst: {fileID: 0}

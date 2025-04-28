@@ -43,7 +43,8 @@ public class IconeArma : MonoBehaviour
             executando = true;
         }
 
-        if ((muniçãoAnterior != daArma.MuniçãoAtual) || daArma.MuniçãoAtual==0) //Altera o tamanho da imagem, por ela ser tipo tiled ela se replica em vz de esticar
+        if ((muniçãoAnterior != daArma.MuniçãoAtual) || daArma.MuniçãoAtual==0) //Altera o tamanho da imagem, por ela ser tipo
+                                                                                //tiled ela se replica em vz de esticar
         {
             muniçãoAnterior = daArma.MuniçãoAtual;
             munições.sizeDelta = new Vector2 (13, muniçãoAnterior*8);

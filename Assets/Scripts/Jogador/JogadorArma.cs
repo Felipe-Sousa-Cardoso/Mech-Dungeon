@@ -15,7 +15,6 @@ public class JogadorArma : MonoBehaviour
 
     Coroutine rotinaRecarga;
 
-
     int maxmunições;
     float recarga;
     float cadencia;
