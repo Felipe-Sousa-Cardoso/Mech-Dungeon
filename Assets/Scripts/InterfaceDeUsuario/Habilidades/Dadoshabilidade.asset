@@ -13,6 +13,6 @@ MonoBehaviour:
   m_Name: Dadoshabilidade
   m_EditorClassIdentifier: 
   sprite: {fileID: 0}
-  TimerRecarga: 0
-  CDrecarga: 0
-  recarregando: 0
+  TimerRecarga: 2.5241396
+  CDrecarga: 4
+  recarregando: 1
