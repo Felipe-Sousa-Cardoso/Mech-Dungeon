@@ -33,7 +33,7 @@ public class IconeArma : MonoBehaviour
                 executando = false;
             }        
             x += Time.deltaTime;
-            cobertura.fillAmount = x / daArma.CDrecarga;
+            cobertura.fillAmount = 1-(x / daArma.CDrecarga);
            
         }
         if (!daArma.recarregando && !executando) //Apaga a cobertura cinza quando a arma não está recerregando

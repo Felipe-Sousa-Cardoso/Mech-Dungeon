@@ -45,13 +45,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   nome: EscudoPequeno
-  recarga: 0
-  duracao: 0
+  sprites:
+  - {fileID: 21300000, guid: 8f972a44b4df94e44a641ec2e7ae7a9f, type: 3}
+  - {fileID: 21300000, guid: 311f5802d84bfd34999a477f03b02843, type: 3}
+  - {fileID: 21300000, guid: fb047d1dd894f2842bdeb2b3f861c664, type: 3}
+  nivel: 0
   Jogador: {fileID: 0}
   escudos:
   - {fileID: 6703808679600511617, guid: 1fc1a625be4321b4e8eeee91117b7db3, type: 3}
   - {fileID: 6703808679600511617, guid: a43014fcdd0538e4fad3131649629e4a, type: 3}
   - {fileID: 6703808679600511617, guid: 978e51a8477689e4b8b0db16bb4128e7, type: 3}
   daHabilidade: {fileID: 11400000, guid: 82066a76abf8221439836ca84424f851, type: 2}
-  nivel: 0
   escudoInst: {fileID: 0}
