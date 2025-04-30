@@ -4,10 +4,14 @@ public class Escudos : CadaHabilidade
 {
     [SerializeField] Transform Jogador; //Jogador onde será instanciado o escudo
     [SerializeField] GameObject[] escudos; //Representa todas versão do escudo
-    [SerializeField] DadosDaHabilidade daHabilidade;
+
 
     [SerializeField] GameObject escudoInst; //Obj que armazena o objeto que vai ser instanciado
 
+    private void Awake()
+    {
+        index = 0;
+    }
     public override void UsarHabilidade(JogadorHabilidades jog)
     {
         
@@ -48,12 +52,5 @@ public class Escudos : CadaHabilidade
                 daHabilidade.TimerRecarga = 0;
             }
         }      
-    }
-    private void OnDestroy()
-    {
-        if (escudoInst)
-        {
-            Destroy(escudoInst.gameObject);
-        }       
     }
 }

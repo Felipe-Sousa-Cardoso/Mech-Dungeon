@@ -25,12 +25,12 @@ public class UsoArma : MonoBehaviour
             case 3: ModDanoQualidade = 3; break;
         }
     }
-    public virtual void atirar(GameObject Tiro,Transform Arma)
+    public virtual void atirar(GameObject Tiro,Transform Arma, float modPrecisão)
     {
         for (int i = 0; i < MuniçõesPorDisparo; i++)
         {
             float anguloArma = Arma.eulerAngles.z; //Olha o angulo da arma
-            float anguloFinal = anguloArma + Random.Range(-Precisão, Precisão); // Adiciona o valor da precis�o de cada arma
+            float anguloFinal = anguloArma + Random.Range(-Precisão/modPrecisão, Precisão/modPrecisão); // Adiciona o valor da precis�o de cada arma, alterado pelo modificador global de dano
             float anguloEmRadianos = anguloFinal * Mathf.Deg2Rad; // Converte o ângulo final em radianos
             Vector2 direcaoTiro = new Vector2(Mathf.Cos(anguloEmRadianos), Mathf.Sin(anguloEmRadianos)); // Calcula a direção do tiro
 

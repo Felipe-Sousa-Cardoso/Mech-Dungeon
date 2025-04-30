@@ -18,11 +18,12 @@ public class JogadorHabilidades : MonoBehaviour
     private void Awake()
     {
         jogadorAtributos = GetComponent<JogadorAtributos>();
-        UpdateHabilidades();
+        
     }
+
     void Start()
     {
-        
+        UpdateHabilidades();
     }
 
     // Update is called once per frame
@@ -51,10 +52,11 @@ public class JogadorHabilidades : MonoBehaviour
     {
         ddHabilidades.troca = true; //Avisa que ocorreu de troca do icone da habilidade
 
-       
+        
         if (InstanciaHabilidadeQ == null)
         {
             InstanciaHabilidadeQ = Instantiate(habilidadeQ, OrganizarHabilidades);//intancia o objeto responsável pela habilidade atual e guarda em uma referencia
+            ddHabilidades.habilidade = InstanciaHabilidadeQ.GetComponent<CadaHabilidade>().Index;
         }
         
 

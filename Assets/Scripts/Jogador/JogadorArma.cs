@@ -21,6 +21,8 @@ public class JogadorArma : MonoBehaviour
     bool trocaDeArmaCD;
 
     float modificarDano; //Modificador global de Dano
+    float modificarCadencia;//Modificador global de Cadencia
+    float modificarPrecisão; //Modificador global de Precisão
     #region Métodos de Acesso
     public GameObject Tiro
     {
@@ -58,6 +60,9 @@ public class JogadorArma : MonoBehaviour
         set { armaCount = value; }
     }
 
+    public float ModificarCadencia { get => modificarCadencia; set => modificarCadencia = value; }
+    public float ModificarPrecisão { get => modificarPrecisão; set => modificarPrecisão = value; }
+
     #endregion
     private void Awake()
     {
@@ -68,6 +73,8 @@ public class JogadorArma : MonoBehaviour
         GerenciadorDeCartas.instancia.ArmasReset();
         interfaceArmas.recarregando = false;
         modificarDano = 1;
+        modificarCadencia = 1;
+        modificarPrecisão = 1;
         UpdateArma();
     }
     private void Update()      
@@ -76,7 +83,7 @@ public class JogadorArma : MonoBehaviour
         {
             if (ControladorDeInput.GetTiroInput() && !atirando && armaAtual[armaCount].Valores.muniçãoAtual > 0)
             {
-                StartCoroutine(CadaTiro(cadencia));
+                StartCoroutine(CadaTiro(cadencia*modificarCadencia));
                 armaAtual[armaCount].Valores.muniçãoAtual--;
                 interfaceArmas.MuniçãoAtual--;
             }
@@ -132,7 +139,7 @@ public class JogadorArma : MonoBehaviour
     IEnumerator CadaTiro(float t)
     {
         atirando = true;
-        armaAtual[armaCount].atirar(tiro, Arma);
+        armaAtual[armaCount].atirar(tiro, Arma, modificarPrecisão);
         yield return new WaitForSeconds(1/t);
         atirando = false;
     }

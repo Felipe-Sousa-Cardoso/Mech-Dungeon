@@ -17,14 +17,14 @@ public class IconeDaHabilidade : MonoBehaviour
         if (daHabilidade.troca)
         {
             habilidade.sprite = daHabilidade.sprite; //Troca o srite para a habilidade atual
-            daHabilidade.troca = !daHabilidade.troca; //Avisa que atroca terminou
+            daHabilidade.troca = !daHabilidade.troca; //Avisa que a troca terminou
         }
-        switch (daHabilidade.habilidade)//Executa um efeito para cada tipo de habilidade
+        switch (daHabilidade.habilidade)
         {
-            case 0: habilidade.rectTransform.Rotate(0, 0, -40 * Time.deltaTime); break;
+            case 0: habilidade.rectTransform.Rotate(0, 0, 40 * Time.deltaTime); break;
             case 1: break;
             case 2: break;
-        }
+        }//Executa um efeito para cada tipo de habilidade
 
         if (daHabilidade.recarregando)
         {
