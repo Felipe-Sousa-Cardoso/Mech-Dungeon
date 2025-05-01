@@ -33,9 +33,10 @@ public class Escudos : CadaHabilidade
     {
         if (escudoInst != null)
         {
-            escudoInst.transform.position = Jogador.transform.position;
-            escudoInst.transform.Rotate(0, 0, 45 * Time.deltaTime);
-            if (daHabilidade.TimerRecarga >= 3)
+            escudoInst.transform.position = Jogador.transform.position; //Faz com que o escudo instanciado se movimente para junto do jogador
+            escudoInst.transform.Rotate(0, 0, 45 * Time.deltaTime); //Rotaciona ele
+
+            if (daHabilidade.TimerRecarga >= 3) //Destroi o escudo depois de 3 segundos
             {
                 Destroy(escudoInst);
             }
