@@ -10,12 +10,14 @@ using UnityEngine;
 
     [SerializeField] GameObject cartaDeDash; //Os prefabs que contem o script que gerencia a carta 
     [SerializeField] GameObject cartaDeArma;
+    [SerializeField] GameObject cartaDeHabilidade;
 
     CartaDeDash cartaDeDashIsnt; //As variáveis que usadas para instanciar cada carta
     CartaDeArmas cartaDeArmaIsnt;
 
     [SerializeField] Transform CanvasDash;//int 0 //Trasforms que receberam a instanciação da cartas
     [SerializeField] Transform CanvasArmas;//int 1
+    [SerializeField] Transform CanvasHabilidades;//int 2
 
     [SerializeField] UsoArma[] ListaDeArmas; //Usada para limpar os atributos de todas as armas
     
@@ -61,8 +63,7 @@ using UnityEngine;
     public void CriarCarta (JogadorArma jog, params UsoArma[] cartas) //Cria as cartas para os armas
     {
         for (int i = 0; i < cartas.Length; i++)
-        {
-            
+        {           
             cartaDeArmaIsnt = cartaDeArma.GetComponent<CartaDeArmas>(); //Acessa o componente CartasDeArmas da Arma do prefab
 
             //definem no prefab da carta as informações relevantes
@@ -102,6 +103,13 @@ using UnityEngine;
             }
         }
     }
+    public void CriarCarta(JogadorHabilidades jog, params CadaHabilidade[] cartas)//Cria as cartas para as habilidades
+    {
+        for (int i = 0; i < cartas.Length; i++)
+        {
+            print(cartas[i]);
+        }
+        }
     public void Sumir(int Qual)
     {
         Transform pai = transform;

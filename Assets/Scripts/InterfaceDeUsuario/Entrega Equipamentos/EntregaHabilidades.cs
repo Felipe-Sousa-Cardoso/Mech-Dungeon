@@ -8,9 +8,11 @@ public class EntregaHabilidades : MonoBehaviour
         listaDeHabilidades = Resources.LoadAll<CadaHabilidade>("Habilidades"); //carrega todas as habilidades da pasta Resorces para o array    
     }
 
-    // Update is called once per frame
-    void Update()
+    private void OnTriggerEnter2D(Collider2D collision)
     {
-        
+        if (collision.tag == "Jogador")
+        {
+            GerenciadorDeCartas.instancia.CriarCarta(collision.GetComponent<JogadorHabilidades>(), listaDeHabilidades);
+        }
     }
 }
