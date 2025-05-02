@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class CadaHabilidade : MonoBehaviour
 {
-    [SerializeField] protected string nome;
+    [SerializeField] string nome;
 
     [SerializeField] Sprite[] sprites; //Sprites de cada habilidade e das modificações
 
@@ -17,6 +17,7 @@ public class CadaHabilidade : MonoBehaviour
     public Sprite[] Sprites { get => sprites; set => sprites = value; }
     public int Index { get => index; set => index = value; }
     public string[] Descrições { get => descrições; set => descrições = value; }
+    public string Nome { get => nome; set => nome = value; }
 
     public virtual void UsarHabilidade(JogadorHabilidades jog)
     {

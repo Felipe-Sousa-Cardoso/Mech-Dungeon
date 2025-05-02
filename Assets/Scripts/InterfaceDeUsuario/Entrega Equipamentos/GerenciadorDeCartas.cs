@@ -14,12 +14,13 @@ using UnityEngine;
 
     CartaDeDash cartaDeDashIsnt; //As variáveis que usadas para instanciar cada carta
     CartaDeArmas cartaDeArmaIsnt;
+    CartadeHabilidades cartaDeHabilidadeInst;
 
     [SerializeField] Transform CanvasDash;//int 0 //Trasforms que receberam a instanciação da cartas
     [SerializeField] Transform CanvasArmas;//int 1
     [SerializeField] Transform CanvasHabilidades;//int 2
 
-    [SerializeField] UsoArma[] ListaDeArmas; //Usada para limpar os atributos de todas as armas
+    UsoArma[] ListaDeArmas; //Usada para limpar os atributos de todas as armas
     
 
     void Start()
@@ -103,11 +104,21 @@ using UnityEngine;
             }
         }
     }
-    public void CriarCarta(JogadorHabilidades jog, params CadaHabilidade[] cartas)//Cria as cartas para as habilidades
+    public void CriarCarta(JogadorHabilidades jog,int nivel, params CadaHabilidade[] cartas)//Cria as cartas para as habilidades
     {
         for (int i = 0; i < cartas.Length; i++)
         {
-            print(cartas[i]);
+            GameObject inst; //Seleciona a carta que foi instanciada para poder alterar seus valores e sua posição
+            inst = Instantiate(cartaDeHabilidade,CanvasHabilidades);
+            cartaDeHabilidadeInst = inst.GetComponent<CartadeHabilidades>();
+
+            cartaDeHabilidadeInst.Habilidade = cartas[i];
+            cartaDeHabilidadeInst.Nivel = nivel;
+            switch (i)
+            {
+                case 0: inst.transform.localPosition = new Vector3(-200, 0, 0); break;
+                case 1: inst.transform.localPosition = new Vector3(200, 0, 0); break;
+            }
         }
         }
     public void Sumir(int Qual)

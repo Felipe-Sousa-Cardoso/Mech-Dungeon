@@ -4,7 +4,6 @@ using UnityEngine.UI;
 public class CartaDeArmas : MonoBehaviour
 {
     [SerializeField] Image Icone;
-    [SerializeField] Image CartaToda;
     [SerializeField] Image borda;
     [SerializeField] Sprite[] bordas; //Conjunto dos sprites das bordas
     [SerializeField] Text Nome;

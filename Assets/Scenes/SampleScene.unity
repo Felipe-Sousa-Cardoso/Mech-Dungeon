@@ -247,6 +247,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cartaDeDash: {fileID: 1855165826644268061, guid: 7376bb50f87b088438e3c67d8f695739, type: 3}
   cartaDeArma: {fileID: 1855165826644268061, guid: b8ed4441fc0328848ab6d22e0cc368fe, type: 3}
+  cartaDeHabilidade: {fileID: 1855165826644268061, guid: 0941631cdf3e8a14a9d401011df3b7d6, type: 3}
   CanvasDash: {fileID: 2063974512}
   CanvasArmas: {fileID: 193224189}
   CanvasHabilidades: {fileID: 349651486}
