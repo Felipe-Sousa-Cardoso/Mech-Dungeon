@@ -41,19 +41,14 @@ public class JogadorHabilidades : MonoBehaviour
                     }                   
                 }                
             }
-        }
-        if (Input.GetKeyDown(KeyCode.G))
-        {
-            UpdateHabilidades();
-        }
-       
+        } 
     }
-    void UpdateHabilidades()
+    public void UpdateHabilidades()
     {
         ddHabilidades.troca = true; //Avisa que ocorreu de troca do icone da habilidade
 
         
-        if (InstanciaHabilidadeQ == null)
+        if (InstanciaHabilidadeQ == null&&habilidadeQ)//Verifica se o prefab não foi instanciado e se ele está armazenado nesse objeto
         {
             InstanciaHabilidadeQ = Instantiate(habilidadeQ, OrganizarHabilidades);//intancia o objeto responsável pela habilidade atual e guarda em uma referencia
             ddHabilidades.habilidade = InstanciaHabilidadeQ.GetComponent<CadaHabilidade>().Index;
@@ -63,11 +58,15 @@ public class JogadorHabilidades : MonoBehaviour
         ddHabilidades.CDrecarga = 5; //Seta os valores da Recarga
         ddHabilidades.TimerRecarga = 0;
 
-        if (InstanciaHabilidadeQ.Sprites != null&& InstanciaHabilidadeQ.Nivel< InstanciaHabilidadeQ.Sprites.Length) 
-            //Verifica se a habilidade tem sprites e se o nível é valido
+        if (InstanciaHabilidadeQ) //Verifica se a instancia já foi atualizada
         {
-            ddHabilidades.sprite = InstanciaHabilidadeQ.Sprites[InstanciaHabilidadeQ.Nivel]; //Define a sprite para a sprite do nível atual
+            if (InstanciaHabilidadeQ.Sprites != null && InstanciaHabilidadeQ.Nivel < InstanciaHabilidadeQ.Sprites.Length)
+            //Verifica se a habilidade tem sprites e se o nível é valido
+            {
+                ddHabilidades.sprite = InstanciaHabilidadeQ.Sprites[InstanciaHabilidadeQ.Nivel]; //Define a sprite para a sprite do nível atual
+            }
         }
+        
         
     }
 }

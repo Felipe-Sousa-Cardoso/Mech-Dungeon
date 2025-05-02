@@ -6,7 +6,7 @@ public class EntregaArmas : Entrega
     [SerializeField] bool Ativo;
     void Start()
     {
-        ListaDeArmas = Resources.LoadAll<UsoArma>("Armas"); //carrega todas as armas da pasta para a lista     
+        ListaDeArmas = Resources.LoadAll<UsoArma>("Armas"); //carrega todas as armas da pasta para o array
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {
