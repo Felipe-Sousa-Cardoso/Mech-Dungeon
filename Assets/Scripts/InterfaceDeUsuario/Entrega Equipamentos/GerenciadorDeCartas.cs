@@ -104,23 +104,26 @@ using UnityEngine;
             }
         }
     }
-    public void CriarCarta(JogadorHabilidades jog,int nivel, params CadaHabilidade[] cartas)//Cria as cartas para as habilidades
+    public void CriarCarta(JogadorHabilidades jog,int nivelDoentregadordeCartas, params CadaHabilidade[] cartas)//Cria as cartas para as habilidades
     {
         for (int i = 0; i < cartas.Length; i++)
         {
-            GameObject inst; //Seleciona a carta que foi instanciada para poder alterar seus valores e sua posição
-            inst = Instantiate(cartaDeHabilidade,CanvasHabilidades);
-            cartaDeHabilidadeInst = inst.GetComponent<CartadeHabilidades>();
+            GameObject inst; //cria uma variável para armazenar a carta que será instanciada
+            inst = Instantiate(cartaDeHabilidade,CanvasHabilidades); 
 
-            cartaDeHabilidadeInst.Habilidade = cartas[i];
-            cartaDeHabilidadeInst.Nivel = nivel;
+            cartaDeHabilidadeInst = inst.GetComponent<CartadeHabilidades>(); //Salve uma referencia do componente cartas instaniada
+                                                                             //para evitar multiplo get component
+
+            cartaDeHabilidadeInst.Habilidade = cartas[i]; //define a habilidades das cartas baseada no array de habilidades que foi passado
+            cartaDeHabilidadeInst.Jog = jog;
+
             switch (i)
             {
                 case 0: inst.transform.localPosition = new Vector3(-200, 0, 0); break;
                 case 1: inst.transform.localPosition = new Vector3(200, 0, 0); break;
             }
         }
-        }
+    }
     public void Sumir(int Qual)
     {
         Transform pai = transform;

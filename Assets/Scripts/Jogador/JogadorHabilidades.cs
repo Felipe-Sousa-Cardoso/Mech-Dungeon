@@ -14,6 +14,7 @@ public class JogadorHabilidades : MonoBehaviour
 
 
     public DadosDaHabilidade DdHabilidades { get => ddHabilidades; set => ddHabilidades = value; }
+    public CadaHabilidade HabilidadeQ { get => habilidadeQ; set => habilidadeQ = value; }
 
     private void Awake()
     {
@@ -48,9 +49,9 @@ public class JogadorHabilidades : MonoBehaviour
         ddHabilidades.troca = true; //Avisa que ocorreu de troca do icone da habilidade
 
         
-        if (InstanciaHabilidadeQ == null&&habilidadeQ)//Verifica se o prefab não foi instanciado e se ele está armazenado nesse objeto
+        if (InstanciaHabilidadeQ == null&&HabilidadeQ)//Verifica se o prefab não foi instanciado e se ele está armazenado nesse objeto
         {
-            InstanciaHabilidadeQ = Instantiate(habilidadeQ, OrganizarHabilidades);//intancia o objeto responsável pela habilidade atual e guarda em uma referencia
+            InstanciaHabilidadeQ = Instantiate(HabilidadeQ, OrganizarHabilidades);//intancia o objeto responsável pela habilidade atual e guarda em uma referencia
             ddHabilidades.habilidade = InstanciaHabilidadeQ.GetComponent<CadaHabilidade>().Index;
         }
         

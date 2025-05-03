@@ -11,21 +11,41 @@ public class CartadeHabilidades : MonoBehaviour
     [SerializeField] Image[] IconedeHabilidade; //Mostra a progressão da habilidade
 
     [SerializeField] CadaHabilidade habilidade; //A habiliadade dessa carta
+
+    JogadorHabilidades jog;
     [SerializeField] int nivel;
 
     public CadaHabilidade Habilidade { get => habilidade; set => habilidade = value; }
     public int Nivel { get => nivel; set => nivel = value; }
+    public JogadorHabilidades Jog { get => jog; set => jog = value; }
 
     void Start()
     {
         Icone.sprite = habilidade.Sprites[nivel];
         Nome.text = habilidade.Nome;
         Descrição.text = habilidade.Descrições[nivel];
+        for (int i = 0; i < IconedeHabilidade.Length; i++) //atribui os sprites da progressão da habilidade
+        {
+            if (IconedeHabilidade[i] && habilidade.Sprites[i]) //Verifica se ambos o sprite e a imagem exitem
+            {
+                IconedeHabilidade[i].sprite = habilidade.Sprites[i];
+            }
+            if (i != nivel)
+            {
+                IconedeHabilidade[i].color = new Color(1, 1, 1, 0.4f);
+            }
+            else
+            {
+                IconedeHabilidade[i].rectTransform.localScale = new Vector3(1.2f, 1.2f, 1);
+            }
+            
+        }
     }
 
-    // Update is called once per frame
-    void Update()
+    public void DaroDash() //Acessado pelo botão
     {
-        
+        jog.HabilidadeQ = habilidade;
+        GerenciadorDeCartas.instancia.Destruir(2); //Destroi as cartas
+        jog.UpdateHabilidades(); //Roda o metodo que atualiza as habilidades
     }
 }

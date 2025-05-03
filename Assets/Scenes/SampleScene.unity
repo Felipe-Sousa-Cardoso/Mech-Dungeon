@@ -251,7 +251,6 @@ MonoBehaviour:
   CanvasDash: {fileID: 2063974512}
   CanvasArmas: {fileID: 193224189}
   CanvasHabilidades: {fileID: 349651486}
-  ListaDeArmas: []
 --- !u!1001 &168498545
 PrefabInstance:
   m_ObjectHideFlags: 0
