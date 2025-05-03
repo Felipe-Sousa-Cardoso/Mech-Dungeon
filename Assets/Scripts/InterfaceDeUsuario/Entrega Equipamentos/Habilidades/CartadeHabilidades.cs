@@ -21,24 +21,27 @@ public class CartadeHabilidades : MonoBehaviour
 
     void Start()
     {
-        Icone.sprite = habilidade.Sprites[nivel];
-        Nome.text = habilidade.Nome;
-        Descrição.text = habilidade.Descrições[nivel];
-        for (int i = 0; i < IconedeHabilidade.Length; i++) //atribui os sprites da progressão da habilidade
+        if (habilidade)
         {
-            if (IconedeHabilidade[i] && habilidade.Sprites[i]) //Verifica se ambos o sprite e a imagem exitem
+            Icone.sprite = habilidade.Sprites[nivel];
+            Nome.text = habilidade.Nome;
+            Descrição.text = habilidade.Descrições[nivel];
+            for (int i = 0; i < IconedeHabilidade.Length; i++) //atribui os sprites da progressão da habilidade
             {
-                IconedeHabilidade[i].sprite = habilidade.Sprites[i];
+                if (IconedeHabilidade[i] && habilidade.Sprites[i]) //Verifica se ambos o sprite e a imagem exitem
+                {
+                    IconedeHabilidade[i].sprite = habilidade.Sprites[i];
+                }
+                if (i != nivel)
+                {
+                    IconedeHabilidade[i].color = new Color(1, 1, 1, 0.4f);
+                }
+                else
+                {
+                    IconedeHabilidade[i].rectTransform.localScale = new Vector3(1.2f, 1.2f, 1);
+                }
+
             }
-            if (i != nivel)
-            {
-                IconedeHabilidade[i].color = new Color(1, 1, 1, 0.4f);
-            }
-            else
-            {
-                IconedeHabilidade[i].rectTransform.localScale = new Vector3(1.2f, 1.2f, 1);
-            }
-            
         }
     }
 

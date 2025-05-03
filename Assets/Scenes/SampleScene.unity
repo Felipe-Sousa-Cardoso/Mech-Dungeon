@@ -1398,6 +1398,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: -3350122097831617828, guid: 52d19124cd48a7a46a33c997fef35ce6, type: 3}
+      propertyPath: nivel
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6785772563207307207, guid: 52d19124cd48a7a46a33c997fef35ce6, type: 3}
       propertyPath: m_LocalPosition.x
       value: -1.84
@@ -2699,7 +2703,7 @@ MonoBehaviour:
   OrganizarHabilidades: {fileID: 405026349}
   ddHabilidades: {fileID: 11400000, guid: 82066a76abf8221439836ca84424f851, type: 2}
   habilidadeQ: {fileID: 0}
-  InstanciaHabilidadeQ: {fileID: 0}
+  instanciaHabilidadeQ: {fileID: 0}
 --- !u!1 &2063974511
 GameObject:
   m_ObjectHideFlags: 0
