@@ -16,7 +16,7 @@ public class Buff : CadaHabilidade
 
     private void Awake()
     {
-        index = 1;
+        index = 2;
     }
     private void Start()
     {

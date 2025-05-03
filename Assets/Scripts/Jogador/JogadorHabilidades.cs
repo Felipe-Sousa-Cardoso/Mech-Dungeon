@@ -10,11 +10,12 @@ public class JogadorHabilidades : MonoBehaviour
 
     [SerializeField] CadaHabilidade habilidadeQ; //Armazena o prefab que controla cada habilidade,
                                                  //para funcionar corretamente precisa ser instanciado
-    [SerializeField] CadaHabilidade InstanciaHabilidadeQ;
+    [SerializeField] CadaHabilidade instanciaHabilidadeQ;
 
 
     public DadosDaHabilidade DdHabilidades { get => ddHabilidades; set => ddHabilidades = value; }
     public CadaHabilidade HabilidadeQ { get => habilidadeQ; set => habilidadeQ = value; }
+    public CadaHabilidade InstanciaHabilidadeQ { get => instanciaHabilidadeQ; set => instanciaHabilidadeQ = value; }
 
     private void Awake()
     {

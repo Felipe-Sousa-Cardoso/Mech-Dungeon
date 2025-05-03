@@ -108,20 +108,27 @@ using UnityEngine;
     {
         for (int i = 0; i < cartas.Length; i++)
         {
-            GameObject inst; //cria uma variável para armazenar a carta que será instanciada
-            inst = Instantiate(cartaDeHabilidade,CanvasHabilidades); 
-
+            GameObject inst;
+            inst = Instantiate(cartaDeHabilidade, CanvasHabilidades);//cria uma variável para armazenar a carta que será instanciada
             cartaDeHabilidadeInst = inst.GetComponent<CartadeHabilidades>(); //Salve uma referencia do componente cartas instaniada
                                                                              //para evitar multiplo get component
-
-            cartaDeHabilidadeInst.Habilidade = cartas[i]; //define a habilidades das cartas baseada no array de habilidades que foi passado
             cartaDeHabilidadeInst.Jog = jog;
-
+            if (nivelDoentregadordeCartas == 0)
+            {                                           
+                cartaDeHabilidadeInst.Habilidade = cartas[i]; //define a habilidades das cartas baseada no array de habilidades que foi passado
+                cartaDeHabilidadeInst.Nivel = 0;
+            }
+            if (nivelDoentregadordeCartas == 1)
+            {
+                cartaDeHabilidadeInst.Habilidade = jog.HabilidadeQ;
+                cartaDeHabilidadeInst.Nivel = i+1;
+            }
             switch (i)
             {
                 case 0: inst.transform.localPosition = new Vector3(-200, 0, 0); break;
                 case 1: inst.transform.localPosition = new Vector3(200, 0, 0); break;
             }
+
         }
     }
     public void Sumir(int Qual)
@@ -131,6 +138,7 @@ using UnityEngine;
         {
             case 0: pai = CanvasDash; break;
             case 1: pai = CanvasArmas;  break;
+            case 2: pai = CanvasHabilidades; break;
         }
         foreach (Transform filho in pai)
         {
@@ -145,6 +153,8 @@ using UnityEngine;
         {
             case 0: pai = CanvasDash; break;
             case 1: pai = CanvasArmas; break;
+            case 2: pai = CanvasHabilidades; break;
+
         }
         foreach (Transform filho in pai)
         {
@@ -159,6 +169,7 @@ using UnityEngine;
         {
             case 0: pai = CanvasDash; break;
             case 1: pai = CanvasArmas; break;
+            case 2: pai = CanvasHabilidades; break;
         }
         foreach (Transform filho in pai)
         {
@@ -174,7 +185,6 @@ using UnityEngine;
             (lista[i], lista[rand]) = (lista[rand], lista[i]);
         }
     }
-
     public void ArmasReset() //Usado para limpar as armas de seus atributos no começo de uma jogatina, chamado externamente
     {
         ListaDeArmas = Resources.LoadAll<UsoArma>("Armas"); //carrega todas as armas da pasta para a lista

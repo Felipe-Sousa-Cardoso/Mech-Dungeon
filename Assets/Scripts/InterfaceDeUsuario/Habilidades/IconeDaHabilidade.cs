@@ -11,7 +11,11 @@ public class IconeDaHabilidade : MonoBehaviour
 
     bool executando = true; //Serve para não chamar repetidas vezes a troca de cor da cobertura quando ela não estiver recarregando
 
-
+    private void Start()
+    {
+        daHabilidade.sprite = null;
+        daHabilidade.habilidade = 0;
+    }
     private void Update()
     {
         if (daHabilidade.troca)
@@ -19,11 +23,12 @@ public class IconeDaHabilidade : MonoBehaviour
             habilidade.sprite = daHabilidade.sprite; //Troca o srite para a habilidade atual
             daHabilidade.troca = !daHabilidade.troca; //Avisa que a troca terminou
         }
+        
         switch (daHabilidade.habilidade)
         {
-            case 0: habilidade.rectTransform.Rotate(0, 0, 40 * Time.deltaTime); break;
-            case 1: break;
+            case 1: habilidade.rectTransform.Rotate(0, 0, 40 * Time.deltaTime); break;
             case 2: break;
+            case 3: break;
         }//Executa um efeito para cada tipo de habilidade
 
         if (daHabilidade.recarregando)

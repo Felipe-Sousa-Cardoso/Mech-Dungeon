@@ -44,7 +44,15 @@ public class CartadeHabilidades : MonoBehaviour
 
     public void DaroDash() //Acessado pelo botão
     {
-        jog.HabilidadeQ = habilidade;
+        if (nivel == 0)
+        {
+            jog.HabilidadeQ = habilidade; //Se o nivel for incial troca o prefab que é usado para instanciar a habilidade
+        }
+        if (jog.InstanciaHabilidadeQ) //Verifica se a instancia existe
+        {
+            jog.InstanciaHabilidadeQ.Nivel = nivel;
+        }
+        
         GerenciadorDeCartas.instancia.Destruir(2); //Destroi as cartas
         jog.UpdateHabilidades(); //Roda o metodo que atualiza as habilidades
     }

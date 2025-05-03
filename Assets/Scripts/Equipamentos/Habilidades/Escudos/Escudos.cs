@@ -10,7 +10,7 @@ public class Escudos : CadaHabilidade
 
     private void Awake()
     {
-        index = 0;
+        index = 1;
     }
     public override void UsarHabilidade(JogadorHabilidades jog)
     {
@@ -26,8 +26,7 @@ public class Escudos : CadaHabilidade
             {
                 escudoInst = Instantiate(escudos[nivel]); //Instancia o escudo e mantem uma referencia para ele
             }
-        }
-                   
+        }                
     }
     void Update()
     {
