@@ -1,7 +1,16 @@
 using UnityEngine;
 
-public class EscudosInstanciados : MonoBehaviour
+public class EscudosInstanciados : MonoBehaviour, IDanificavel
 {
-    [SerializeField] int forcaDoEscudo;
-    public int ForcaDoEscudo { get => forcaDoEscudo; set => forcaDoEscudo = value; }
+    [SerializeField] float forcaDoEscudo;
+    public float ForcaDoEscudo { get => forcaDoEscudo; set => forcaDoEscudo = value; }
+
+    public void Danificar(float Quanto)
+    {
+        forcaDoEscudo -= Quanto;
+        if (forcaDoEscudo <= 0)
+        {
+            Destroy(gameObject);
+        }
+    }
 }

@@ -133,7 +133,11 @@ using UnityEngine;
     }
     public void Sumir(int Qual)
     {
-        Transform pai = transform;
+        if (transform)
+        {
+            Transform pai = transform;
+        }
+        
         switch (Qual)
         {
             case 0: pai = CanvasDash; break;

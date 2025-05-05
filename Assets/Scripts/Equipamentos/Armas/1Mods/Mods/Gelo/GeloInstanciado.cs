@@ -1,5 +1,4 @@
 using UnityEngine;
-using static Danificavel;
 
 public class GeloInstanciado : MonoBehaviour
 {

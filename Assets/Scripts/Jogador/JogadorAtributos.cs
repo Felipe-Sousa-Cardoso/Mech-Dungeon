@@ -1,8 +1,9 @@
 using UnityEngine;
 
-public class JogadorAtributos : MonoBehaviour
+public class JogadorAtributos : MonoBehaviour, IDanificavel
 {
     bool armaAtiva = true; //Verifica se o jogador pode atirar
+    [SerializeField] float vida;
     #region Métodos de acesso
     public bool ArmaAtiva
     {
@@ -14,4 +15,13 @@ public class JogadorAtributos : MonoBehaviour
     {
         armaAtiva = true;
     }
+
+    public void Danificar(float Quanto)
+    {
+        vida -= Quanto;
+        if (vida <= 0)
+        {
+            Destroy(gameObject);
+        }
+    } 
 }

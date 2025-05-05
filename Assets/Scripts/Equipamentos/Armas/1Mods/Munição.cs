@@ -2,7 +2,6 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using System;
-using static Danificavel;
 
 public class Munição : MonoBehaviour
 {
@@ -21,7 +20,11 @@ public class Munição : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     { 
-        AoDano(collision);
+        if (collision.gameObject.CompareTag("Inimigo"))
+        {
+            AoDano(collision);
+        }
+        
     }
     #region AoDano
     public void AoDano(Collision2D col)

@@ -15,9 +15,9 @@ MonoBehaviour:
   "Muni\xE7\xE3o": {fileID: 9190626253263483405, guid: 4f9a29de4330e904d9cd730c211e2e6b, type: 3}
   Sprite: {fileID: 21300000, guid: e493b49d96c7b97499a3d5eefd19f5be, type: 3}
   Cor: {r: 0.94718194, g: 1, b: 0, a: 1}
-  Cadencia: 3
+  Cadencia: 2.5
   Alcance: 3
   Velocidade: 1
-  "Precis\xE3o": 20
-  Dano: 1
+  "Precis\xE3o": 15
+  Dano: 5
   "Muni\xE7\xF5esPorDisparo": 1

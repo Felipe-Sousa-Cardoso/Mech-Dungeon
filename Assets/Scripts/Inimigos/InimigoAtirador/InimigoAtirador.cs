@@ -1,5 +1,7 @@
 using UnityEditor;
+using UnityEditor.SceneManagement;
 using UnityEngine;
+using UnityEngine.UIElements;
 
 public class InimigoAtirador : BaseInimigos
 {
@@ -29,9 +31,9 @@ public class InimigoAtirador : BaseInimigos
         {
             if (Jogador)
             {
-                direção = Jogador.position - transform.position; //Define o vetor direção, como o final menos o inicial
+                direção = (Jogador.position - transform.position).normalized; //Define e normaliza o vetor direção, como o final menos o inicial
 
-                Arma.transform.localPosition = direção.normalized * 0.3f; //Normaliza o Vetor direção e posiciona a arma à uma distancia de 0.3
+                Arma.transform.localPosition = direção * 0.3f; //Posiciona a arma à uma distancia de 0.3
 
                 Arma.transform.right = direção; //Aponta a arma para o jogador
 
@@ -44,7 +46,6 @@ public class InimigoAtirador : BaseInimigos
                     indexCadencia = 0;
                     Atirar();
                 }
-
             }
             else
             {
@@ -59,8 +60,22 @@ public class InimigoAtirador : BaseInimigos
         GameObject obj;
         if (dadosDaArma)
         {
-            print("sim");
-            obj = Instantiate(dadosDaArma.Munição, Arma.transform.position,Quaternion.FromToRotation(Vector2.right,direção));
+            
+            for (int i = 0; i < dadosDaArma.MuniçõesPorDisparo; i++) //Repete para cada munição da arma
+            {
+                Vector3 direçãoFinal = Quaternion.Euler(0, 0, Random.Range(-dadosDaArma.Precisão, dadosDaArma.Precisão)) * direção;
+                //Cria um vector 3 direção final que o o produto da direção da arma com um valor que depende da precisão de cada arma, a multiplicação de um
+                //Vector 3 por um quarternion representa uma mudança apenas de direção, sem alterar o modulo
+                obj = Instantiate(dadosDaArma.Munição, Arma.transform.position, Quaternion.FromToRotation(Vector2.right, direçãoFinal));
+                //Instancia o projétil, na posição da arma e com a rotação da arma alterda pela posição
+                obj.GetComponent<Rigidbody2D>().linearVelocity = direçãoFinal * dadosDaArma.Velocidade;
+                //Adiciona uma velocidade para o projétil
+
+                obj.GetComponent<MuniçãoInimigos>().Dano = dadosDaArma.Dano;
+                Destroy(obj, (dadosDaArma.Alcance-0.3f) / dadosDaArma.Velocidade );
+                //Calcula o tempo de vida do projétil como a divsão do alcance pela velociade, se caso o obj já tiver sido destruido essa
+                //linha não retorna erro nem executa nenhuma ação
+            }
         }
     }
     private void OnTriggerEnter2D(Collider2D collision)//Quando um jogador entra na colisão define a variável 

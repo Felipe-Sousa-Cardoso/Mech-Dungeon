@@ -2,15 +2,19 @@ using UnityEngine;
 
 public class MuniçãoInimigos : MonoBehaviour
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
-    {
-        
-    }
+   [SerializeField] float dano;
+    public float Dano { get => dano; set => dano = value; }
 
-    // Update is called once per frame
-    void Update()
+    private void OnTriggerEnter2D(Collider2D collision)
     {
-        
+        IDanificavel obj = collision.GetComponent<IDanificavel>();
+
+        if (collision.CompareTag("Escudos")|| collision.CompareTag("Jogador") && obj!=null)
+        {
+            print(dano);
+            obj.Danificar(dano);//Executa o dano
+
+            Destroy(gameObject); //Destroi a munição quando ela atinge o jogador
+        }
     }
 }
