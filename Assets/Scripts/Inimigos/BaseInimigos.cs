@@ -15,7 +15,7 @@ public class BaseInimigos : MonoBehaviour, IDanificavel
         get { return modificadorDeVelocidade; }
         set { modificadorDeVelocidade = value; }
     }
-    void Start()
+    protected virtual void Start()
     {
         anim = GetComponent<Animator>();
         modificadorDeVelocidade = 1;
