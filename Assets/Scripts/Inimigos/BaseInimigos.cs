@@ -6,7 +6,8 @@ using static Danificavel;
 public class BaseInimigos : MonoBehaviour, IDanificavel
 {
     Animator anim;
-    [SerializeField] protected float modificadorDeVelocidade;
+    [SerializeField] protected float modificadorDeVelocidade; //Utilizado para controlar a velociade que se movimenta e atira
+
     [SerializeField] protected float vida = 10;
 
     public float ModificadorDeVelocidade
