@@ -80,7 +80,7 @@ BoxCollider2D:
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  m_Size: {x: 0.5, y: 0.5}
+  m_Size: {x: 0.32, y: 0.32}
   m_EdgeRadius: 0
 --- !u!212 &2615842076161057624
 SpriteRenderer:
@@ -149,7 +149,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6638a6170e9b91e469671339f3964094, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  vida: 10
+  Jogador: {fileID: 0}
+  modificadorDeVelocidade: 0
+  vida: 30
+  timerMovimento: 0
+  "dire\xE7ao": {x: 0, y: 0, z: 0}
+  rb: {fileID: 0}
 --- !u!50 &4119876615858080490
 Rigidbody2D:
   serializedVersion: 5
@@ -176,7 +181,7 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 0
+  m_Constraints: 4
 --- !u!95 &1239051396339980341
 Animator:
   serializedVersion: 7

@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class BaseInimigos : MonoBehaviour, IDanificavel
@@ -8,6 +9,12 @@ public class BaseInimigos : MonoBehaviour, IDanificavel
     [SerializeField] protected Transform Jogador; //Usado para salvar a posição do jogador
     [SerializeField] protected float modificadorDeVelocidade; //Utilizado para controlar a velociade que se movimenta e atira
     [SerializeField] protected float vida = 10;
+
+    [SerializeField] float timerMovimento = 0;
+
+    [SerializeField] Vector3 direçao;
+
+    [SerializeField] Rigidbody2D rb;
     public float ModificadorDeVelocidade
     {
         get { return modificadorDeVelocidade; }
@@ -15,8 +22,17 @@ public class BaseInimigos : MonoBehaviour, IDanificavel
     }
     protected virtual void Start()
     {
+        rb = GetComponent<Rigidbody2D>();
         anim = GetComponent<Animator>();
+
         modificadorDeVelocidade = 1;
+
+        MovimentoAleatorio();
+    }
+
+    protected virtual void Update()
+    {
+        Move();
     }
     public virtual void Danificar(float Quanto) //Função que é chamada para realizar a mecanica de dano
     {
@@ -39,17 +55,26 @@ public class BaseInimigos : MonoBehaviour, IDanificavel
 
     protected virtual void Move()
     {
-        if (Jogador)
-        {
-            transform.position = Vector3.MoveTowards(transform.position, Jogador.position, 2 * Time.deltaTime * modificadorDeVelocidade);
-        }
-        else
-        {
 
+        timerMovimento += Time.deltaTime;
+        if (timerMovimento >= 1)
+        {
+            timerMovimento = 0;
+            MovimentoAleatorio();
         }
-        
+             
     }
 
+    void MovimentoAleatorio()
+    {
+        direçao = Random.insideUnitCircle.normalized;
+        RaycastHit2D hit = Physics2D.Raycast(transform.position, direçao, 2.5f , 11);
+        if (hit.collider)
+        {
+            direçao = - direçao;
+        } 
+        rb.linearVelocity = direçao*2*modificadorDeVelocidade;
+    }
     private void OnTriggerEnter2D(Collider2D collision)//Quando um jogador entra na colisão define a variável 
     {
         if (collision.CompareTag("Jogador"))

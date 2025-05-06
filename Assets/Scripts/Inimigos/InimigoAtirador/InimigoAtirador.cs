@@ -25,8 +25,12 @@ public class InimigoAtirador : BaseInimigos
         
     }
 
-    private void Update()
+    protected override void Update()
     {
+        
+         Move();
+        
+       
         if (Arma&&dadosDaArma)
         {
             if (Jogador)
@@ -48,7 +52,7 @@ public class InimigoAtirador : BaseInimigos
                     indexCadencia = 0;
                     Atirar();
                 }
-                Move();
+                
             }
             else
             {
