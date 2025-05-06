@@ -6,7 +6,7 @@ using UnityEngine.UIElements;
 public class InimigoAtirador : BaseInimigos
 {
     [SerializeField] Transform Arma; //Arma, usada para controlar a posiçao e intanciar as munições
-    [SerializeField] Transform Jogador;
+    
     [SerializeField] CadaArmaInimigos dadosDaArma;
 
     float indexCadencia; //Usado para controlar a cadencia;
@@ -48,6 +48,7 @@ public class InimigoAtirador : BaseInimigos
                     indexCadencia = 0;
                     Atirar();
                 }
+                Move();
             }
             else
             {
@@ -80,18 +81,7 @@ public class InimigoAtirador : BaseInimigos
             }
         }
     }
-    private void OnTriggerEnter2D(Collider2D collision)//Quando um jogador entra na colisão define a variável 
-    {
-        if (collision.CompareTag("Jogador")) 
-        {
-            Jogador = collision.transform;
-        }
-    }
-    private void OnTriggerExit2D(Collider2D collision)//Quando um jogador sai da colisão redefine a variável
-    {
-        if (collision.CompareTag("Jogador"))
-        {
-            Jogador = null;
-        }
-    }
+
+   
+    
 }

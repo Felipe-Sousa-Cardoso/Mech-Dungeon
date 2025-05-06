@@ -5,6 +5,7 @@ using UnityEngine;
 public class BaseInimigos : MonoBehaviour, IDanificavel
 {
     Animator anim;
+    [SerializeField] protected Transform Jogador; //Usado para salvar a posição do jogador
     [SerializeField] protected float modificadorDeVelocidade; //Utilizado para controlar a velociade que se movimenta e atira
     [SerializeField] protected float vida = 10;
     public float ModificadorDeVelocidade
@@ -38,6 +39,29 @@ public class BaseInimigos : MonoBehaviour, IDanificavel
 
     protected virtual void Move()
     {
+        if (Jogador)
+        {
+            transform.position = Vector3.MoveTowards(transform.position, Jogador.position, 2 * Time.deltaTime * modificadorDeVelocidade);
+        }
+        else
+        {
 
+        }
+        
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)//Quando um jogador entra na colisão define a variável 
+    {
+        if (collision.CompareTag("Jogador"))
+        {
+            Jogador = collision.transform;
+        }
+    }
+    private void OnTriggerExit2D(Collider2D collision)//Quando um jogador sai da colisão redefine a variável
+    {
+        if (collision.CompareTag("Jogador"))
+        {
+            Jogador = null;
+        }
     }
 }

@@ -3,7 +3,7 @@ using UnityEngine;
 public class ControladorDaCamera : MonoBehaviour
 {
     [SerializeField] Transform jogador;
-    void Update()
+    void LateUpdate()
     {
         if (jogador)
         {
