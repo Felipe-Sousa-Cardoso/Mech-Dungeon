@@ -17,7 +17,7 @@ MonoBehaviour:
   Cor: {r: 0.94718194, g: 1, b: 0, a: 1}
   Cadencia: 2.5
   Alcance: 3
-  Velocidade: 1
+  Velocidade: 7
   "Precis\xE3o": 15
-  Dano: 5
+  Dano: 2
   "Muni\xE7\xF5esPorDisparo": 1

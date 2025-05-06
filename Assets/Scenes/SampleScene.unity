@@ -1284,6 +1284,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5359538021159840853, guid: c33298c7539f8fa40b17c0f3c3c46599, type: 3}
+      propertyPath: vida
+      value: 40
+      objectReference: {fileID: 0}
     - target: {fileID: 7357239932574053727, guid: c33298c7539f8fa40b17c0f3c3c46599, type: 3}
       propertyPath: m_Name
       value: InimigoAtirador
@@ -2746,11 +2750,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 2818405896644860680, guid: 29cbef117e6fe394784dc9e29ee8a735, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0.929
+      value: 0.77
       objectReference: {fileID: 0}
     - target: {fileID: 2818405896644860680, guid: 29cbef117e6fe394784dc9e29ee8a735, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -1.71
+      value: -1.65
       objectReference: {fileID: 0}
     - target: {fileID: 2818405896644860680, guid: 29cbef117e6fe394784dc9e29ee8a735, type: 3}
       propertyPath: m_LocalPosition.z

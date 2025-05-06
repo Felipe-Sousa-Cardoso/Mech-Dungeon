@@ -11,7 +11,6 @@ public class MuniçãoInimigos : MonoBehaviour
 
         if (collision.CompareTag("Escudos")|| collision.CompareTag("Jogador") && obj!=null)
         {
-            print(dano);
             obj.Danificar(dano);//Executa o dano
 
             Destroy(gameObject); //Destroi a munição quando ela atinge o jogador

@@ -37,7 +37,9 @@ public class InimigoAtirador : BaseInimigos
 
                 Arma.transform.right = direção; //Aponta a arma para o jogador
 
-                if (indexCadencia < tempoEntreDisparos*modificadorDeVelocidade) //Usa tanto a cadencia como o efeito de gelo para modificar a habilidade
+                if (indexCadencia < tempoEntreDisparos/modificadorDeVelocidade) //Usa tanto a cadencia como o efeito de gelo para modificar o tempo
+                                                                                //entre os disparos 
+
                 {
                     indexCadencia += Time.deltaTime;
                 }
