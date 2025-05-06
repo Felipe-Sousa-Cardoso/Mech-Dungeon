@@ -6,9 +6,7 @@ public class BaseInimigos : MonoBehaviour, IDanificavel
 {
     Animator anim;
     [SerializeField] protected float modificadorDeVelocidade; //Utilizado para controlar a velociade que se movimenta e atira
-
     [SerializeField] protected float vida = 10;
-
     public float ModificadorDeVelocidade
     {
         get { return modificadorDeVelocidade; }
@@ -37,4 +35,9 @@ public class BaseInimigos : MonoBehaviour, IDanificavel
             Destroy(gameObject,0.3f); //Demora 0.3 segundos para destruir o objeto para concluir os efeitos
         }
     }   
+
+    protected virtual void Move()
+    {
+
+    }
 }
