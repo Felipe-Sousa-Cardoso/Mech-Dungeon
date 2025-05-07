@@ -10,6 +10,10 @@ public class BaseInimigos : MonoBehaviour, IDanificavel
     [SerializeField] protected float modificadorDeVelocidade; //Utilizado para controlar a velociade que se movimenta e atira
     [SerializeField] protected float vida = 10;
 
+    [SerializeField] protected float danoDeContato = 2;
+
+    [SerializeField] protected float velocidade;
+
     [SerializeField] float timerMovimento = 0;
 
     [SerializeField] Vector3 direçao;
@@ -30,10 +34,9 @@ public class BaseInimigos : MonoBehaviour, IDanificavel
         MovimentoAleatorio();
     }
 
-    protected virtual void Update()
-    {
-        Move();
-    }
+    protected virtual void Update() {}
+    
+           
     public virtual void Danificar(float Quanto) //Função que é chamada para realizar a mecanica de dano
     {
         anim.SetTrigger("Hit");
@@ -73,7 +76,16 @@ public class BaseInimigos : MonoBehaviour, IDanificavel
         {
             direçao = - direçao;
         } 
-        rb.linearVelocity = direçao*2*modificadorDeVelocidade;
+        rb.linearVelocity = direçao*velocidade*modificadorDeVelocidade;
+    }
+
+    private void OnCollisionStay2D(Collision2D collision) //Verifica o contato contra o jogador
+    {
+        IDanificavel hit = collision.gameObject.GetComponent<IDanificavel>();
+        if (hit!= null&&collision.gameObject.CompareTag("Jogador"))
+        {
+            hit.Danificar(danoDeContato);
+        }
     }
     private void OnTriggerEnter2D(Collider2D collision)//Quando um jogador entra na colisão define a variável 
     {
