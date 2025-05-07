@@ -17,6 +17,7 @@ public class InimigoAtirador : BaseInimigos
     protected override void Start()
     {
         base.Start();
+        detector.radius = dadosDaArma.Alcance;
         Arma.GetComponent<BaseArmaInimigos>().DadosDaArma = dadosDaArma;
         if (dadosDaArma)
         {

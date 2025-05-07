@@ -6,19 +6,20 @@ using UnityEngine;
 public class BaseInimigos : MonoBehaviour, IDanificavel
 {
     Animator anim;
+    [SerializeField] protected CircleCollider2D detector;
+
     [SerializeField] protected Transform Jogador; //Usado para salvar a posição do jogador
     [SerializeField] protected float modificadorDeVelocidade; //Utilizado para controlar a velociade que se movimenta e atira
-    [SerializeField] protected float vida = 10;
 
-    [SerializeField] protected float danoDeContato = 2;
-
+    //Dados basicos de cada inimigo, definidos no editor
+    [SerializeField] protected float vida; 
+    [SerializeField] protected float danoDeContato;
     [SerializeField] protected float velocidade;
 
-    [SerializeField] float timerMovimento = 0;
-
-    [SerializeField] Vector3 direçao;
-
-    [SerializeField] Rigidbody2D rb;
+    //Usados para a movimentãção
+    float timerMovimento = 0; 
+    Vector3 direçao;
+    protected Rigidbody2D rb;
     public float ModificadorDeVelocidade
     {
         get { return modificadorDeVelocidade; }

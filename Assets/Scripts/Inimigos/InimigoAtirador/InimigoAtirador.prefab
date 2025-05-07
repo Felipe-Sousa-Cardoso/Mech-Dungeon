@@ -252,7 +252,7 @@ BoxCollider2D:
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  m_Size: {x: 0.5, y: 0.5}
+  m_Size: {x: 0.32, y: 0.32}
   m_EdgeRadius: 0
 --- !u!212 &2615842076161057624
 SpriteRenderer:
@@ -335,7 +335,7 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 0
+  m_Constraints: 4
 --- !u!95 &1239051396339980341
 Animator:
   serializedVersion: 7
@@ -370,8 +370,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e534fba08878ee440a22faf979035907, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  modificadorDeVelocidade: 0
-  vida: 10
-  Arma: {fileID: 8147922164784726418}
+  detector: {fileID: 4440603127840460956}
   Jogador: {fileID: 0}
+  modificadorDeVelocidade: 0
+  "raioDeDetec\xE7\xE3o": 0
+  vida: 40
+  danoDeContato: 0
+  velocidade: 2
+  Arma: {fileID: 8147922164784726418}
   dadosDaArma: {fileID: 11400000, guid: 5a0c9dff161d51d48867fb53903c7adc, type: 2}
