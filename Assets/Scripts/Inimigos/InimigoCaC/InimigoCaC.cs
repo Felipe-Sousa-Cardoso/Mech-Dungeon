@@ -1,13 +1,17 @@
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class InimigoCaC : BaseInimigos
 {
-    [SerializeField] CadaInimigoCaC dados;
+    CadaInimigoCaC dadosDoinimigo;
+
     protected override void Start()
     {
         base.Start();
-        danoDeContato = dados.DanodeContato;
-        velocidade = dados.Velocidade;
+        dadosDoinimigo = dados as CadaInimigoCaC;
+        danoDeContato = dadosDoinimigo.DanodeContato;
+        velocidade = dadosDoinimigo.Velocidade;
+ 
 
     }
     protected override void Update()

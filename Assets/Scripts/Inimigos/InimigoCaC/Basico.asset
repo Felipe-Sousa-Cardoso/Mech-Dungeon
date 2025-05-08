@@ -12,5 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b29aa40911f892243bbc0d5265a22730, type: 3}
   m_Name: Basico
   m_EditorClassIdentifier: 
+  SpriteInimigo: {fileID: 21300000, guid: 7fe02f6cb5c4b6647ba0f3b22cd802f0, type: 3}
+  NomedoInimigo: 
   Velocidade: 3
   DanodeContato: 4

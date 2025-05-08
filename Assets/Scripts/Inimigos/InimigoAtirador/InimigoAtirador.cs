@@ -7,7 +7,7 @@ public class InimigoAtirador : BaseInimigos
 {
     [SerializeField] Transform Arma; //Arma, usada para controlar a posiçao e intanciar as munições
     
-    [SerializeField] CadaArmaInimigos dadosDaArma;
+    CadaArmaInimigos dadosDaArma;
 
     float indexCadencia; //Usado para controlar a cadencia;
     float tempoEntreDisparos;
@@ -17,8 +17,12 @@ public class InimigoAtirador : BaseInimigos
     protected override void Start()
     {
         base.Start();
+
+        dadosDaArma = dados as CadaArmaInimigos;
         detector.radius = dadosDaArma.Alcance;
+
         Arma.GetComponent<BaseArmaInimigos>().DadosDaArma = dadosDaArma;
+        Arma.GetComponent<BaseArmaInimigos>().UpdateFoto();
         if (dadosDaArma)
         {
             tempoEntreDisparos = 1 / dadosDaArma.Cadencia; //calcula o tempo entre os disparos incial
@@ -27,11 +31,8 @@ public class InimigoAtirador : BaseInimigos
     }
 
     protected override void Update()
-    {
-        
-         Move();
-        
-       
+    {      
+        Move();   
         if (Arma&&dadosDaArma)
         {
             if (Jogador)

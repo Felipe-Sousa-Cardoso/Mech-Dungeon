@@ -2,16 +2,16 @@ using UnityEngine;
 
 public class BaseArmaInimigos : MonoBehaviour
 {
-    [SerializeField] protected CadaArmaInimigos dadosDaArma;
+    [SerializeField] protected CadaArmaInimigos dadosDoInimigo;
     [SerializeField] SpriteRenderer sr;
-    public CadaArmaInimigos DadosDaArma { get => dadosDaArma; set => dadosDaArma = value; }
+    public CadaArmaInimigos DadosDaArma { get => dadosDoInimigo; set => dadosDoInimigo = value; }
 
-    void Start()
+    public void UpdateFoto()
     {
-        if (sr&&dadosDaArma)
+        if (sr&&dadosDoInimigo)
         {
-            sr.sprite = dadosDaArma.Sprite;
-            sr.color = dadosDaArma.Cor;
+            sr.sprite = dadosDoInimigo.SpriteDaArma;
+            sr.color = dadosDoInimigo.CorDaArma;
         }
     }
 

@@ -2,11 +2,17 @@ using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
+using static UnityEditor.PlayerSettings;
 
 public class BaseInimigos : MonoBehaviour, IDanificavel
 {
     Animator anim;
+    [SerializeField] SpriteRenderer sr; //Sprite do inimigo
+
+    [SerializeField] protected BoxCollider2D colisor; //Faz o dano de contato
     [SerializeField] protected CircleCollider2D detector;
+
+    [SerializeField] protected CadaInimigo dados;
 
     [SerializeField] protected Transform Jogador; //Usado para salvar a posição do jogador
     [SerializeField] protected float modificadorDeVelocidade; //Utilizado para controlar a velociade que se movimenta e atira
@@ -27,10 +33,18 @@ public class BaseInimigos : MonoBehaviour, IDanificavel
     }
     protected virtual void Start()
     {
+        sr = GetComponent<SpriteRenderer>();
+
+        
+
         rb = GetComponent<Rigidbody2D>();
         anim = GetComponent<Animator>();
 
         modificadorDeVelocidade = 1;
+
+        colisor.size = dados.SpriteInimigo.bounds.size;
+        colisor.offset = sr.sprite.bounds.center;
+        sr.sprite = dados.SpriteInimigo; //Define o sprite de cada inimigo
 
         MovimentoAleatorio();
     }
