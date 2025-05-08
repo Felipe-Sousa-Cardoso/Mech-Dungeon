@@ -7,7 +7,7 @@ public class JogadorAtributos : MonoBehaviour, IDanificavel
     Animator anim;
 
     bool armaAtiva = true; //Verifica se o jogador pode atirar
-    [SerializeField] float vida;
+    [SerializeField] DadosDoJogador dados;
 
     float tempoEntreHits = 1;
     bool vulnerável = true;
@@ -22,6 +22,8 @@ public class JogadorAtributos : MonoBehaviour, IDanificavel
     void Start()
     {
         anim = GetComponent<Animator>();
+        dados.MaxVida = 10;
+        dados.Vida = dados.MaxVida;
     }
     #endregion
     public void AtivarArma()
@@ -34,8 +36,8 @@ public class JogadorAtributos : MonoBehaviour, IDanificavel
         if (vulnerável)
         {
             anim.SetTrigger("hit");
-            vida -= Quanto;
-            if (vida <= 0)
+            dados.Vida -= Quanto;
+            if (dados.Vida <= 0)
             {
                 Destroy(gameObject);
             }

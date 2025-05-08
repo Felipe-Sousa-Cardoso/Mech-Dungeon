@@ -83,7 +83,7 @@ public class BaseInimigos : MonoBehaviour, IDanificavel
              
     }
 
-    void MovimentoAleatorio()
+   protected void MovimentoAleatorio()
     {
         direçao = Random.insideUnitCircle.normalized;
         RaycastHit2D hit = Physics2D.Raycast(transform.position, direçao, 2.5f , 11);

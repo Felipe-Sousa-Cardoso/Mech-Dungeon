@@ -8,10 +8,14 @@ public class InimigoCaC : BaseInimigos
     protected override void Start()
     {
         base.Start();
-        dadosDoinimigo = dados as CadaInimigoCaC;
+        dadosDoinimigo = dados as CadaInimigoCaC; //Converte o scriptable object do pai para poder ser usado
+        //Como no objeto pai o objeto já é desse tipo não apresenta problema
+
         danoDeContato = dadosDoinimigo.DanodeContato;
         velocidade = dadosDoinimigo.Velocidade;
- 
+
+        MovimentoAleatorio();
+
 
     }
     protected override void Update()
