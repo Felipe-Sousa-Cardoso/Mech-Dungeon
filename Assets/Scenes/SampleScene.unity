@@ -1298,6 +1298,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4119876615858080490, guid: c33298c7539f8fa40b17c0f3c3c46599, type: 3}
+      propertyPath: m_Mass
+      value: 0.0001
+      objectReference: {fileID: 0}
     - target: {fileID: 5359538021159840853, guid: c33298c7539f8fa40b17c0f3c3c46599, type: 3}
       propertyPath: sr
       value: 
@@ -3293,6 +3297,7 @@ GameObject:
   - component: {fileID: 2014951228}
   - component: {fileID: 2014951229}
   - component: {fileID: 2014951230}
+  - component: {fileID: 2014951231}
   m_Layer: 6
   m_Name: Jogador
   m_TagString: Jogador
@@ -3613,6 +3618,28 @@ MonoBehaviour:
   ddHabilidades: {fileID: 11400000, guid: 82066a76abf8221439836ca84424f851, type: 2}
   habilidadeQ: {fileID: 0}
   instanciaHabilidadeQ: {fileID: 0}
+--- !u!95 &2014951231
+Animator:
+  serializedVersion: 7
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2014951221}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: bdefaf484124b8a4185d17e9b991677b, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_AnimatePhysics: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &2063974511
 GameObject:
   m_ObjectHideFlags: 0
@@ -3801,6 +3828,10 @@ PrefabInstance:
     - target: {fileID: 1051326144627813115, guid: 1e54eac625d9855499d047cae0f057b1, type: 3}
       propertyPath: m_SpriteSortPoint
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5799589973468758153, guid: 1e54eac625d9855499d047cae0f057b1, type: 3}
+      propertyPath: m_Mass
+      value: 0.0001
       objectReference: {fileID: 0}
     - target: {fileID: 6789846219925032696, guid: 1e54eac625d9855499d047cae0f057b1, type: 3}
       propertyPath: detector
