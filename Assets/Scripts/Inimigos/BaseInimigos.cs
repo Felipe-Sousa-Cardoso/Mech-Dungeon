@@ -17,7 +17,7 @@ public class BaseInimigos : MonoBehaviour, IDanificavel
     [SerializeField] protected Transform Jogador; //Usado para salvar a posição do jogador
     [SerializeField] protected float modificadorDeVelocidade; //Utilizado para controlar a velociade que se movimenta e atira
 
-    //Dados basicos de cada inimigo, definidos no editor
+    //Dados basicos de cada inimigo, definidos no editor e no objeto scriptavel
     [SerializeField] protected float vida; 
     [SerializeField] protected float danoDeContato;
     [SerializeField] protected float velocidade;
@@ -35,7 +35,7 @@ public class BaseInimigos : MonoBehaviour, IDanificavel
     {
         sr = GetComponent<SpriteRenderer>();
 
-        
+        vida = dados.vidaMax;
 
         rb = GetComponent<Rigidbody2D>();
         anim = GetComponent<Animator>();
@@ -70,7 +70,6 @@ public class BaseInimigos : MonoBehaviour, IDanificavel
             Destroy(gameObject,0.3f); //Demora 0.3 segundos para destruir o objeto para concluir os efeitos
         }
     }   
-
     protected virtual void Move()
     {
 
@@ -82,8 +81,7 @@ public class BaseInimigos : MonoBehaviour, IDanificavel
         }
              
     }
-
-   protected void MovimentoAleatorio()
+    protected void MovimentoAleatorio()
     {
         direçao = Random.insideUnitCircle.normalized;
         RaycastHit2D hit = Physics2D.Raycast(transform.position, direçao, 2.5f , 11);
@@ -93,7 +91,6 @@ public class BaseInimigos : MonoBehaviour, IDanificavel
         } 
         rb.linearVelocity = direçao*velocidade*modificadorDeVelocidade;
     }
-
     private void OnCollisionStay2D(Collision2D collision) //Verifica o contato contra o jogador
     {
         IDanificavel hit = collision.gameObject.GetComponent<IDanificavel>();

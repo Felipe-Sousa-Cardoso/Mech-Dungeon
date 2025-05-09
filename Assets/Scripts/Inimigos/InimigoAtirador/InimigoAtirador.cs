@@ -39,7 +39,7 @@ public class InimigoAtirador : BaseInimigos
             {
                 direção = (Jogador.position - transform.position).normalized; //Define e normaliza o vetor direção, como o final menos o inicial
 
-                Arma.transform.localPosition = direção * 0.3f; //Posiciona a arma à uma distancia de 0.3
+                Arma.transform.localPosition = direção * dadosDaArma.distanciaDaArma; //Posiciona a arma à uma distancia de 0.3
 
                 Arma.transform.right = direção; //Aponta a arma para o jogador
 
@@ -58,7 +58,7 @@ public class InimigoAtirador : BaseInimigos
             }
             else
             {
-                Arma.transform.localPosition = new Vector3(0.3f, 0); //Posiciona a arma um pouco a frente do Inimigo
+                Arma.transform.localPosition = new Vector3(dadosDaArma.distanciaDaArma, 0); //Posiciona a arma um pouco a frente do Inimigo
                 Arma.transform.right = Vector3.right; //Aponta a arma para frente
             }
         }
@@ -81,7 +81,7 @@ public class InimigoAtirador : BaseInimigos
                 //Adiciona uma velocidade para o projétil
 
                 obj.GetComponent<MuniçãoInimigos>().Dano = dadosDaArma.Dano;
-                Destroy(obj, (dadosDaArma.Alcance-0.3f) / dadosDaArma.Velocidade );
+                Destroy(obj, (dadosDaArma.Alcance - dadosDaArma.distanciaDaArma) / dadosDaArma.Velocidade );
                 //Calcula o tempo de vida do projétil como a divsão do alcance pela velociade, se caso o obj já tiver sido destruido essa
                 //linha não retorna erro nem executa nenhuma ação
             }

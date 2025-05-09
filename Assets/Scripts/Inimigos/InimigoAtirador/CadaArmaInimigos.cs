@@ -12,4 +12,5 @@ public class CadaArmaInimigos : CadaInimigo
     public float Precisão;
     public float Dano;
     public int MuniçõesPorDisparo;
+    public float distanciaDaArma;
 }
