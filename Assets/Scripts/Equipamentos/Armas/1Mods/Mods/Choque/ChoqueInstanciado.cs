@@ -49,7 +49,7 @@ public class ChoqueInstanciado : MonoBehaviour
     {
         timer += Time.deltaTime;
         if (timer > 0.05)
-        {          
+        {     
             if (indexTextura < 3)
             {              
                 indexTextura++;
@@ -60,9 +60,10 @@ public class ChoqueInstanciado : MonoBehaviour
                 {
                     GameObject objeto = alvo2.gameObject;
                     objeto.GetComponent<IDanificavel>().Danificar(dano / 2);
-                    Destroy(gameObject);
+                    
                 }
-                
+                Destroy(gameObject);
+
             }
             ln.material.SetTexture("_MainTex", texturas[indexTextura]);
             timer = 0;

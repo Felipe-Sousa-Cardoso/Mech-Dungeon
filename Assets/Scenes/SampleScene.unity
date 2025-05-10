@@ -249,7 +249,7 @@ GameObject:
   m_Component:
   - component: {fileID: 66438935}
   - component: {fileID: 66438937}
-  - component: {fileID: 66438939}
+  - component: {fileID: 66438938}
   m_Layer: 8
   m_Name: Habilidades (1)
   m_TagString: Inimigo
@@ -289,9 +289,10 @@ MonoBehaviour:
   "posi\xE7\xE3o": 0
   jogador: {fileID: 0}
   arma: {fileID: 2097863456}
-  vida: 10
---- !u!60 &66438939
-PolygonCollider2D:
+  vida: 1
+  dadosDaArma: {fileID: 11400000, guid: a3ada8d8cd67e8a488be57264b1a7866, type: 2}
+--- !u!61 &66438938
+BoxCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -327,22 +328,15 @@ PolygonCollider2D:
   m_Offset: {x: 0, y: 0}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 0.32, y: 0.32}
-    newSize: {x: 0.32, y: 0.32}
-    adaptiveTilingThreshold: 0.5
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  m_Points:
-    m_Paths:
-    - - {x: 0.099999994, y: 0.08}
-      - {x: -0.089999996, y: 0.08}
-      - {x: -0.12, y: 0.06}
-      - {x: -0.12, y: -0.06}
-      - {x: -0.089999996, y: -0.08}
-      - {x: 0.099999994, y: -0.08}
-  m_UseDelaunayMesh: 0
+  m_Size: {x: 0.2, y: 0.2}
+  m_EdgeRadius: 0
 --- !u!1 &135409133
 GameObject:
   m_ObjectHideFlags: 0
