@@ -1,0 +1,27 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c122ff7af69f4534292cbc0a206da540, type: 3}
+  m_Name: PistolaChefe(Sec)
+  m_EditorClassIdentifier: 
+  SpriteInimigo: {fileID: 0}
+  NomedoInimigo: 
+  vidaMax: 0
+  "Muni\xE7\xE3o": {fileID: 9190626253263483405, guid: 4f9a29de4330e904d9cd730c211e2e6b, type: 3}
+  SpriteDaArma: {fileID: 0}
+  CorDaArma: {r: 0, g: 0, b: 0, a: 0}
+  Cadencia: 1
+  Alcance: 8
+  Velocidade: 4
+  "Precis\xE3o": 1
+  Dano: 1
+  "Muni\xE7\xF5esPorDisparo": 1
+  distanciaDaArma: 0

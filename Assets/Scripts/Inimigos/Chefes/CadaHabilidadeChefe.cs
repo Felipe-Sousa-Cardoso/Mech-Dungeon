@@ -8,6 +8,8 @@ public class CadaHabilidadeChefe : MonoBehaviour, IDanificavel
     [SerializeField] Transform arma; //Trasform que contem o objeto da arma
     [SerializeField] float vida;
     [SerializeField] CadaArmaInimigos dadosDaArma; //contem os dados da arma principal da habilidade
+    [SerializeField] AtivarHabilidadeChefe habilidade; //contem os dados da habildade dessa arma
+    float indexHabilidade;
 
     Vector3 direção;
 
@@ -40,14 +42,23 @@ public class CadaHabilidadeChefe : MonoBehaviour, IDanificavel
             direção = (Jogador.position - arma.transform.position).normalized; //Define e normaliza o vetor direção, como o final menos o inicial
             arma.transform.right = new Vector3( direção.x,direção.y,0); //Aponta a arma para o jogador
 
-            if (indexCadencia < tempoEntreDisparos) //Usa tanto a cadencia como o efeito de gelo para modificar o tempo entre os disparos
+            if (indexCadencia < tempoEntreDisparos) //Usa a cadencia para modificar o tempo entre os disparos
             {
-                indexCadencia += Time.deltaTime;
+                indexCadencia += Time.deltaTime*habilidade.Mod;
             }
             else
             {
                 indexCadencia = 0;
                 Atirar();
+            }
+            if (indexHabilidade < 5)
+            {
+                indexHabilidade += Time.deltaTime;
+            }
+            else
+            {
+                indexHabilidade = 0;
+                habilidade.Ativar();
             }
 
         }
@@ -83,8 +94,6 @@ public class CadaHabilidadeChefe : MonoBehaviour, IDanificavel
             }
         }
     }
-
-
     public void Danificar(float Quanto)
     {
         vida -= Quanto;

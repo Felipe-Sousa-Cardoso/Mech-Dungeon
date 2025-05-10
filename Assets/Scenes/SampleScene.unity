@@ -290,7 +290,8 @@ MonoBehaviour:
   jogador: {fileID: 0}
   arma: {fileID: 2097863456}
   vida: 1
-  dadosDaArma: {fileID: 11400000, guid: a3ada8d8cd67e8a488be57264b1a7866, type: 2}
+  dadosDaArma: {fileID: 11400000, guid: f08d2aa96fe18ff468e403db6cf07da4, type: 2}
+  habilidade: {fileID: 8584487196209333525, guid: 103b89175de80d646b19ec4e40609a25, type: 3}
 --- !u!61 &66438938
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -1354,7 +1355,7 @@ Transform:
   m_GameObject: {fileID: 519420028}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: -16.21}
+  m_LocalPosition: {x: -15.01, y: -3.79, z: -16.21}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -4871,6 +4872,63 @@ CircleCollider2D:
   m_CompositeOrder: 0
   m_Offset: {x: 0, y: 0}
   m_Radius: 3
+--- !u!1001 &1290432321091977846
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 1246109934250700623, guid: 103b89175de80d646b19ec4e40609a25, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -12.337655
+      objectReference: {fileID: 0}
+    - target: {fileID: 1246109934250700623, guid: 103b89175de80d646b19ec4e40609a25, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -2.532472
+      objectReference: {fileID: 0}
+    - target: {fileID: 1246109934250700623, guid: 103b89175de80d646b19ec4e40609a25, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -0.036640134
+      objectReference: {fileID: 0}
+    - target: {fileID: 1246109934250700623, guid: 103b89175de80d646b19ec4e40609a25, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1246109934250700623, guid: 103b89175de80d646b19ec4e40609a25, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1246109934250700623, guid: 103b89175de80d646b19ec4e40609a25, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1246109934250700623, guid: 103b89175de80d646b19ec4e40609a25, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1246109934250700623, guid: 103b89175de80d646b19ec4e40609a25, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1246109934250700623, guid: 103b89175de80d646b19ec4e40609a25, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1246109934250700623, guid: 103b89175de80d646b19ec4e40609a25, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4208725206392175087, guid: 103b89175de80d646b19ec4e40609a25, type: 3}
+      propertyPath: m_Name
+      value: cadenciaChefe
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 103b89175de80d646b19ec4e40609a25, type: 3}
 --- !u!114 &1324902362821972318
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5495,3 +5553,4 @@ SceneRoots:
   - {fileID: 6945202280052885516}
   - {fileID: 788896555}
   - {fileID: 64194464}
+  - {fileID: 1290432321091977846}
