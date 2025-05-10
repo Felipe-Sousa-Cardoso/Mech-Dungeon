@@ -41,7 +41,7 @@ public class InimigoAtirador : BaseInimigos
 
                 Arma.transform.localPosition = direção * dadosDaArma.distanciaDaArma; //Posiciona a arma à uma distancia de 0.3
 
-                Arma.transform.right = direção; //Aponta a arma para o jogador
+                Arma.transform.right = new Vector3(direção.x, direção.y, 0); ; //Aponta a arma para o jogador
 
                 if (indexCadencia < tempoEntreDisparos/modificadorDeVelocidade) //Usa tanto a cadencia como o efeito de gelo para modificar o tempo
                                                                                 //entre os disparos 

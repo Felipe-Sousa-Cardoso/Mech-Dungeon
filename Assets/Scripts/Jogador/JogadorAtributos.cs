@@ -22,7 +22,7 @@ public class JogadorAtributos : MonoBehaviour, IDanificavel
     void Start()
     {
         anim = GetComponent<Animator>();
-        dados.MaxVida = 10;
+        dados.MaxVida = 40;
         dados.Vida = dados.MaxVida;
     }
     #endregion

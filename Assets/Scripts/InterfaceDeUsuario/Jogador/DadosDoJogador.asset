@@ -12,5 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dcfde86e6e402fd4bb2a3b379fec5700, type: 3}
   m_Name: DadosDoJogador
   m_EditorClassIdentifier: 
-  Vida: 10
-  MaxVida: 10
+  Vida: 40
+  MaxVida: 40
