@@ -124,6 +124,39 @@ CircleCollider2D:
   m_CorrespondingSourceObject: {fileID: 3759788815821017672, guid: 1e54eac625d9855499d047cae0f057b1, type: 3}
   m_PrefabInstance: {fileID: 6945202280052885516}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &64194463
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 64194464}
+  m_Layer: 0
+  m_Name: TodoOChefe
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &64194464
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 64194463}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -17.312084, y: -3.4782877, z: -0.042702105}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 3185315265745344862}
+  - {fileID: 935511068}
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &66438934
 GameObject:
   m_ObjectHideFlags: 0
@@ -152,8 +185,8 @@ Transform:
   m_GameObject: {fileID: 66438934}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.6, y: 0.6, z: 0}
-  m_LocalScale: {x: 1.5, y: 1.5, z: 1.5}
+  m_LocalPosition: {x: -1.76, y: -0.95, z: 0}
+  m_LocalScale: {x: 2, y: 2, z: 2}
   m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 935511068}
@@ -225,6 +258,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d939d5647d1bee84e911612e65494c4b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  "posi\xE7\xE3o": 0
   jogador: {fileID: 0}
 --- !u!58 &66438938
 CircleCollider2D:
@@ -261,7 +295,7 @@ CircleCollider2D:
   m_CompositeOperation: 0
   m_CompositeOrder: 0
   m_Offset: {x: 0, y: 0}
-  m_Radius: 1.2
+  m_Radius: 3
 --- !u!1 &135409133
 GameObject:
   m_ObjectHideFlags: 0
@@ -1766,6 +1800,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 935511068}
+  - component: {fileID: 935511069}
   m_Layer: 8
   m_Name: Habilidades
   m_TagString: Untagged
@@ -1781,14 +1816,27 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 935511067}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0.3120842, y: 2.4782877, z: 0.042702105}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 66438935}
-  m_Father: {fileID: 3185315265745344862}
+  m_Father: {fileID: 64194464}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &935511069
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 935511067}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5c915ecf34e854046bc0cd6206e7e008, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  chefe: {fileID: 3185315265745344862}
 --- !u!1 &955270074
 GameObject:
   m_ObjectHideFlags: 0
@@ -4861,15 +4909,14 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 306625893321722339}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -17, y: -1, z: 0}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0.3120842, y: 2.4782877, z: 0.042702105}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 2516653595370607656}
   - {fileID: 7379758517217511412}
-  - {fileID: 935511068}
-  m_Father: {fileID: 0}
+  m_Father: {fileID: 64194464}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &3909873243257073711
 GameObject:
@@ -5337,4 +5384,4 @@ SceneRoots:
   - {fileID: 1950045331}
   - {fileID: 6945202280052885516}
   - {fileID: 788896555}
-  - {fileID: 3185315265745344862}
+  - {fileID: 64194464}

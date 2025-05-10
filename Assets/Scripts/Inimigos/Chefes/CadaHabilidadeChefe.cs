@@ -3,12 +3,13 @@ using UnityEngine;
 
 public class CadaHabilidadeChefe : MonoBehaviour
 {
+    [SerializeField] int posição; //Cada uma das 5 possiveis posições da arma
     [SerializeField] Transform jogador;
+
     Vector3 direção;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        
     }
 
     // Update is called once per frame
@@ -23,6 +24,7 @@ public class CadaHabilidadeChefe : MonoBehaviour
         {
             transform.right = Vector3.right;
         }
+
         
     }
 
