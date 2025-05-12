@@ -1,7 +1,7 @@
-using System.Collections;
 using UnityEngine;
+using System.Collections;
 
-public class ChefeCadencia : AtivarHabilidadeChefe
+public class ChefeDano : AtivarHabilidadeChefe
 {
     public override void Ativar()
     {
@@ -11,8 +11,8 @@ public class ChefeCadencia : AtivarHabilidadeChefe
 
     IEnumerator buff()
     {
-        modCadencia += 1;
+        ModDano += 1;
         yield return new WaitForSeconds(3);
-        modCadencia -= 1;
+        ModDano -= 1;
     }
 }

@@ -7,9 +7,16 @@ public class CadaHabilidadeChefe : MonoBehaviour, IDanificavel
     [SerializeField] Transform jogador;
     [SerializeField] Transform arma; //Trasform que contem o objeto da arma
     [SerializeField] float vida;
+
+    [SerializeField] SpriteRenderer spriteDaHabilidade;
     [SerializeField] CadaArmaInimigos dadosDaArma; //contem os dados da arma principal da habilidade
-    [SerializeField] AtivarHabilidadeChefe habilidade; //contem os dados da habildade dessa arma
-    float indexHabilidade;
+
+    [SerializeField] AtivarHabilidadeChefe habilidade; //contem os dados da habildade dessa arma, precisa ser instanciado para funcionar corretamente
+
+    [SerializeField] AtivarHabilidadeChefe habilidadeinstanciada; //variável que armazena o objeto que executa a mecanica da habilidade
+
+
+    [SerializeField] float indexHabilidade;
 
     Vector3 direção;
 
@@ -21,6 +28,13 @@ public class CadaHabilidadeChefe : MonoBehaviour, IDanificavel
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
+        spriteDaHabilidade.color = dadosDaArma.CorDaArma;
+        if (habilidade)
+        {
+            habilidadeinstanciada = Instantiate(habilidade, transform);
+        }
+        
+
         switch (posição)
         {
             case 0: transform.localPosition = new Vector2(0.6f,0.6f); break;
@@ -44,21 +58,25 @@ public class CadaHabilidadeChefe : MonoBehaviour, IDanificavel
 
             if (indexCadencia < tempoEntreDisparos) //Usa a cadencia para modificar o tempo entre os disparos
             {
-                indexCadencia += Time.deltaTime*habilidade.Mod;
+                indexCadencia += Time.deltaTime* habilidadeinstanciada.ModCadencia;
             }
             else
             {
                 indexCadencia = 0;
                 Atirar();
             }
-            if (indexHabilidade < 5)
+            if (indexHabilidade < 5) //A primeira ativação da habilidade ocorre nos primeiros 5 segundo
             {
                 indexHabilidade += Time.deltaTime;
             }
             else
             {
-                indexHabilidade = 0;
-                habilidade.Ativar();
+                indexHabilidade = -3; //Da segunda em diante ocorrem de 8 em 8 segundos
+                if (habilidadeinstanciada)
+                {
+                    habilidadeinstanciada.Ativar();
+                }
+                
             }
 
         }
@@ -86,7 +104,7 @@ public class CadaHabilidadeChefe : MonoBehaviour, IDanificavel
                 obj.GetComponent<Rigidbody2D>().linearVelocity = direçãoFinal * dadosDaArma.Velocidade;
                 //Adiciona uma velocidade para o projétil
 
-                obj.GetComponent<MuniçãoInimigos>().Dano = dadosDaArma.Dano;
+                obj.GetComponent<MuniçãoInimigos>().Dano = dadosDaArma.Dano*habilidadeinstanciada.ModDano;
 
                 Destroy(obj, (dadosDaArma.Alcance - dadosDaArma.distanciaDaArma) / dadosDaArma.Velocidade);
                 //Calcula o tempo de vida do projétil como a divsão do alcance pela velociade, se caso o obj já tiver sido destruido essa

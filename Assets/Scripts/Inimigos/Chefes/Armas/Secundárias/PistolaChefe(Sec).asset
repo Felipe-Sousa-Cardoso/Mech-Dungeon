@@ -15,13 +15,14 @@ MonoBehaviour:
   SpriteInimigo: {fileID: 0}
   NomedoInimigo: 
   vidaMax: 0
-  "Muni\xE7\xE3o": {fileID: 9190626253263483405, guid: 4f9a29de4330e904d9cd730c211e2e6b, type: 3}
   SpriteDaArma: {fileID: 0}
-  CorDaArma: {r: 0, g: 0, b: 0, a: 0}
+  distanciaDaArma: 0
+  "Muni\xE7\xE3o": {fileID: 9190626253263483405, guid: 4f9a29de4330e904d9cd730c211e2e6b, type: 3}
+  CorDaArma: {r: 1, g: 0.25943398, b: 0.8726135, a: 1}
   Cadencia: 1
   Alcance: 8
   Velocidade: 4
   "Precis\xE3o": 1
   Dano: 1
   "Muni\xE7\xF5esPorDisparo": 1
-  distanciaDaArma: 0
+  CorDaParticula: {r: 0, g: 0, b: 0, a: 0}
