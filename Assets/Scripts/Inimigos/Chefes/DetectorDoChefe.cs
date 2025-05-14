@@ -10,7 +10,7 @@ public class DetectorDoChefe : MonoBehaviour
     }
     protected void OnTriggerEnter2D(Collider2D collision)//Quando um jogador entra na colisão define a variável 
     {
-        if (collision.CompareTag("Jogador"))
+        if (collision.CompareTag("Jogador")&&habilidade)
         {
             habilidade.Jogador = collision.transform;
         }

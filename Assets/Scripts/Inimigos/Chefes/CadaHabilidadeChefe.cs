@@ -5,7 +5,7 @@ public class CadaHabilidadeChefe : MonoBehaviour, IDanificavel
 {
     ParticleSystem ps;
 
-    [SerializeField] int posição; //Cada uma das 5 possiveis posições da arma
+    [SerializeField] int posição; //Cada uma das 4 possiveis posições da arma
     [SerializeField] Transform jogador;
     [SerializeField] Transform arma; //Trasform que contem o objeto da arma
     [SerializeField] float vida;
@@ -25,22 +25,31 @@ public class CadaHabilidadeChefe : MonoBehaviour, IDanificavel
 
     public Transform Jogador { get => jogador; set => jogador = value; }
     public AtivarHabilidadeChefe Habilidadeinstanciada { get => habilidadeinstanciada; set => habilidadeinstanciada = value; }
+    public int Posição { get => posição; set => posição = value; }
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        ps = GetComponent<ParticleSystem>();
+        if (Random.Range(1, 3) == 1)
+        {
+            habilidade = Resources.Load<AtivarHabilidadeChefe>("Inimigos/HabilidadesChefe/ChefeCadencia");
+        }
+        else
+        {
+            habilidade = Resources.Load<AtivarHabilidadeChefe>("Inimigos/HabilidadesChefe/ChefeDano");
+        }
+        ps = GetComponent<ParticleSystem>(); 
 
-        GetComponentInParent<TodasAsHabilidadesChefe>().TodasAsHabilidades.Add(this);
 
         spriteDaHabilidade.color = dadosDaArma.CorDaArma;
+
         if (habilidade)
         {
-            habilidadeinstanciada = Instantiate(habilidade, transform);
+            habilidadeinstanciada = Instantiate(habilidade, transform);//instancia a habilidade para que ela possa funcionar corretamente
         }
         
 
-        switch (posição)
+        switch (Posição) //Usa o valor da posição para ficar na posição correta
         {
             case 0: transform.localPosition = new Vector2(0.6f,0.6f); break;
             case 1: transform.localPosition = new Vector2(0.6f, -0.6f); break;
@@ -53,10 +62,9 @@ public class CadaHabilidadeChefe : MonoBehaviour, IDanificavel
         }
     }
 
-    // Update is called once per frame
     void Update()
     {
-        if (Jogador)
+        if (Jogador && habilidadeinstanciada) // verifica se a habilidade foi instanciada corretamente e se o jogador está dentro do detector
         {
             direção = (Jogador.position - arma.transform.position).normalized; //Define e normaliza o vetor direção, como o final menos o inicial
             arma.transform.right = new Vector3( direção.x,direção.y,0); //Aponta a arma para o jogador
@@ -70,16 +78,11 @@ public class CadaHabilidadeChefe : MonoBehaviour, IDanificavel
                 indexCadencia = 0;
                 Atirar();
             }
-
-
         }
-        else
+        else //Para inalizar que o jogador n foi detectado, todas as armas apontam para frente
         {
             arma.transform.right = Vector3.right; 
         }
-        
-
-
     }
     protected virtual void Atirar()
     {
@@ -117,15 +120,19 @@ public class CadaHabilidadeChefe : MonoBehaviour, IDanificavel
     [System.Obsolete]
     public void Ativar()
     {
-        ps.Play();
-        habilidadeinstanciada.Ativar();
-        ps.startColor = habilidadeinstanciada.Cor;
+        if (habilidadeinstanciada)
+        {
+            ps.Play();
+            habilidadeinstanciada.Ativar();
+            ps.startColor = habilidadeinstanciada.Cor;
+        }
     }
+        
     private void OnDestroy()
     {
         if (GetComponentInParent<TodasAsHabilidadesChefe>() != null)
         {
-            GetComponentInParent<TodasAsHabilidadesChefe>().TodasAsHabilidades.Remove(this);
+            GetComponentInParent<TodasAsHabilidadesChefe>().TodasAsHabilidades.Remove(this); //Se remove da lista que tinha sido adicionado anteriormente
         }
        
     }
