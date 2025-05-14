@@ -6,13 +6,13 @@ public class ChefeDano : AtivarHabilidadeChefe
     public override void Ativar()
     {
         StartCoroutine(buff());
-        print("sim");
+        cor = Color.red;
     }
 
     IEnumerator buff()
     {
-        ModDano += 1;
+        modDano += 1;
         yield return new WaitForSeconds(3);
-        ModDano -= 1;
+        modDano -= 1;
     }
 }

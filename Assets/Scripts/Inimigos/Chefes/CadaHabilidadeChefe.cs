@@ -3,20 +3,20 @@ using UnityEngine;
 
 public class CadaHabilidadeChefe : MonoBehaviour, IDanificavel
 {
+    ParticleSystem ps;
+
     [SerializeField] int posição; //Cada uma das 5 possiveis posições da arma
     [SerializeField] Transform jogador;
     [SerializeField] Transform arma; //Trasform que contem o objeto da arma
     [SerializeField] float vida;
 
     [SerializeField] SpriteRenderer spriteDaHabilidade;
+
     [SerializeField] CadaArmaInimigos dadosDaArma; //contem os dados da arma principal da habilidade
 
     [SerializeField] AtivarHabilidadeChefe habilidade; //contem os dados da habildade dessa arma, precisa ser instanciado para funcionar corretamente
 
     [SerializeField] AtivarHabilidadeChefe habilidadeinstanciada; //variável que armazena o objeto que executa a mecanica da habilidade
-
-
-    [SerializeField] float indexHabilidade;
 
     Vector3 direção;
 
@@ -24,10 +24,15 @@ public class CadaHabilidadeChefe : MonoBehaviour, IDanificavel
     float tempoEntreDisparos;
 
     public Transform Jogador { get => jogador; set => jogador = value; }
+    public AtivarHabilidadeChefe Habilidadeinstanciada { get => habilidadeinstanciada; set => habilidadeinstanciada = value; }
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
+        ps = GetComponent<ParticleSystem>();
+
+        GetComponentInParent<TodasAsHabilidadesChefe>().TodasAsHabilidades.Add(this);
+
         spriteDaHabilidade.color = dadosDaArma.CorDaArma;
         if (habilidade)
         {
@@ -65,19 +70,7 @@ public class CadaHabilidadeChefe : MonoBehaviour, IDanificavel
                 indexCadencia = 0;
                 Atirar();
             }
-            if (indexHabilidade < 5) //A primeira ativação da habilidade ocorre nos primeiros 5 segundo
-            {
-                indexHabilidade += Time.deltaTime;
-            }
-            else
-            {
-                indexHabilidade = -3; //Da segunda em diante ocorrem de 8 em 8 segundos
-                if (habilidadeinstanciada)
-                {
-                    habilidadeinstanciada.Ativar();
-                }
-                
-            }
+
 
         }
         else
@@ -119,5 +112,21 @@ public class CadaHabilidadeChefe : MonoBehaviour, IDanificavel
         {
             Destroy(gameObject, 0.3f);
         }
+    }
+
+    [System.Obsolete]
+    public void Ativar()
+    {
+        ps.Play();
+        habilidadeinstanciada.Ativar();
+        ps.startColor = habilidadeinstanciada.Cor;
+    }
+    private void OnDestroy()
+    {
+        if (GetComponentInParent<TodasAsHabilidadesChefe>() != null)
+        {
+            GetComponentInParent<TodasAsHabilidadesChefe>().TodasAsHabilidades.Remove(this);
+        }
+       
     }
 }

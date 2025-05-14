@@ -6,7 +6,7 @@ public class ChefeCadencia : AtivarHabilidadeChefe
     public override void Ativar()
     {
         StartCoroutine(buff());
-        print("sim");
+        cor = Color.yellow;
     }
 
     IEnumerator buff()
