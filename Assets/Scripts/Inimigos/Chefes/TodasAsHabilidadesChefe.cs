@@ -58,11 +58,8 @@ public class TodasAsHabilidadesChefe : MonoBehaviour
     {
         EmbaralharLista(numeros);
         int i = Random.Range(1, 5); //Cria um inteiro entre 1 e 4
-        print(i);
         for (int j = 0; j < i; j++)
         {
-            print(j);
-            TodasAsHabilidades.Add(prefab);//Coloca as habilidades na lista
 
             CadaHabilidadeChefe obj = Instantiate(prefab,this.transform);//instancia cada prefab como um filho do trasform dessa classe
 

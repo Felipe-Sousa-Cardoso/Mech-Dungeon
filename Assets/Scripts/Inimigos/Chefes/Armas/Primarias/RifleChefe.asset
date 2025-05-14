@@ -16,12 +16,13 @@ MonoBehaviour:
   NomedoInimigo: 
   vidaMax: 40
   SpriteDaArma: {fileID: 21300000, guid: e493b49d96c7b97499a3d5eefd19f5be, type: 3}
-  CorDaArma: {r: 1, g: 0.4292453, b: 0.4292453, a: 1}
   distanciaDaArma: 0.9
   "Muni\xE7\xE3o": {fileID: 9190626253263483405, guid: bfdf1c111f6734345ada0af39520a48d, type: 3}
-  Cadencia: 0
+  CorDaArma: {r: 1, g: 0.4292453, b: 0.4292453, a: 1}
+  Cadencia: 1
   Alcance: 5
   Velocidade: 7
   "Precis\xE3o": 5
   Dano: 5
   "Muni\xE7\xF5esPorDisparo": 1
+  CorDaParticula: {r: 0, g: 0, b: 0, a: 0}

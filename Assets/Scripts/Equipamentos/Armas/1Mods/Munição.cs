@@ -24,7 +24,11 @@ public class Munição : MonoBehaviour
         {
             AoDano(collision);
         }
-        
+        if(collision.gameObject.CompareTag("Paredes"))
+        {
+            Destroy(gameObject);
+        }
+
     }
     #region AoDano
     public void AoDano(Collision2D col)

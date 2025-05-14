@@ -15,5 +15,9 @@ public class MuniçãoInimigos : MonoBehaviour
 
             Destroy(gameObject); //Destroi a munição quando ela atinge o jogador
         }
+        if (collision.CompareTag("Paredes"))
+        {
+            Destroy(gameObject);
+        }
     }
 }

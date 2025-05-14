@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   SpriteInimigo: {fileID: 0}
   NomedoInimigo: 
-  vidaMax: 0
+  vidaMax: 10
   SpriteDaArma: {fileID: 0}
   distanciaDaArma: 0
   "Muni\xE7\xE3o": {fileID: 9190626253263483405, guid: 4f9a29de4330e904d9cd730c211e2e6b, type: 3}

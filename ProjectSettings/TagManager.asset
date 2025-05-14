@@ -8,6 +8,7 @@ TagManager:
   - Inimigo
   - Detector
   - Escudos
+  - Paredes
   layers:
   - Default
   - TransparentFX

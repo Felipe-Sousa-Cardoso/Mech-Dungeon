@@ -30,6 +30,7 @@ public class CadaHabilidadeChefe : MonoBehaviour, IDanificavel
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
+        GetComponentInParent<TodasAsHabilidadesChefe>().TodasAsHabilidades.Add(this);
         if (Random.Range(1, 3) == 1)
         {
             habilidade = Resources.Load<AtivarHabilidadeChefe>("Inimigos/HabilidadesChefe/ChefeCadencia");
