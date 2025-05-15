@@ -7,6 +7,7 @@ using UnityEngine.InputSystem;
 
 public class ControladorDeInput : MonoBehaviour
 {
+
     // Variáveis de armazenam o valor de cada input
     Vector2 MovementInput;
     bool dash;
@@ -22,6 +23,7 @@ public class ControladorDeInput : MonoBehaviour
         if (instance == null)
         {
             instance = this;
+            DontDestroyOnLoad(gameObject);
         }
         else
         {
@@ -29,7 +31,7 @@ public class ControladorDeInput : MonoBehaviour
         }
     }
     #endregion
-#region Inputs
+    #region Inputs
     //Cria cada input e seu respectivo método de acesso
     void OnMove(InputValue valor){
         MovementInput = valor.Get<Vector2>();

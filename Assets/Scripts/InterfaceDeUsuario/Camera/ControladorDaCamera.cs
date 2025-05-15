@@ -3,6 +3,14 @@ using UnityEngine;
 public class ControladorDaCamera : MonoBehaviour
 {
     [SerializeField] Transform jogador;
+   
+    private void Start()
+    {
+        if (FindFirstObjectByType<JogadorAtributos>())
+        {
+            jogador = FindFirstObjectByType<JogadorAtributos>().transform;
+        }  
+    }
     void LateUpdate()
     {
         if (jogador)

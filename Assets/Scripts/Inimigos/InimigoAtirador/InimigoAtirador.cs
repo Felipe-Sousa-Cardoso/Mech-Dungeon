@@ -1,6 +1,7 @@
 using UnityEditor;
 using UnityEditor.SceneManagement;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UIElements;
 
 public class InimigoAtirador : BaseInimigos
@@ -89,5 +90,7 @@ public class InimigoAtirador : BaseInimigos
     }
 
    
-    
+
+
+
 }

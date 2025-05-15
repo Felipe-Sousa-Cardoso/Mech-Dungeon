@@ -561,6 +561,7 @@ GameObject:
   - component: {fileID: 320238772}
   - component: {fileID: 320238771}
   - component: {fileID: 320238770}
+  - component: {fileID: 320238774}
   m_Layer: 5
   m_Name: Canvas
   m_TagString: Untagged
@@ -655,6 +656,18 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
+--- !u!114 &320238774
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 320238769}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bd8c3192c70af3f449443bff83c6d41a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &349651485
 GameObject:
   m_ObjectHideFlags: 0
@@ -1192,7 +1205,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e79daae74895a9449af6675f81011daa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  jogador: {fileID: 2014951223}
+  jogador: {fileID: 0}
 --- !u!61 &523921523 stripped
 BoxCollider2D:
   m_CorrespondingSourceObject: {fileID: 5267674154256601610, guid: c33298c7539f8fa40b17c0f3c3c46599, type: 3}
@@ -10158,8 +10171,8 @@ SceneRoots:
   - {fileID: 799146535}
   - {fileID: 519420032}
   - {fileID: 718483581}
-  - {fileID: 2014951223}
   - {fileID: 420781611}
+  - {fileID: 2014951223}
   - {fileID: 320238773}
   - {fileID: 2438105513241554043}
   - {fileID: 5147353802256733893}

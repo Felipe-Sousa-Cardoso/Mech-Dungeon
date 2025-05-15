@@ -6,6 +6,8 @@ public class JogadorAtributos : MonoBehaviour, IDanificavel
 {
     Animator anim;
 
+    private static JogadorAtributos instancia;
+
     bool armaAtiva = true; //Verifica se o jogador pode atirar
     [SerializeField] DadosDoJogador dados;
 
@@ -18,7 +20,18 @@ public class JogadorAtributos : MonoBehaviour, IDanificavel
         get { return armaAtiva; }
         set { armaAtiva = value; }
     }
-
+    void Awake()
+    {
+        if (instancia == null)
+        {
+            instancia = this;
+            DontDestroyOnLoad(gameObject);
+        }
+        else
+        {
+            Destroy(gameObject); // já existe, destrói o duplicado
+        }
+    }
     void Start()
     {
         anim = GetComponent<Animator>();

@@ -1,17 +1,10 @@
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class InimigoChefe : MonoBehaviour
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
+    private void OnDestroy()
     {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-
+        SceneManager.LoadScene(1);
     }
 }
