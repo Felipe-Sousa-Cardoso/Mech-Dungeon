@@ -178,12 +178,12 @@ using UnityEngine;
         }
 
     }//mostra as cartas as cartas, é chamado externamente
-    public void EmbaralharArray<T>(T[] lista) //embaralha a lista, serve para qualquer array, é chamado externamente
+    public void EmbaralharArray<T>(T[] Array) //embaralha o array, serve para qualquer array, é chamado externamente
     {
-        for (int i = 0; i < lista.Length; i++)
+        for (int i = 0; i < Array.Length; i++)
         {
-            int rand = Random.Range(i, lista.Length);
-            (lista[i], lista[rand]) = (lista[rand], lista[i]);
+            int rand = Random.Range(i, Array.Length);
+            (Array[i], Array[rand]) = (Array[rand], Array[i]);
         }
     }
     public void ArmasReset() //Usado para limpar as armas de seus atributos no começo de uma jogatina, chamado externamente
