@@ -24,15 +24,14 @@ public class GeradorAleatorio : MonoBehaviour
     {       
         for (int i = 0; i < maximoDeCorredores; i++) //Repete para cada corredor
         {
-            tamanhoDeCadaCorredor = Random.Range(4, 8);
+            tamanhoDeCadaCorredor = Random.Range(6, 10);
             Vector2 posiçãoInicial = Vector2.zero;
             Vector2 posiçãoAtual = Vector2.zero;
             int indexDireção = i;
             int TamanhoAtualDoCorredor = 1;
             for (int j = 1; j <= tamanhoDeCadaCorredor; j++) //Para cada sala no corredor instancia com uma posição na direção inicial do corredor
             {
-                print("TentativablocoColocado");
-                if (TamanhoAtualDoCorredor>2&&Random.Range(1,10)>4)
+                if (TamanhoAtualDoCorredor>2&&Random.Range(1,10)>2)
                 {
                     indexDireção = indexDireção + (Random.value < 0.5f ? -1 : 1);
                     
@@ -49,8 +48,8 @@ public class GeradorAleatorio : MonoBehaviour
                 {
                     Instantiate(cadaSala, posiçãoAtual, Quaternion.identity);
                     salasOcupadas.Add(posiçãoAtual); //Adiciona a posição atual na lista de posições ocupadas
-                    print("blocoColocado");
-                }            
+                }
+                else { j--;  }
                 TamanhoAtualDoCorredor++;
             }         
         }
