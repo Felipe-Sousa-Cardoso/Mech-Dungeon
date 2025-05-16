@@ -7,7 +7,9 @@ public class Seed : MonoBehaviour
 
     private void Awake()
     {
-        atualSeed = seed.GetHashCode();
-        Random.InitState(atualSeed);
+        atualSeed = seed.GetHashCode(); //Trasforma qualquer string em um numero inteiro
+
+        Random.InitState(atualSeed); //Usa esse numero inteiro para determinar o estado inicial do Random, fazendo que qualquer aleatoriedade baseada
+        //nesse método seja deterministica
     }
 }

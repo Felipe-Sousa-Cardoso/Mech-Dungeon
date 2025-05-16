@@ -255,7 +255,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4f534396f03f2764891d7e077ec83099, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  seed: adjaslk
+  seed: 16545430435
   atualSeed: 0
 --- !u!4 &927032239
 Transform:
@@ -287,11 +287,7 @@ MonoBehaviour:
   cadaSala: {fileID: 5227448754027436769, guid: faccbee60f529a445bb5b36c4fb6c401, type: 3}
   maximoDeCorredores: 0
   tamanhoDeCadaCorredor: 0
-  "dire\xE7oes":
-  - {x: 1, y: 0}
-  - {x: -1, y: 0}
-  - {x: 0, y: 1}
-  - {x: 0, y: -1}
+  salasOcupadas: []
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0

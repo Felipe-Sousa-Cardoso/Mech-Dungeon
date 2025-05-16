@@ -3,32 +3,56 @@ using UnityEngine;
 
 public class GeradorAleatorio : MonoBehaviour
 {
-    [SerializeField] GameObject cadaSala;
+    [SerializeField] GameObject cadaSala; //Objeto de cada sala
     [SerializeField] int maximoDeCorredores;
     [SerializeField] int tamanhoDeCadaCorredor;
-    List<Vector2> direçoes = new List<Vector2> { new Vector2(1, 0), new Vector2(-1, 0), new Vector2(0, 1), new Vector2(0, -1) };
+    List<Vector2> direçoes = new List<Vector2> { Vector2.right, Vector2.up, Vector2.left, Vector2.down };
+    [SerializeField] List<Vector2> salasOcupadas;
+
+
     void Start()
     {
-        GameObject obj = Instantiate(cadaSala, Vector3.zero, Quaternion.identity);
+        GameObject obj = Instantiate(cadaSala, Vector3.zero, Quaternion.identity); //Instancia a sala inicial e pinta ela de vermelho
         obj.GetComponent<SpriteRenderer>().color = Color.red;
-        EmbaralharLista(direçoes);
-        maximoDeCorredores = Random.Range(2, 5);
-        
+        salasOcupadas.Add(Vector2.zero);
+
+        maximoDeCorredores = Random.Range(3, 5);
 
         CriarCorredores();
     }
     void CriarCorredores()
-    {
-        
-        for (int i = 0; i < maximoDeCorredores; i++)
+    {       
+        for (int i = 0; i < maximoDeCorredores; i++) //Repete para cada corredor
         {
+            tamanhoDeCadaCorredor = Random.Range(4, 8);
+            Vector2 posiçãoInicial = Vector2.zero;
             Vector2 posiçãoAtual = Vector2.zero;
-            tamanhoDeCadaCorredor = Random.Range(1, 5);
-            for (int j = 1; j <= tamanhoDeCadaCorredor; j++)
+            int indexDireção = i;
+            int TamanhoAtualDoCorredor = 1;
+            for (int j = 1; j <= tamanhoDeCadaCorredor; j++) //Para cada sala no corredor instancia com uma posição na direção inicial do corredor
             {
-                Instantiate(cadaSala, posiçãoAtual + direçoes[i]*j, Quaternion.identity);
-            }
-            
+                print("TentativablocoColocado");
+                if (TamanhoAtualDoCorredor>2&&Random.Range(1,10)>4)
+                {
+                    indexDireção = indexDireção + (Random.value < 0.5f ? -1 : 1);
+                    
+
+                    if (indexDireção > 3) { indexDireção = 0; }
+                    if (indexDireção < 0) { indexDireção = 3; }
+
+
+                    TamanhoAtualDoCorredor = 1;
+                    posiçãoInicial = posiçãoAtual;
+                }
+                posiçãoAtual = posiçãoInicial + direçoes[indexDireção] * TamanhoAtualDoCorredor;
+                if (!salasOcupadas.Contains(posiçãoAtual))
+                {
+                    Instantiate(cadaSala, posiçãoAtual, Quaternion.identity);
+                    salasOcupadas.Add(posiçãoAtual); //Adiciona a posição atual na lista de posições ocupadas
+                    print("blocoColocado");
+                }            
+                TamanhoAtualDoCorredor++;
+            }         
         }
     }
     public void EmbaralharLista<T>(List<T> lista) //embaralha a lista, serve para qualquer lista, é chamado externamente
