@@ -8,21 +8,28 @@ public class GeradorAleatorio : MonoBehaviour
     [SerializeField] GameObject cadaSala; //Objeto de cada sala
     [SerializeField] int maximoDeCorredores;
     [SerializeField] int tamanhoDeCadaCorredor;
-    List<Vector2> direçoes = new List<Vector2> { Vector2.right, Vector2.up, Vector2.left, Vector2.down };
+    List<Vector2> direçoes = new List<Vector2> { new Vector2 (17f,0), new Vector2(0, 10f), new Vector2(-17f, 0), new Vector2(0, -10)};
     [SerializeField] List<Vector2> posiçõesOcupadas = new List<Vector2>();
     [SerializeField] List<(Vector2 , CadaSala)> salasOcupadas = new List<(Vector2 posição, CadaSala sala)>();
+
+    [SerializeField] Transform Grid;
 
 
     void Start()
     {
-        GameObject obj = Instantiate(cadaSala, Vector3.zero, Quaternion.identity); //Instancia a sala inicial e pinta ela de vermelho
-        obj.GetComponent<SpriteRenderer>().color = Color.red;
-        posiçõesOcupadas.Add(Vector2.zero);
-
         maximoDeCorredores = UnityEngine.Random.Range(3, 5);
 
+        CriarPrimeiraSala();       
         CriarCorredores();
         SetarVizinhos();
+    }
+
+    void CriarPrimeiraSala()
+    {
+        GameObject obj = Instantiate(cadaSala, Vector3.zero, Quaternion.identity,Grid); 
+        posiçõesOcupadas.Add(Vector2.zero);
+        CadaSala sala = obj.GetComponent<CadaSala>();
+        salasOcupadas.Add((Vector2.zero, sala));
     }
     void CriarCorredores()
     {       
@@ -39,7 +46,7 @@ public class GeradorAleatorio : MonoBehaviour
             int TamanhoAtualDoCorredor = 1;
             for (int j = 1; j <= tamanhoDeCadaCorredor; j++) //Para cada sala no corredor instancia com uma posição alterada 
             {
-                if (TamanhoAtualDoCorredor>2&&UnityEngine.Random.Range(1,10)>2) //Curvas
+                if (TamanhoAtualDoCorredor>2&&UnityEngine.Random.Range(1,10)>3) //Curvas
                     //As curvas tem 70% de chance de ocorrer, e ocorrem quando o corredor tem pelo menos 2 blocos
                 {
                     indexDireção = indexDireção + (UnityEngine.Random.value < 0.5f ? -1 : 1);
@@ -59,7 +66,7 @@ public class GeradorAleatorio : MonoBehaviour
 
                 if (!posiçõesOcupadas.Contains(posiçãoAtual))
                 {
-                    GameObject obj = Instantiate(cadaSala, posiçãoAtual, Quaternion.identity);
+                    GameObject obj = Instantiate(cadaSala, posiçãoAtual, Quaternion.identity,Grid);
                     posiçõesOcupadas.Add(posiçãoAtual); //Adiciona a posição atual na lista de posições ocupadas
                     CadaSala sala = obj.GetComponent<CadaSala>();
                     salasOcupadas.Add((posiçãoAtual, sala)); //Adiciona cada posição e sua respectitiva sala                 

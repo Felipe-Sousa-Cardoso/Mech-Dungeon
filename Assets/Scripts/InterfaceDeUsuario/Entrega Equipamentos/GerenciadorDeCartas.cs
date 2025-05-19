@@ -23,7 +23,7 @@ using UnityEngine;
     UsoArma[] ListaDeArmas; //Usada para limpar os atributos de todas as armas
     
 
-    void Start()
+    void Awake()
     {
         instancia = this;
     }
