@@ -8,12 +8,14 @@ public class GeradorAleatorio : MonoBehaviour
     [SerializeField] GameObject cadaSala; //Objeto de cada sala
     [SerializeField] int maximoDeCorredores;
     [SerializeField] int tamanhoDeCadaCorredor;
-    List<Vector2> direçoes = new List<Vector2> { new Vector2 (17f,0), new Vector2(0, 10f), new Vector2(-17f, 0), new Vector2(0, -10)};
+    List<Vector2> direçoes = new List<Vector2> { new Vector2 (17f,0), new Vector2(0, 11f), new Vector2(-17f, 0), new Vector2(0, -11)};
     [SerializeField] List<Vector2> posiçõesOcupadas = new List<Vector2>();
     [SerializeField] List<(Vector2 , CadaSala)> salasOcupadas = new List<(Vector2 posição, CadaSala sala)>();
 
     [SerializeField] Transform Grid;
+    [SerializeField] Vector2 posiçãoAtual;
 
+    public Vector2 PosiçãoAtual { get => posiçãoAtual; set => posiçãoAtual = value; }
 
     void Start()
     {
@@ -73,6 +75,7 @@ public class GeradorAleatorio : MonoBehaviour
                     if (sala)
                     {
                         sala.Posição = posiçãoAtual;
+                        sala.Gerador = this;
                     }                   
                 }
                 else { j--;} //caso a sala esteja ocupada repete essa iteração mais uma vez

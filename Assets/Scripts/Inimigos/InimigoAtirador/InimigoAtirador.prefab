@@ -168,7 +168,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 114428c11ee439b47bf967a56a4bf929, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  dadosDaArma: {fileID: 11400000, guid: 5a0c9dff161d51d48867fb53903c7adc, type: 2}
+  dadosDoInimigo: {fileID: 0}
   sr: {fileID: 1802301698194003253}
 --- !u!1 &7357239932574053727
 GameObject:
@@ -244,7 +244,7 @@ BoxCollider2D:
   m_CompositeOrder: 0
   m_Offset: {x: 0, y: 0}
   m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
+    border: {x: 0.03, y: 0.03, z: 0.03, w: 0.03}
     pivot: {x: 0.5, y: 0.5}
     oldSize: {x: 0.32, y: 0.32}
     newSize: {x: 0.32, y: 0.32}
@@ -370,12 +370,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e534fba08878ee440a22faf979035907, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  sr: {fileID: 2615842076161057624}
+  colisor: {fileID: 5267674154256601610}
   detector: {fileID: 4440603127840460956}
+  dados: {fileID: 11400000, guid: 5a0c9dff161d51d48867fb53903c7adc, type: 2}
   Jogador: {fileID: 0}
-  modificadorDeVelocidade: 0
-  "raioDeDetec\xE7\xE3o": 0
+  modificadorDeVelocidade: 1
   vida: 40
   danoDeContato: 0
   velocidade: 2
   Arma: {fileID: 8147922164784726418}
-  dadosDaArma: {fileID: 11400000, guid: 5a0c9dff161d51d48867fb53903c7adc, type: 2}

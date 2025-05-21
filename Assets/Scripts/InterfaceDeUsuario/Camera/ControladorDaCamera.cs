@@ -2,20 +2,22 @@ using UnityEngine;
 
 public class ControladorDaCamera : MonoBehaviour
 {
-    [SerializeField] Transform jogador;
-   
+    [SerializeField] GeradorAleatorio geradorAleatorio;
+    [SerializeField] Vector3 posição;
+
     private void Start()
     {
         if (FindFirstObjectByType<JogadorAtributos>())
         {
-            jogador = FindFirstObjectByType<JogadorAtributos>().transform;
+            geradorAleatorio = FindFirstObjectByType<GeradorAleatorio>();
         }  
     }
     void LateUpdate()
     {
-        if (jogador)
+        if (geradorAleatorio)
         {
-            transform.position = new Vector3( jogador.transform.position.x, jogador.transform.position.y,-10);
+
+            transform.position = new Vector3(geradorAleatorio.PosiçãoAtual.x, geradorAleatorio.PosiçãoAtual.y,-10);
         }
         
     }
