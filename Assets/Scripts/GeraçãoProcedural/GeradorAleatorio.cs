@@ -6,6 +6,8 @@ using UnityEngine;
 public class GeradorAleatorio : MonoBehaviour
 {
     [SerializeField] GameObject cadaSala; //Objeto de cada sala
+    [SerializeField] List<GameObject> interiores;
+
     [SerializeField] int maximoDeCorredores;
     [SerializeField] int tamanhoDeCadaCorredor;
     List<Vector2> direçoes = new List<Vector2> { new Vector2 (17f,0), new Vector2(0, 11f), new Vector2(-17f, 0), new Vector2(0, -11)};
@@ -32,12 +34,18 @@ public class GeradorAleatorio : MonoBehaviour
         posiçõesOcupadas.Add(Vector2.zero);
         CadaSala sala = obj.GetComponent<CadaSala>();
         salasOcupadas.Add((Vector2.zero, sala));
+        sala.Posição = posiçãoAtual;
+        sala.Gerador = this;
+        if (interiores[0])
+        {
+            sala.Interior = interiores[0];
+        }
     }
     void CriarCorredores()
     {       
         for (int i = 0; i < maximoDeCorredores; i++) //Repete para cada corredor
         {
-            tamanhoDeCadaCorredor = UnityEngine.Random.Range(6, 10);
+            tamanhoDeCadaCorredor = UnityEngine.Random.Range(3, 6);
             Vector2 posiçãoInicial = Vector2.zero;
             //define onde começa a ser intanciado a sala, é resetado em cada curva de cada corredor
             Vector2 posiçãoAtual = Vector2.zero;
@@ -68,6 +76,8 @@ public class GeradorAleatorio : MonoBehaviour
 
                 if (!posiçõesOcupadas.Contains(posiçãoAtual))
                 {
+                    float k = UnityEngine.Random.value; //Serve apenas para aumentar a aleatoriedade do randow abaixo
+
                     GameObject obj = Instantiate(cadaSala, posiçãoAtual, Quaternion.identity,Grid);
                     posiçõesOcupadas.Add(posiçãoAtual); //Adiciona a posição atual na lista de posições ocupadas
                     CadaSala sala = obj.GetComponent<CadaSala>();
@@ -76,6 +86,11 @@ public class GeradorAleatorio : MonoBehaviour
                     {
                         sala.Posição = posiçãoAtual;
                         sala.Gerador = this;
+                        int y = UnityEngine.Random.Range(1, interiores.Count);
+                        if (interiores[y])
+                        {
+                            sala.Interior = interiores[y];
+                        }                       
                     }                   
                 }
                 else { j--;} //caso a sala esteja ocupada repete essa iteração mais uma vez

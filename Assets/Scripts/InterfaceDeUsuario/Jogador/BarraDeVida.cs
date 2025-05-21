@@ -23,7 +23,7 @@ public class BarraDeVida : MonoBehaviour
 
         barraDeVida.rectTransform.localScale = new Vector3(novoX, escalaAtual.y, escalaAtual.z);
 
-        texto.text = dados.Vida + "/" + dados.MaxVida;
+        texto.text = dados.Vida + "/" + "\n" + dados.MaxVida;
     }
 
 }

@@ -13,6 +13,8 @@ GameObject:
   - component: {fileID: 6104100721024858740}
   - component: {fileID: 6927984260042186572}
   - component: {fileID: 1830602893497890083}
+  - component: {fileID: 4388051048582737826}
+  - component: {fileID: 117388457714548355}
   m_Layer: 0
   m_Name: PortaBaixo
   m_TagString: Untagged
@@ -256,6 +258,54 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!114 &4388051048582737826
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2245774345573517106}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a5ad89a8e3fa8e94286c3a06ad6c65a3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!58 &117388457714548355
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2245774345573517106}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_CompositeOperation: 0
+  m_CompositeOrder: 0
+  m_Offset: {x: 0, y: -5}
+  m_Radius: 0.5
 --- !u!1 &2775358992542530899
 GameObject:
   m_ObjectHideFlags: 0
@@ -269,6 +319,8 @@ GameObject:
   - component: {fileID: 673418352148687356}
   - component: {fileID: 837134372497434669}
   - component: {fileID: 1142592589423298342}
+  - component: {fileID: 3302351781676953093}
+  - component: {fileID: 2591320985111195924}
   m_Layer: 0
   m_Name: PortaDireita
   m_TagString: Untagged
@@ -512,6 +564,54 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!58 &3302351781676953093
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2775358992542530899}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_CompositeOperation: 0
+  m_CompositeOrder: 0
+  m_Offset: {x: 8, y: 0}
+  m_Radius: 0.5
+--- !u!114 &2591320985111195924
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2775358992542530899}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a5ad89a8e3fa8e94286c3a06ad6c65a3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &4619313212777817352
 GameObject:
   m_ObjectHideFlags: 0
@@ -525,6 +625,8 @@ GameObject:
   - component: {fileID: 8046821137745274306}
   - component: {fileID: 5775263085567721350}
   - component: {fileID: 8393293868940444789}
+  - component: {fileID: 335292714346512042}
+  - component: {fileID: 2757918331846680}
   m_Layer: 0
   m_Name: PortaEsquerda
   m_TagString: Untagged
@@ -768,6 +870,54 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!114 &335292714346512042
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4619313212777817352}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a5ad89a8e3fa8e94286c3a06ad6c65a3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!58 &2757918331846680
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4619313212777817352}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_CompositeOperation: 0
+  m_CompositeOrder: 0
+  m_Offset: {x: -8, y: 0}
+  m_Radius: 0.5
 --- !u!1 &5558367206414725391
 GameObject:
   m_ObjectHideFlags: 0
@@ -825,8 +975,11 @@ MonoBehaviour:
   - {fileID: 8952798425550020305}
   - {fileID: 4619313212777817352}
   - {fileID: 2245774345573517106}
-  interiores:
-  - {fileID: 1006907356310683014, guid: 2a191a0267ee0bd4c87981388bacde80, type: 3}
+  interior: {fileID: 0}
+  gerador: {fileID: 0}
+  quantidadeDeInimigos: 0
+  interiorInstanciado: {fileID: 0}
+  index: 0
   "posi\xE7\xE3o": {x: 0, y: 0}
 --- !u!156049354 &2878071428622352145
 Grid:
@@ -899,6 +1052,8 @@ GameObject:
   - component: {fileID: 7038540888572906163}
   - component: {fileID: 8983682737693807779}
   - component: {fileID: 4463737541425009275}
+  - component: {fileID: 6575772490999595481}
+  - component: {fileID: 5651124685492827242}
   m_Layer: 0
   m_Name: PortaCima
   m_TagString: Untagged
@@ -1142,6 +1297,54 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!114 &6575772490999595481
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8952798425550020305}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a5ad89a8e3fa8e94286c3a06ad6c65a3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!58 &5651124685492827242
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8952798425550020305}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_CompositeOperation: 0
+  m_CompositeOrder: 0
+  m_Offset: {x: 0, y: 5}
+  m_Radius: 0.5
 --- !u!1 &9153849226921669290
 GameObject:
   m_ObjectHideFlags: 0

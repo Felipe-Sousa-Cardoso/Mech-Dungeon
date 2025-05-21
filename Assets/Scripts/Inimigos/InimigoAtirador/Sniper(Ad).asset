@@ -10,18 +10,19 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c122ff7af69f4534292cbc0a206da540, type: 3}
-  m_Name: Pistola
+  m_Name: Sniper(Ad)
   m_EditorClassIdentifier: 
   SpriteInimigo: {fileID: 21300000, guid: 7fe02f6cb5c4b6647ba0f3b22cd802f0, type: 3}
   NomedoInimigo: 
-  vidaMax: 15
-  "Muni\xE7\xE3o": {fileID: 9190626253263483405, guid: 4f9a29de4330e904d9cd730c211e2e6b, type: 3}
+  vidaMax: 5
   SpriteDaArma: {fileID: 21300000, guid: e493b49d96c7b97499a3d5eefd19f5be, type: 3}
-  CorDaArma: {r: 0.9963192, g: 1, b: 0, a: 1}
-  Cadencia: 2.5
-  Alcance: 3
-  Velocidade: 7
-  "Precis\xE3o": 15
-  Dano: 2
-  "Muni\xE7\xF5esPorDisparo": 1
   distanciaDaArma: 0.3
+  "Muni\xE7\xE3o": {fileID: 9190626253263483405, guid: 4f9a29de4330e904d9cd730c211e2e6b, type: 3}
+  CorDaArma: {r: 1, g: 1, b: 1, a: 1}
+  Cadencia: 1
+  Alcance: 8
+  Velocidade: 10
+  "Precis\xE3o": 5
+  Dano: 3
+  "Muni\xE7\xF5esPorDisparo": 1
+  CorDaParticula: {r: 0, g: 0, b: 0, a: 0}
