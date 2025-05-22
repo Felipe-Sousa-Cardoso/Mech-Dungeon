@@ -975,10 +975,15 @@ MonoBehaviour:
   - {fileID: 8952798425550020305}
   - {fileID: 4619313212777817352}
   - {fileID: 2245774345573517106}
+  marcadores:
+  - {fileID: 1543763974097948834, guid: 04a21f2856018d249b6f820db835e533, type: 3}
+  materialDasPortas:
+  - {fileID: 2100000, guid: 975f8cbfced9c4e4cb5f7c1153ce4a22, type: 2}
   interior: {fileID: 0}
   gerador: {fileID: 0}
   quantidadeDeInimigos: 0
   interiorInstanciado: {fileID: 0}
+  tipoDeSala: 0
   index: 0
   "posi\xE7\xE3o": {x: 0, y: 0}
 --- !u!156049354 &2878071428622352145

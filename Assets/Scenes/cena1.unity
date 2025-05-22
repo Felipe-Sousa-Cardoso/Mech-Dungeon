@@ -1745,7 +1745,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4f534396f03f2764891d7e077ec83099, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  seed: 0,7482703
+  seed: 0,5996391
   atualSeed: 0
 --- !u!4 &927032239
 Transform:
@@ -1781,9 +1781,14 @@ MonoBehaviour:
   - {fileID: 1006907356310683014, guid: 5226ad03bd11f554e9498e0309c3be59, type: 3}
   - {fileID: 1006907356310683014, guid: 1ceadb4bf21cc66418d46b40f900e48d, type: 3}
   - {fileID: 1006907356310683014, guid: c5e5dd2c445d51949ae16c38849baa9c, type: 3}
+  SalasDeItem:
+  - {fileID: 1006907356310683014, guid: 720bb0c99ac098f4299b8f0bde8ab555, type: 3}
+  SalasDeBoss:
+  - {fileID: 1006907356310683014, guid: 88245893d76e8ec4a82cf2228c10c1db, type: 3}
   maximoDeCorredores: 0
   tamanhoDeCadaCorredor: 0
   "posi\xE7\xF5esOcupadas": []
+  "posi\xE7\xF5esOcupadasEspeciais": []
   Grid: {fileID: 2025198898}
   "posi\xE7\xE3oAtual": {x: 0, y: 0}
 --- !u!1 &953308717

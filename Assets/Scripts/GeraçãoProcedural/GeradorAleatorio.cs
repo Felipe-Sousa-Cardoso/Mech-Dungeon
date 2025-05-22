@@ -7,17 +7,22 @@ public class GeradorAleatorio : MonoBehaviour
 {
     [SerializeField] GameObject cadaSala; //Objeto de cada sala
     [SerializeField] List<GameObject> interiores;
+    [SerializeField] List<GameObject> SalasDeItem;
+    [SerializeField] List<GameObject> SalasDeBoss;
 
     [SerializeField] int maximoDeCorredores;
     [SerializeField] int tamanhoDeCadaCorredor;
     List<Vector2> direçoes = new List<Vector2> { new Vector2 (17f,0), new Vector2(0, 11f), new Vector2(-17f, 0), new Vector2(0, -11)};
     [SerializeField] List<Vector2> posiçõesOcupadas = new List<Vector2>();
     [SerializeField] List<(Vector2 , CadaSala)> salasOcupadas = new List<(Vector2 posição, CadaSala sala)>();
+    [SerializeField] List<Vector2> posiçõesOcupadasEspeciais = new List<Vector2>();
+    [SerializeField] List<(Vector2, CadaSala)> salasOcupadasEspeciais = new List<(Vector2 posição, CadaSala sala)>();
 
     [SerializeField] Transform Grid;
     [SerializeField] Vector2 posiçãoAtual;
 
     public Vector2 PosiçãoAtual { get => posiçãoAtual; set => posiçãoAtual = value; }
+    public List<Vector2> Direçoes { get => direçoes; set => direçoes = value; }
 
     void Start()
     {
@@ -26,7 +31,11 @@ public class GeradorAleatorio : MonoBehaviour
         CriarPrimeiraSala();       
         CriarCorredores();
         SetarVizinhos();
+        CriarSalaDeItens();
     }
+
+     
+    
 
     void CriarPrimeiraSala()
     {
@@ -72,7 +81,7 @@ public class GeradorAleatorio : MonoBehaviour
                     posiçãoInicial = posiçãoAtual;
                     //Faz com que o corredor coremeçe a ser gerado a partir da posição atual
                 }
-                posiçãoAtual = posiçãoInicial + direçoes[indexDireção] * TamanhoAtualDoCorredor;
+                posiçãoAtual = posiçãoInicial + Direçoes[indexDireção] * TamanhoAtualDoCorredor;
 
                 if (!posiçõesOcupadas.Contains(posiçãoAtual))
                 {
@@ -105,13 +114,58 @@ public class GeradorAleatorio : MonoBehaviour
         {
             for (int i = 0; i <= 3; i++) //para cada uma das 4 direções
             {
-                if (posiçõesOcupadas.Contains(sala.Item1 + direçoes[i])) //Verifica o vizinho para cada posições
+                if (posiçõesOcupadas.Contains(sala.Item1 + Direçoes[i])) //Verifica o vizinho para cada posições
                 {
                     sala.Item2.Vizinhos[i] = true;
                 }
             }
         }
     }
+    private void CriarSalaDeItens()
+    {
+        int index = UnityEngine.Random.Range(1, salasOcupadas.Count);
+        int index2 = 0;
+        CadaSala sala;
+        List<Vector2> vizinhosVagos = new List<Vector2>();
+        
+        sala = salasOcupadas[index].Item2;
+        
+        foreach(bool vizinho in sala.Vizinhos)
+        {
+            if (!vizinho)
+            {
+                vizinhosVagos.Add(Direçoes[index2]);
+               
+            }
+            index2++;
+        }
+        Vector2 posiçãoDaSala = salasOcupadas[index].Item1 + vizinhosVagos[UnityEngine.Random.Range(0, vizinhosVagos.Count)];
+
+        GameObject obj = Instantiate(cadaSala, posiçãoDaSala, Quaternion.identity, Grid);
+        posiçõesOcupadas.Add(posiçãoDaSala); //Adiciona a posição atual na lista de posições ocupadas
+        posiçõesOcupadasEspeciais.Add(posiçãoDaSala);
+
+        CadaSala salaDeItem = obj.GetComponent<CadaSala>();
+        salasOcupadas.Add((posiçãoDaSala, salaDeItem)); //Adiciona cada posição e sua respectitiva sala     
+        salasOcupadasEspeciais.Add((posiçãoDaSala, salaDeItem));
+
+        if (salaDeItem)
+        {
+            salaDeItem.Posição = posiçãoDaSala;
+            salaDeItem.Gerador = this;
+            salaDeItem.TipoDeSala = 1;
+            int y = UnityEngine.Random.Range(0, SalasDeItem.Count);
+            if (SalasDeItem[y])
+            {
+                salaDeItem.Interior = SalasDeItem[y];
+            }
+        }
+
+        SetarVizinhos();
+
+    }
+
+
     public void EmbaralharLista<T>(List<T> lista) //embaralha a lista, serve para qualquer lista, é chamado externamente
     {
         for (int i = 0; i < lista.Count; i++)
