@@ -26,15 +26,14 @@ public class GeradorAleatorio : MonoBehaviour
 
     void Start()
     {
-        maximoDeCorredores = UnityEngine.Random.Range(3, 5);
-
         CriarPrimeiraSala();       
         CriarCorredores();
         SetarVizinhos();
         CriarSalaDeItens();
+        CriarSalaDeChefe();
+        SetarVizinhos();
     }
 
-     
     
 
     void CriarPrimeiraSala()
@@ -51,7 +50,8 @@ public class GeradorAleatorio : MonoBehaviour
         }
     }
     void CriarCorredores()
-    {       
+    {
+        maximoDeCorredores = UnityEngine.Random.Range(3, 5);
         for (int i = 0; i < maximoDeCorredores; i++) //Repete para cada corredor
         {
             tamanhoDeCadaCorredor = UnityEngine.Random.Range(3, 6);
@@ -123,23 +123,23 @@ public class GeradorAleatorio : MonoBehaviour
     }
     private void CriarSalaDeItens()
     {
-        int index = UnityEngine.Random.Range(1, salasOcupadas.Count);
-        int index2 = 0;
-        CadaSala sala;
+        int indexDaSalaNormal = UnityEngine.Random.Range(1, salasOcupadas.Count);
+        int indexDosVizinhos = 0;
+        CadaSala salaNormal;
         List<Vector2> vizinhosVagos = new List<Vector2>();
         
-        sala = salasOcupadas[index].Item2;
+        salaNormal = salasOcupadas[indexDaSalaNormal].Item2;
         
-        foreach(bool vizinho in sala.Vizinhos)
+        foreach(bool vizinho in salaNormal.Vizinhos)
         {
             if (!vizinho)
             {
-                vizinhosVagos.Add(Direçoes[index2]);
+                vizinhosVagos.Add(Direçoes[indexDosVizinhos]);
                
             }
-            index2++;
+            indexDosVizinhos++;
         }
-        Vector2 posiçãoDaSala = salasOcupadas[index].Item1 + vizinhosVagos[UnityEngine.Random.Range(0, vizinhosVagos.Count)];
+        Vector2 posiçãoDaSala = salasOcupadas[indexDaSalaNormal].Item1 + vizinhosVagos[UnityEngine.Random.Range(0, vizinhosVagos.Count)];
 
         GameObject obj = Instantiate(cadaSala, posiçãoDaSala, Quaternion.identity, Grid);
         posiçõesOcupadas.Add(posiçãoDaSala); //Adiciona a posição atual na lista de posições ocupadas
@@ -160,12 +160,61 @@ public class GeradorAleatorio : MonoBehaviour
                 salaDeItem.Interior = SalasDeItem[y];
             }
         }
-
-        SetarVizinhos();
-
     }
+    private void CriarSalaDeChefe()
+    {
+        int indexDaSalaNormal = UnityEngine.Random.Range(1, salasOcupadas.Count);
+        float distanciaMaxima = 0;
+        int index = 0;
+        foreach(Vector2 posição in posiçõesOcupadas)
+        {
+            float distancia = Vector2.Distance(posição, Vector2.zero);
+            if ( distancia> distanciaMaxima&&!posiçõesOcupadasEspeciais.Contains(posição))
+            {
+                distanciaMaxima = distancia;
+                indexDaSalaNormal = index;
+            }
+            
+            index++;
+        }
+        
+        int indexDosVizinhos = 0;
+        CadaSala salaNormal;
+        List<Vector2> vizinhosVagos = new List<Vector2>();
 
+        salaNormal = salasOcupadas[indexDaSalaNormal].Item2;
 
+        foreach (bool vizinho in salaNormal.Vizinhos)
+        {
+            if (!vizinho)
+            {
+                vizinhosVagos.Add(Direçoes[indexDosVizinhos]);
+
+            }
+            indexDosVizinhos++;
+        }
+        Vector2 posiçãoDaSala = salasOcupadas[indexDaSalaNormal].Item1 + vizinhosVagos[UnityEngine.Random.Range(0, vizinhosVagos.Count)];
+
+        GameObject obj = Instantiate(cadaSala, posiçãoDaSala, Quaternion.identity, Grid);
+        posiçõesOcupadas.Add(posiçãoDaSala); //Adiciona a posição atual na lista de posições ocupadas
+        posiçõesOcupadasEspeciais.Add(posiçãoDaSala);
+
+        CadaSala salaDeChefe = obj.GetComponent<CadaSala>();
+        salasOcupadas.Add((posiçãoDaSala, salaDeChefe)); //Adiciona cada posição e sua respectitiva sala     
+        salasOcupadasEspeciais.Add((posiçãoDaSala, salaDeChefe));
+
+        if (salaDeChefe)
+        {
+            salaDeChefe.Posição = posiçãoDaSala;
+            salaDeChefe.Gerador = this;
+            salaDeChefe.TipoDeSala = 2;
+            int y = UnityEngine.Random.Range(0, SalasDeBoss.Count);
+            if (SalasDeBoss[y])
+            {
+                salaDeChefe.Interior = SalasDeBoss[y];
+            }
+        }
+    }
     public void EmbaralharLista<T>(List<T> lista) //embaralha a lista, serve para qualquer lista, é chamado externamente
     {
         for (int i = 0; i < lista.Count; i++)

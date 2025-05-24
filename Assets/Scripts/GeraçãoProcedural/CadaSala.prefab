@@ -977,8 +977,7 @@ MonoBehaviour:
   - {fileID: 2245774345573517106}
   marcadores:
   - {fileID: 1543763974097948834, guid: 04a21f2856018d249b6f820db835e533, type: 3}
-  materialDasPortas:
-  - {fileID: 2100000, guid: 975f8cbfced9c4e4cb5f7c1153ce4a22, type: 2}
+  - {fileID: 1543763974097948834, guid: 476364b942b811140bbc03d8366f44e8, type: 3}
   interior: {fileID: 0}
   gerador: {fileID: 0}
   quantidadeDeInimigos: 0
