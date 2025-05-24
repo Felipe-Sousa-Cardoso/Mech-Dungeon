@@ -5,6 +5,9 @@ public class EntregaHabilidades : MonoBehaviour
     [SerializeField] int nivel; //Define se a habilidade é uma habilidade básica ou se vai evoluir a habilidade
     [SerializeField] CadaHabilidade[] listaDeHabilidades;
     bool ativo = false;
+
+    public int Nivel { get => nivel; set => nivel = value; }
+
     void Start()
     {
         listaDeHabilidades = Resources.LoadAll<CadaHabilidade>("Habilidades"); //carrega todas as habilidades da pasta Resorces para o array    
@@ -14,6 +17,7 @@ public class EntregaHabilidades : MonoBehaviour
     {
         if (collision.tag == "Jogador")
         {
+            nivel = collision.GetComponent<JogadorHabilidades>().Nivel;
             collision.GetComponent<JogadorAtributos>().ArmaAtiva = false;//Altera a possibilidade do jogador atirar
             if (!ativo) //Se é a primeira vez que o jogador entra na colisão instancia as cartas
             {

@@ -45,10 +45,14 @@ public class CartadeHabilidades : MonoBehaviour
         }
     }
 
-    public void DaroDash() //Acessado pelo botão
+    public void DarAHabilidade() //Acessado pelo botão
     {
         if (nivel == 0)
         {
+            if (jog.Nivel < 2)
+            {
+                jog.Nivel++;
+            }          
             jog.HabilidadeQ = habilidade; //Se o nivel for incial troca o prefab que é usado para instanciar a habilidade
         }
         if (jog.InstanciaHabilidadeQ) //Verifica se a instancia existe

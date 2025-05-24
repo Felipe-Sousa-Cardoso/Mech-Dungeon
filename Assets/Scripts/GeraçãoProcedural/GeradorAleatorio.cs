@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GeradorAleatorio : MonoBehaviour
 {
@@ -20,22 +21,37 @@ public class GeradorAleatorio : MonoBehaviour
 
     [SerializeField] Transform Grid;
     [SerializeField] Vector2 posiçãoAtual;
+    GeradorAleatorio instance;
 
     public Vector2 PosiçãoAtual { get => posiçãoAtual; set => posiçãoAtual = value; }
     public List<Vector2> Direçoes { get => direçoes; set => direçoes = value; }
 
+    private void Awake()
+    {
+        if (instance == null)
+        {
+            instance = this;
+            DontDestroyOnLoad(gameObject);
+        }
+        else
+        {
+            Destroy(gameObject);
+        }
+    }
     void Start()
     {
+        SceneManager.sceneLoaded += ResetarPosição;
         CriarPrimeiraSala();       
         CriarCorredores();
         SetarVizinhos();
         CriarSalaDeItens();
         CriarSalaDeChefe();
-        SetarVizinhos();
+        SetarVizinhos();      
     }
-
-    
-
+    void ResetarPosição(Scene scene, LoadSceneMode mode)
+    {
+        posiçãoAtual = Vector3.zero;
+    }
     void CriarPrimeiraSala()
     {
         GameObject obj = Instantiate(cadaSala, Vector3.zero, Quaternion.identity,Grid); 
@@ -163,21 +179,27 @@ public class GeradorAleatorio : MonoBehaviour
     }
     private void CriarSalaDeChefe()
     {
-        int indexDaSalaNormal = UnityEngine.Random.Range(1, salasOcupadas.Count);
+        int indexDaSalaNormal = UnityEngine.Random.Range(1, salasOcupadas.Count); //Seleciona uma sala aleatória, para o caso de não ser encontrada nenhuma sala possivel
         float distanciaMaxima = 0;
         int index = 0;
-        foreach(Vector2 posição in posiçõesOcupadas)
+        List<int> possíveisIndex = new List<int>();
+
+        foreach (Vector2 posição in posiçõesOcupadas) 
         {
             float distancia = Vector2.Distance(posição, Vector2.zero);
-            if ( distancia> distanciaMaxima&&!posiçõesOcupadasEspeciais.Contains(posição))
+            if (distancia == distanciaMaxima && !posiçõesOcupadasEspeciais.Contains(posição))
+            {
+                possíveisIndex.Add(index);
+            }
+            if ( distancia > distanciaMaxima&&!posiçõesOcupadasEspeciais.Contains(posição))
             {
                 distanciaMaxima = distancia;
-                indexDaSalaNormal = index;
-            }
-            
+                possíveisIndex.Clear();
+                possíveisIndex.Add(index);
+            }          
             index++;
         }
-        
+        indexDaSalaNormal = possíveisIndex[UnityEngine.Random.Range(0, possíveisIndex.Count)];
         int indexDosVizinhos = 0;
         CadaSala salaNormal;
         List<Vector2> vizinhosVagos = new List<Vector2>();

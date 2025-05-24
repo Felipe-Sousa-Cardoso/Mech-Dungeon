@@ -12,10 +12,13 @@ public class JogadorHabilidades : MonoBehaviour
                                                  //para funcionar corretamente precisa ser instanciado
     [SerializeField] CadaHabilidade instanciaHabilidadeQ;
 
+    int nivel; //O nivel atual da habilidade
+
 
     public DadosDaHabilidade DdHabilidades { get => ddHabilidades; set => ddHabilidades = value; }
     public CadaHabilidade HabilidadeQ { get => habilidadeQ; set => habilidadeQ = value; }
     public CadaHabilidade InstanciaHabilidadeQ { get => instanciaHabilidadeQ; set => instanciaHabilidadeQ = value; }
+    public int Nivel { get => nivel; set => nivel = value; }
 
     private void Awake()
     {

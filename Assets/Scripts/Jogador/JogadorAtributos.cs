@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class JogadorAtributos : MonoBehaviour, IDanificavel
 {
@@ -20,6 +21,7 @@ public class JogadorAtributos : MonoBehaviour, IDanificavel
         get { return armaAtiva; }
         set { armaAtiva = value; }
     }
+    #endregion
     void Awake()
     {
         if (instancia == null)
@@ -37,8 +39,15 @@ public class JogadorAtributos : MonoBehaviour, IDanificavel
         anim = GetComponent<Animator>();
         dados.MaxVida = 40;
         dados.Vida = dados.MaxVida;
+        SceneManager.sceneLoaded+= ResetarPosição;
     }
-    #endregion
+   
+
+    void ResetarPosição(Scene scene, LoadSceneMode mode)
+    {
+        transform.position = Vector3.zero;
+    }
+    
     public void AtivarArma()
     {
         armaAtiva = true;

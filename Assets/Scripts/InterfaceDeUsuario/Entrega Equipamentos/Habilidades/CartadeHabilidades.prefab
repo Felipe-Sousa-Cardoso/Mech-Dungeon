@@ -274,7 +274,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 2139181419998810001}
         m_TargetAssemblyTypeName: CartadeHabilidades, Assembly-CSharp
-        m_MethodName: DaroDash
+        m_MethodName: DarAHabilidade
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
