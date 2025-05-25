@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using Unity.Burst.Intrinsics;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
  public class GerenciadorDeCartas : MonoBehaviour 
 {
@@ -26,6 +27,10 @@ using UnityEngine;
     void Awake()
     {
         instancia = this;
+    }
+    private void Start()
+    {
+        SceneManager.sceneLoaded += ResetarCartas;
     }
     public void CriarCarta (JogadorMovimento jog, params UsoDash[] cartas ) //Cria as cartas para os dashs
     {   
@@ -130,6 +135,10 @@ using UnityEngine;
             }
 
         }
+    }
+    void ResetarCartas(Scene scene, LoadSceneMode mode) //Limpa as cartas existentes quando uma nova cena é carregada
+    {
+        Destruir(0); Destruir(1); Destruir(2); ;
     }
     public void Sumir(int Qual)
     {

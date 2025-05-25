@@ -4,11 +4,10 @@ using UnityEngine.SceneManagement;
 public class ControladorDaCamera : MonoBehaviour
 {
     [SerializeField] GeradorAleatorio geradorAleatorio;
-    [SerializeField] Vector3 posição;
 
     private void Start()
     {
-        if (FindFirstObjectByType<JogadorAtributos>())
+        if (FindFirstObjectByType<GeradorAleatorio>())
         {
             geradorAleatorio = FindFirstObjectByType<GeradorAleatorio>();
         }

@@ -21,23 +21,10 @@ public class GeradorAleatorio : MonoBehaviour
 
     [SerializeField] Transform Grid;
     [SerializeField] Vector2 posiçãoAtual;
-    GeradorAleatorio instance;
 
     public Vector2 PosiçãoAtual { get => posiçãoAtual; set => posiçãoAtual = value; }
     public List<Vector2> Direçoes { get => direçoes; set => direçoes = value; }
 
-    private void Awake()
-    {
-        if (instance == null)
-        {
-            instance = this;
-            DontDestroyOnLoad(gameObject);
-        }
-        else
-        {
-            Destroy(gameObject);
-        }
-    }
     void Start()
     {
         SceneManager.sceneLoaded += ResetarPosição;
@@ -46,7 +33,8 @@ public class GeradorAleatorio : MonoBehaviour
         SetarVizinhos();
         CriarSalaDeItens();
         CriarSalaDeChefe();
-        SetarVizinhos();      
+        SetarVizinhos();
+      
     }
     void ResetarPosição(Scene scene, LoadSceneMode mode)
     {
