@@ -61,7 +61,8 @@ public class JogadorAtributos : MonoBehaviour, IDanificavel
             dados.Vida -= Quanto;
             if (dados.Vida <= 0)
             {
-                Destroy(gameObject);
+                
+                Destroy(gameObject);               
             }
             StartCoroutine(ivulnerabilidade(tempoEntreHits));
         }
@@ -75,7 +76,11 @@ public class JogadorAtributos : MonoBehaviour, IDanificavel
         vulnerável = true;
     }
 
-    
+    private void OnDestroy()
+    {
+        SceneManager.LoadScene(0);
+    }
+
 
 
 }

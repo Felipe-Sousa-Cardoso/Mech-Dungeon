@@ -5,6 +5,6 @@ public class InimigoChefe : MonoBehaviour
 {
     private void OnDestroy()
     {
-        SceneManager.LoadScene(2);
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex+1);
     }
 }

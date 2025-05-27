@@ -14,5 +14,8 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/cena2.unity
     guid: 78715914d6591154ca9b8239016403c5
+  - enabled: 1
+    path: Assets/Scenes/MenuFinal.unity
+    guid: 34f5e3e54c01e1a4c8aab6c31a218db5
   m_configObjects: {}
   m_UseUCBPForAssetBundles: 0

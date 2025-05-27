@@ -92,10 +92,11 @@ public class CadaSala : MonoBehaviour
             if (gerador)
             {
                 gerador.PosiçãoAtual = posição;
+                gerador.MineMapa.trocarposição(new Vector2(posição.x / 17, posição.y / 11));
                 if (interior&&!interiorInstanciado)
                 {
                     interiorInstanciado = Instantiate(interior, transform);
-                    gerador.MineMapa.AumentarMiniMapa(new Vector2(posição.x/17,posição.y/11),tipoDeSala);
+                    gerador.MineMapa.AumentarMiniMapa(new Vector2(posição.x/17,posição.y/11),tipoDeSala,vizinhos);
                 }
             }
         }
