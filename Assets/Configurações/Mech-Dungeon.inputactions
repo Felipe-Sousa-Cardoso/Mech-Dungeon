@@ -27,25 +27,25 @@
                     "name": "HabilidadeQ",
                     "type": "Button",
                     "id": "499865a6-b7c3-4f2b-9755-1e16e5af2872",
-                    "expectedControlType": "Button",
+                    "expectedControlType": "",
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": false
                 },
                 {
                     "name": "HabilidadeE",
-                    "type": "Button",
+                    "type": "Value",
                     "id": "28e03d70-408d-41c8-afde-49f35dabd127",
-                    "expectedControlType": "Button",
+                    "expectedControlType": "",
                     "processors": "",
                     "interactions": "",
-                    "initialStateCheck": false
+                    "initialStateCheck": true
                 },
                 {
                     "name": "Tiro",
                     "type": "Value",
                     "id": "36379cc5-c443-4f18-b85b-8968795fc677",
-                    "expectedControlType": "Button",
+                    "expectedControlType": "",
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": true
@@ -54,7 +54,16 @@
                     "name": "TrocaDeArma",
                     "type": "Button",
                     "id": "b93f6327-9f92-4795-8f62-3db2e2a83d14",
-                    "expectedControlType": "Button",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "MiniMapa",
+                    "type": "Button",
+                    "id": "29f43d73-db6b-4c38-8440-231c30b36d87",
+                    "expectedControlType": "",
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": false
@@ -218,10 +227,10 @@
                 {
                     "name": "",
                     "id": "6b75df37-a6ab-4298-9f54-b3163e91c964",
-                    "path": "<Keyboard>/e",
+                    "path": "<Keyboard>/tab",
                     "interactions": "",
                     "processors": "",
-                    "groups": "",
+                    "groups": ";Keyboard&Mouse",
                     "action": "HabilidadeE",
                     "isComposite": false,
                     "isPartOfComposite": false
@@ -245,6 +254,17 @@
                     "processors": "",
                     "groups": "",
                     "action": "TrocaDeArma",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "f66f3f04-4229-483a-9d80-0e67100073e4",
+                    "path": "<Keyboard>/tab",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": ";Keyboard&Mouse",
+                    "action": "MiniMapa",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

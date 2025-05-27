@@ -1,6 +1,7 @@
 
 using System;
 using System.Collections.Generic;
+using UnityEditor.Experimental.GraphView;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -22,12 +23,16 @@ public class GeradorAleatorio : MonoBehaviour
     [SerializeField] Transform Grid;
     [SerializeField] Vector2 posiçãoAtual;
 
-    public Vector2 PosiçãoAtual { get => posiçãoAtual; set => posiçãoAtual = value; }
-    public List<Vector2> Direçoes { get => direçoes; set => direçoes = value; }
+    [SerializeField] ControladorDeMinimapa mineMapa;
+
+    public Vector2 PosiçãoAtual { get => posiçãoAtual; set => posiçãoAtual = value;}
+    public List<Vector2> Direçoes { get => direçoes; set => direçoes = value;}
+    public ControladorDeMinimapa MineMapa { get => mineMapa; set => mineMapa = value; }
 
     void Start()
     {
-        SceneManager.sceneLoaded += ResetarPosição;
+        MineMapa = FindAnyObjectByType<ControladorDeMinimapa>();
+        ResetarPosição();
         CriarPrimeiraSala();       
         CriarCorredores();
         SetarVizinhos();
@@ -36,13 +41,14 @@ public class GeradorAleatorio : MonoBehaviour
         SetarVizinhos();
       
     }
-    void ResetarPosição(Scene scene, LoadSceneMode mode)
+    void ResetarPosição()
     {
         posiçãoAtual = Vector3.zero;
     }
     void CriarPrimeiraSala()
     {
-        GameObject obj = Instantiate(cadaSala, Vector3.zero, Quaternion.identity,Grid); 
+        GameObject obj = Instantiate(cadaSala, Vector3.zero, Quaternion.identity,Grid);
+       // MineMapa.AumentarMiniMapa(Vector3.zero, 0);
         posiçõesOcupadas.Add(Vector2.zero);
         CadaSala sala = obj.GetComponent<CadaSala>();
         salasOcupadas.Add((Vector2.zero, sala));
@@ -233,4 +239,5 @@ public class GeradorAleatorio : MonoBehaviour
             (lista[i], lista[rand]) = (lista[rand], lista[i]);
         }
     }
+   
 }

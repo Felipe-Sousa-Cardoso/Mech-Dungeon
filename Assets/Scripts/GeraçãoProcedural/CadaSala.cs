@@ -95,6 +95,7 @@ public class CadaSala : MonoBehaviour
                 if (interior&&!interiorInstanciado)
                 {
                     interiorInstanciado = Instantiate(interior, transform);
+                    gerador.MineMapa.AumentarMiniMapa(new Vector2(posição.x/17,posição.y/11),tipoDeSala);
                 }
             }
         }

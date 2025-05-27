@@ -11,10 +11,11 @@ public class ControladorDeInput : MonoBehaviour
     // Variáveis de armazenam o valor de cada input
     Vector2 MovementInput;
     bool dash;
-    bool HabilidadeE;
+    bool mineMapa;
     bool HabilidadeQ;
     bool Tiro;
     bool TrocaDeArma;
+    bool miniMapa;
 #region VerificaçãoDeUnicidade
     //Verifica se exite apenas uma intancia do controlador de Input
     public static ControladorDeInput instance;
@@ -49,11 +50,11 @@ public class ControladorDeInput : MonoBehaviour
     }
     void OnHabilidadeE(InputValue valor)
     {
-        HabilidadeE = valor.isPressed;
+        mineMapa = valor.isPressed;
     }
-    public static bool GetHabilidadeEInput()
+    public static bool MineMapa()
     {
-        return instance.HabilidadeE;
+        return instance.mineMapa;
     }
     void OnHabilidadeQ(InputValue valor)
     {
@@ -82,14 +83,13 @@ public class ControladorDeInput : MonoBehaviour
 
 
     #endregion
-#region Correção
+    #region Correção
     //Reseta o valor dos inputs no final da cada frame, para garantir que possam sem usados novamente
     private void LateUpdate()
     {
         dash = false;
-        HabilidadeE = false;
         HabilidadeQ = false;
-        TrocaDeArma = false;        
+        TrocaDeArma = false;
     }
 #endregion
 }
