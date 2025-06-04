@@ -17,11 +17,6 @@ public class Perfurar : CadaMod
         {
             GetComponent<Munição>().AoDano(collision);               
         }
-        if (collision.gameObject.CompareTag("Paredes"))
-        {
-            Destroy(gameObject);
-        }
-
     }
     
    
