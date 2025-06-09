@@ -4,8 +4,10 @@ public class EntregaArmas : Entrega
 {
     [SerializeField] UsoArma[] ListaDeArmas;
     [SerializeField] bool Ativo;
+    [SerializeField] GerenciadorDeCartas cartas;
     void Start()
     {
+        cartas = FindAnyObjectByType<GerenciadorDeCartas>();
         ListaDeArmas = Resources.LoadAll<UsoArma>("Armas"); //carrega todas as armas da pasta para o array
     }
     private void OnTriggerEnter2D(Collider2D collision)
@@ -15,7 +17,7 @@ public class EntregaArmas : Entrega
             EmbaralharArray(ListaDeArmas);
             if (collision.tag == "Jogador")
             {
-                GerenciadorDeCartas.instancia.CriarCarta(collision.GetComponent<JogadorArma>(), ListaDeArmas[0], ListaDeArmas[1]);
+                cartas.CriarCarta(collision.GetComponent<JogadorArma>(), ListaDeArmas[0], ListaDeArmas[1]);
                 //Como na função CriarCarta o array cartas é declarado como params, pode receber tanto um array quanto um conjunto de componentes
 
                 collision.GetComponent<JogadorAtributos>().ArmaAtiva = false; //Altera a possibilidade do jogador atirar
@@ -29,7 +31,7 @@ public class EntregaArmas : Entrega
                                             //de criar novas
             {
                 collision.GetComponent<JogadorAtributos>().ArmaAtiva = false;  //Altera a possibilidade do jogador atirar
-                GerenciadorDeCartas.instancia.Aparecer(1);
+                cartas.Aparecer(1);
             }
         }
     }
@@ -38,7 +40,7 @@ public class EntregaArmas : Entrega
         if (collision.tag == "Jogador") 
         {
             collision.GetComponent<JogadorAtributos>().ArmaAtiva = true;  //Altera a possibilidade do jogador atirar
-            GerenciadorDeCartas.instancia.Sumir(1);
+            cartas.Sumir(1);
         }
     }
 

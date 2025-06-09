@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class ControladorDeMinimapa : MonoBehaviour
@@ -7,6 +8,12 @@ public class ControladorDeMinimapa : MonoBehaviour
     [SerializeField] GameObject cadaSala;
     [SerializeField] GameObject marcador;
 
+    public static ControladorDeMinimapa instance;
+
+    void Awake()
+    {
+        instance = this;
+    }
     public void AumentarMiniMapa(Vector2 posição, int tipoDaSala, List<bool> vizinhos)
     {
         GameObject obj = Instantiate(cadaSala, transform);
@@ -24,5 +31,23 @@ public class ControladorDeMinimapa : MonoBehaviour
     public void trocarposição(Vector2 posição)
     {
         marcador.transform.localPosition = new Vector2( posição.x*100,posição.y*100);
+    }
+    public void DestroyAllChildren()
+    {
+        foreach (Transform child in transform)
+        {
+            Destroy(child.gameObject);
+        }
+    }
+
+    private void OnEnable()
+    {
+        // Se inscreve no evento
+        SceneManager.sceneLoaded += OnSceneLoaded;
+    }
+
+    private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
+    {
+        DestroyAllChildren();
     }
 }

@@ -27,7 +27,7 @@ public class GeradorAleatorio : MonoBehaviour
 
     void Start()
     {
-        MineMapa = FindAnyObjectByType<ControladorDeMinimapa>();
+        MineMapa = ControladorDeMinimapa.instance;
         ResetarPosição();
         CriarPrimeiraSala();       
         CriarCorredores();
@@ -36,6 +36,13 @@ public class GeradorAleatorio : MonoBehaviour
         CriarSalaDeChefe();
         SetarVizinhos();
       
+    }
+    private void Update()
+    {
+        if (MineMapa == null)
+        {
+            MineMapa = FindAnyObjectByType<ControladorDeMinimapa>();
+        }
     }
     void ResetarPosição()
     {

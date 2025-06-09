@@ -3055,6 +3055,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mineMapa: {fileID: 0}
   marcador: {fileID: 0}
+  "recome\xE7ar": {fileID: 0}
 --- !u!1 &2016700791
 GameObject:
   m_ObjectHideFlags: 0

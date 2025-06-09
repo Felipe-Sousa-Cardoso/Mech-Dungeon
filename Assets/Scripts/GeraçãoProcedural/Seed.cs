@@ -5,7 +5,7 @@ public class Seed : MonoBehaviour
 {
     [SerializeField] string seed = "";
     int atualSeed = 0;
-    Seed instance;
+    public static Seed instance;
 
     public string _Seed { get => seed; set => seed = value; }
 

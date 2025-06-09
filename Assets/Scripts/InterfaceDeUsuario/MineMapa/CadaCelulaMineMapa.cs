@@ -23,10 +23,4 @@ public class CadaCelulaMineMapa : MonoBehaviour
             }          
         }
     }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
 }

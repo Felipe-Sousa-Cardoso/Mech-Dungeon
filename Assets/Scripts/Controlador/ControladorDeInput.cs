@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.SceneManagement;
 
 public class ControladorDeInput : MonoBehaviour
 {
@@ -53,8 +54,16 @@ public class ControladorDeInput : MonoBehaviour
         mineMapa = valor.isPressed;
     }
     public static bool MineMapa()
-    {
-        return instance.mineMapa;
+    {   
+        if (SceneManager.GetActiveScene().buildIndex != 0)
+        {
+            return instance.mineMapa;
+        }
+        else
+        {
+            return false;
+        }
+        
     }
     void OnHabilidadeQ(InputValue valor)
     {
@@ -87,6 +96,10 @@ public class ControladorDeInput : MonoBehaviour
     //Reseta o valor dos inputs no final da cada frame, para garantir que possam sem usados novamente
     private void LateUpdate()
     {
+        if (SceneManager.GetActiveScene().buildIndex == 0)
+        {
+            Destroy(gameObject);
+        }
         dash = false;
         HabilidadeQ = false;
         TrocaDeArma = false;

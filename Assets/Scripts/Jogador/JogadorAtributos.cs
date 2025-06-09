@@ -45,7 +45,14 @@ public class JogadorAtributos : MonoBehaviour, IDanificavel
 
     void ResetarPosição(Scene scene, LoadSceneMode mode)
     {
-        transform.position = Vector3.zero;
+        if (gameObject!=null)
+        {
+            transform.position = Vector3.zero;
+        }   
+        if (SceneManager.GetActiveScene().buildIndex == 0)
+        {
+            Destroy(gameObject);
+        }
     }
     
     public void AtivarArma()
@@ -65,8 +72,7 @@ public class JogadorAtributos : MonoBehaviour, IDanificavel
                 Destroy(gameObject);               
             }
             StartCoroutine(ivulnerabilidade(tempoEntreHits));
-        }
-        
+        }        
     }
 
     IEnumerator ivulnerabilidade(float tempo)
@@ -78,6 +84,7 @@ public class JogadorAtributos : MonoBehaviour, IDanificavel
 
     private void OnDestroy()
     {
+        SceneManager.sceneLoaded -= ResetarPosição;
         SceneManager.LoadScene(0);
     }
 

@@ -141,9 +141,8 @@ using UnityEngine.SceneManagement;
         Destruir(0); Destruir(1); Destruir(2); ;
     }
     public void Sumir(int Qual)
-    {
-       
-        Transform pai = transform;        
+    {    
+        Transform pai = transform;
         switch (Qual)
         {
             case 0: pai = CanvasDash; break;
